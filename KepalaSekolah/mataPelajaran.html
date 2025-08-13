@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sekolah | Sistem Manajemen Sekolah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans scroll-smooth">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <div class="hidden md:flex md:flex-shrink-0">
+            <div class="flex flex-col w-64 bg-white border-r border-gray-200">
+                <div class="flex items-center justify-center h-16 border-b border-gray-200 bg-white">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c3541d5-0191-4019-aadb-7478e9f9daf3.png" alt="Logo Sekolah ABC - Desain modern dengan ikon pendidikan dan teks berwarna putih" class="h-10" />
+                </div>
+                <div class="flex flex-col flex-grow px-4 py-6 overflow-y-auto">
+                    <nav class="space-y-1">
+                        <a href="dashboard.html" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                            <i class="fas fa-home mr-3"></i>
+                            Dashboard
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                            <i class="fas fa-users mr-3"></i>
+                            Siswa
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                            <i class="fas fa-chalkboard-teacher mr-3"></i>
+                            Guru
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg">
+                            <i class="fas fa-book mr-3"></i>
+                            Mata Pelajaran
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                            <i class="fas fa-calendar-alt mr-3"></i>
+                            Jadwal
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                            <i class="fas fa-clipboard-list mr-3"></i>
+                            Nilai
+                        </a>
+                    </nav>
+                    <div class="mt-auto">
+                        <div class="p-4 mt-6 bg-blue-100 rounded-lg">
+                            <h3 class="text-sm font-medium text-blue-800">Upcoming Event</h3>
+                            <p class="mt-1 text-xs text-blue-600">Rapat Orang Tua: 15 Juni 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col flex-1 overflow-hidden">
+            <!-- Header -->
+            <header class="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200">
+                <div class="flex items-center">
+                    <button class="md:hidden text-gray-500 mr-4">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="text-xl font-semibold text-gray-800">Dashboard Sekolah</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-bell"></i>
+                    </button>
+                    <div class="flex items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1cfcdff4-4de4-45fd-8eb7-03b04efa688c.png" alt="Foto profil admin sekolah dengan latar belakang biru" class="w-8 h-8 rounded-full" />
+                        <span class="ml-2 text-sm font-medium text-gray-700">Admin Sekolah</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="flex-1 overflow-y-auto p-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    
+                    <!-- Matematika -->
+                    <div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp">
+                        <img src="images/matematika.png" alt="Logo Matematika" class="h-12 w-12 mb-4 mx-auto">
+                        <h3 class="text-lg font-bold text-center">Matematika</h3>
+                        <p class="text-gray-600 text-sm text-center">Diskusi seputar aljabar, kalkulus, dan geometri.</p>
+                        <p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
+                    </div>
+            
+                    <!-- Bahasa Inggris -->
+                    <div class="bg-red-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-1s">
+                        <img src="images/bahasa-inggris.png" alt="Logo Bahasa Inggris" class="h-12 w-12 mb-4 mx-auto">
+                        <h3 class="text-lg font-bold text-center">Bahasa Inggris</h3>
+                        <p class="text-gray-600 text-sm text-center">Pelajari tata bahasa, kosakata, dan literatur.</p>
+                        <p class="mt-2 text-xs text-gray-500 font-medium text-center">Siti Aminah</p>
+                    </div>
+            
+                    <!-- Pemrograman Web -->
+                    <div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-2s">
+                        <img src="images/web.png" alt="Logo Pemrograman Web" class="h-12 w-12 mb-4 mx-auto">
+                        <h3 class="text-lg font-bold text-center">Pemrograman Web</h3>
+                        <p class="text-gray-600 text-sm text-center">Materi pembuatan website dan aplikasi web.</p>
+                        <p class="mt-2 text-xs text-gray-500 font-medium text-center">Dwi Buk E Orlando</p>
+                    </div>
+            
+                    <!-- Fisika -->
+                    <div class="bg-green-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-3s">
+                        <img src="images/fisika.png" alt="Logo Fisika" class="h-12 w-12 mb-4 mx-auto">
+                        <h3 class="text-lg font-bold text-center">Fisika</h3>
+                        <p class="text-gray-600 text-sm text-center">Pahami konsep dasar fisika dan eksperimen.</p>
+                        <p class="mt-2 text-xs text-gray-500 font-medium text-center">Rudi Santoso</p>
+                    </div>
+            
+                    <!-- Kimia -->
+                    <div class="bg-yellow-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-4s">
+                        <img src="images/kimia.png" alt="Logo Kimia" class="h-12 w-12 mb-4 mx-auto">
+                        <h3 class="text-lg font-bold text-center">Kimia</h3>
+                        <p class="text-gray-600 text-sm text-center">Jelajahi dunia unsur, senyawa, dan reaksi kimia.</p>
+                        <p class="mt-2 text-xs text-gray-500 font-medium text-center">Rina Maulida</p>
+                    </div>
+            
+                    <!-- Basis Data -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-5s">
+                        <img src="images/database.png" alt="Logo Basis Data" class="h-12 w-12 mb-4 mx-auto">
+                        <h3 class="text-lg font-bold text-center">Basis Data</h3>
+                        <p class="text-gray-600 text-sm text-center">Belajar membuat, mengatur, dan mengolah data.</p>
+                        <p class="mt-2 text-xs text-gray-500 font-medium text-center">Dimas Prakoso</p>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- Floating Action Button -->
+            <button class="fixed bottom-8 right-8 md:hidden w-14 h-14 bg-blue-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-blue-700 transition-colors duration-200">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Simple interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle mobile menu
+            const mobileMenuButton = document.querySelector('.md\\:hidden');
+            const sidebar = document.querySelector('.md\\:flex');
+            
+            if (mobileMenuButton && sidebar) {
+                mobileMenuButton.addEventListener('click', function() {
+                    sidebar.classList.toggle('hidden');
+                });
+            }
+
+            // Add animation to cards when they come into view
+            const animatedElements = document.querySelectorAll('.animate-fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                observer.observe(el);
+            });
+
+            // Notification bell animation
+            const notificationBell = document.querySelector('.fa-bell');
+            if (notificationBell) {
+                notificationBell.addEventListener('click', function() {
+                    this.classList.add('animate-ping');
+                    setTimeout(() => {
+                        this.classList.remove('animate-ping');
+                    }, 1000);
+                });
+            }
+
+            // Initialize Charts
+            const attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
+            const attendanceChart = new Chart(attendanceCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
+                    datasets: [{
+                        label: 'Persentase Kehadiran',
+                        data: [85, 90, 92, 89, 94, 93],
+                        backgroundColor: 'rgba(147, 197, 253, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 0.8)',
+                        borderWidth: 3,
+                        pointBackgroundColor: 'white',
+                        pointBorderColor: 'rgba(59, 130, 246, 1)',
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        borderWidth: 2,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            min: 80,
+                            max: 100
+                        }
+                    }
+                }
+            });
+
+            const classCtx = document.getElementById('classDistributionChart').getContext('2d');
+            const classChart = new Chart(classCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['X IPA', 'X IPS', 'XI IPA', 'XI IPS', 'XII IPA', 'XII IPS'],
+                    datasets: [{
+                        data: [210, 185, 195, 175, 215, 200],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(245, 158, 11, 0.7)',
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(220, 38, 38, 0.7)',
+                            'rgba(20, 184, 166, 0.7)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

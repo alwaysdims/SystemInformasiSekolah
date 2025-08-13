@@ -1,89 +1,298 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Sekolah | Sistem Manajemen Sekolah</title>
+    <title>Forum Diskusi - Akademi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
         }
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
+
+        .sidebar {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: absolute;
+                z-index: 50;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.3);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.5);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .message-bubble {
+            animation: slideInUp 0.3s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .typing-indicator {
+            display: none;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .online-indicator {
+            position: relative;
+        }
+
+        .online-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border: 2px solid white;
+            border-radius: 50%;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .floating-action {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .notification-badge {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+            40%, 43% { transform: translate3d(0, -8px, 0); }
+            70% { transform: translate3d(0, -4px, 0); }
+            90% { transform: translate3d(0, -2px, 0); }
+        }
+
+        .message-input:focus {
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .room-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .room-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .room-card:hover::before {
+            left: 100%;
+        }
+
+        .emoji-picker {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 12px;
+            z-index: 100;
+        }
+
+        .emoji-picker.show {
+            display: block;
+            animation: slideInUp 0.2s ease-out;
         }
     </style>
 </head>
-<body class="bg-gray-50 font-sans scroll-smooth">
+
+<body class="bg-gradient-to-br from-indigo-50 via-white to-purple-50 font-sans">
     <div class="flex h-screen overflow-hidden">
         <!-- Sidebar -->
-        <div class="hidden md:flex md:flex-shrink-0">
-            <div class="flex flex-col w-64 bg-white border-r border-gray-200">
-                <div class="flex items-center justify-center h-16 border-b border-gray-200 bg-white">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c3541d5-0191-4019-aadb-7478e9f9daf3.png" alt="Logo Sekolah ABC - Desain modern dengan ikon pendidikan dan teks berwarna putih" class="h-10" />
-                </div>
-                <div class="flex flex-col flex-grow px-4 py-6 overflow-y-auto">
-                    <nav class="space-y-1">
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg">
-                            <i class="fas fa-home mr-3"></i>
-                            Dashboard
-                        </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
-                            <i class="fas fa-users mr-3"></i>
-                            Siswa
-                        </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
-                            <i class="fas fa-chalkboard-teacher mr-3"></i>
-                            Guru
-                        </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
-                            <i class="fas fa-book mr-3"></i>
-                            Mata Pelajaran
-                        </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
-                            <i class="fas fa-calendar-alt mr-3"></i>
-                            Jadwal
-                        </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
-                            <i class="fas fa-clipboard-list mr-3"></i>
-                            Nilai
-                        </a>
-                    </nav>
-                    <div class="mt-auto">
-                        <div class="p-4 mt-6 bg-blue-100 rounded-lg">
-                            <h3 class="text-sm font-medium text-blue-800">Upcoming Event</h3>
-                            <p class="mt-1 text-xs text-blue-600">Rapat Orang Tua: 15 Juni 2023</p>
-                        </div>
+        <aside class="w-64 gradient-bg text-white flex flex-col h-screen sidebar shadow-2xl">
+            <div class="p-6 border-b border-white/20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-orange-400 to-pink-500 rounded-xl flex items-center justify-center font-bold text-lg text-white shadow-lg">
+                        A
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold">Akademi</span>
+                        <p class="text-xs text-white/70">Learning Platform</p>
                     </div>
                 </div>
             </div>
-        </div>
+            
+            <nav class="flex-1 overflow-y-auto custom-scrollbar p-4">
+                <ul class="space-y-3">
+                    <li class="rounded-xl bg-white/20 shadow-lg">
+                        <a href="#" class="flex items-center space-x-4 p-4">
+                            <div class="w-8 h-8 bg-white/30 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-comments text-sm"></i>
+                            </div>
+                            <span class="font-medium">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="rounded-xl hover:bg-white/10 transition-all duration-300 hover-lift">
+                        <a href="guru.html" class="flex items-center space-x-4 p-4">
+                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-tachometer-alt text-sm"></i>
+                            </div>
+                            <span class="font-medium">Guru</span>
+                        </a>
+                    </li>
+                    <li class="rounded-xl hover:bg-white/10 transition-all duration-300 hover-lift">
+                        <a href="siswa.html" class="flex items-center space-x-4 p-4">
+                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-comment text-sm"></i>
+                            </div>
+                            <span class="font-medium">Siswa</span>
+                        </a>
+                    </li>
+                    <li class="rounded-xl hover:bg-white/10 transition-all duration-300 hover-lift">
+                        <a href="mataPelajaran.html" class="flex items-center space-x-4 p-4">
+                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-comment text-sm"></i>
+                            </div>
+                            <span class="font-medium">Mata Pelajaran</span>
+                        </a>
+                    </li>
+                    <li class="rounded-xl hover:bg-white/10 transition-all duration-300 hover-lift">
+                        <a href="jadwal.html" class="flex items-center space-x-4 p-4">
+                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-comment text-sm"></i>
+                            </div>
+                            <span class="font-medium">Jadwal</span>
+                        </a>
+                    </li>
+                    <li class="rounded-xl hover:bg-white/10 transition-all duration-300 hover-lift">
+                        <a href="nilai.html" class="flex items-center space-x-4 p-4">
+                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-comment text-sm"></i>
+                            </div>
+                            <span class="font-medium">Nilai</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
-        <div class="flex flex-col flex-1 overflow-hidden">
-            <!-- Header -->
-            <header class="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200">
-                <div class="flex items-center">
-                    <button class="md:hidden text-gray-500 mr-4">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <h1 class="text-xl font-semibold text-gray-800">Dashboard Sekolah</h1>
+            <div class="p-4 border-t border-white/20">
+                <div class="flex items-center space-x-3 p-3 rounded-xl bg-white/10">
+                    <div class="w-10 h-10 online-indicator">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png" alt="Profile" class="rounded-full w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-sm">John Doe</p>
+                        <p class="text-xs text-white/70">Online</p>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button class="p-2 text-gray-400 hover:text-gray-600">
-                        <i class="fas fa-bell"></i>
-                    </button>
-                    <div class="flex items-center">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1cfcdff4-4de4-45fd-8eb7-03b04efa688c.png" alt="Foto profil admin sekolah dengan latar belakang biru" class="w-8 h-8 rounded-full" />
-                        <span class="ml-2 text-sm font-medium text-gray-700">Admin Sekolah</span>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+            <!-- Header -->
+            <header class="glass-effect sticky top-0 z-40 shadow-lg">
+                <div class="flex items-center justify-between p-4">
+                    <div class="flex items-center space-x-4">
+                        <button id="sidebarToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-bars text-xl text-gray-600"></i>
+                        </button>
+                        <div>
+                            <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                                Dashboard
+                            </h1>
+                            <p class="text-sm text-gray-500">Halaman Utama</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <input type="text" placeholder="Cari diskusi..." class="pl-10 pr-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                        
+                        <button class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-bell text-xl text-gray-600"></i>
+                            <span class="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center notification-badge">3</span>
+                        </button>
+                        
+                        <div class="w-10 h-10 online-indicator">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png" alt="Profile" class="rounded-full w-full h-full object-cover">
+                        </div>
                     </div>
                 </div>
             </header>
 
-            <!-- Main Content -->
             <main class="flex-1 overflow-y-auto p-6">
                 <!-- Welcome Banner -->
                 <div class="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm animate-fade-in hover:shadow-md transition-shadow duration-300">
@@ -404,116 +613,361 @@
             <button class="fixed bottom-8 right-8 md:hidden w-14 h-14 bg-blue-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-blue-700 transition-colors duration-200">
                 <i class="fas fa-bars text-xl"></i>
             </button>
+            
         </div>
     </div>
 
+    <!-- Floating Action Button -->
+    <div class="floating-action">
+        <button class="w-14 h-14 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+
     <script>
-        // Simple interactivity
-        document.addEventListener('DOMContentLoaded', function() {
-            // Toggle mobile menu
-            const mobileMenuButton = document.querySelector('.md\\:hidden');
-            const sidebar = document.querySelector('.md\\:flex');
-            
-            if (mobileMenuButton && sidebar) {
-                mobileMenuButton.addEventListener('click', function() {
-                    sidebar.classList.toggle('hidden');
-                });
+        // Toggle sidebar on mobile
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== sidebarToggle) {
+                sidebar.classList.remove('active');
             }
+        });
 
-            // Add animation to cards when they come into view
-            const animatedElements = document.querySelectorAll('.animate-fade-in');
+        // Auto-resize textarea
+        const messageInput = document.getElementById('messageInput');
+        messageInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+
+        // Emoji picker
+        const emojiBtn = document.getElementById('emojiBtn');
+        const emojiPicker = document.getElementById('emojiPicker');
+
+        emojiBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            emojiPicker.classList.toggle('show');
+        });
+
+        document.addEventListener('click', () => {
+            emojiPicker.classList.remove('show');
+        });
+
+        emojiPicker.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (e.target.tagName === 'BUTTON') {
+                messageInput.value += e.target.textContent;
+                messageInput.focus();
+            }
+        });
+
+        // Message form submission
+        const messageForm = document.getElementById('messageForm');
+        const messagesContainer = document.getElementById('messagesContainer');
+
+        messageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = messageInput.value.trim();
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            animatedElements.forEach(el => {
-                el.style.opacity = 0;
-                observer.observe(el);
-            });
-
-            // Notification bell animation
-            const notificationBell = document.querySelector('.fa-bell');
-            if (notificationBell) {
-                notificationBell.addEventListener('click', function() {
-                    this.classList.add('animate-ping');
+            if (message) {
+                // Add new message
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'flex items-end justify-end space-x-3 message-bubble';
+                messageDiv.innerHTML = `
+                    <div class="max-w-sm">
+                        <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-2xl rounded-br-md p-4 shadow-lg">
+                            <p class="text-indigo-100">${message}</p>
+                        </div>
+                        <div class="flex items-center justify-end mt-2 space-x-2">
+                            <span class="text-xs text-gray-400">Just now</span>
+                            <i class="fas fa-check text-gray-400 text-xs"></i>
+                              </div>
+                    </div>
+                    <div class="w-10 h-10 online-indicator">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png" alt="Profile" class="rounded-full w-full h-full object-cover shadow-lg">
+                    </div>
+                `;
+                
+                messagesContainer.appendChild(messageDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                
+                // Clear input
+                messageInput.value = '';
+                messageInput.style.height = 'auto';
+                
+                // Show typing indicator briefly
+                const typingIndicator = document.querySelector('.typing-indicator');
+                setTimeout(() => {
+                    typingIndicator.style.display = 'inline';
                     setTimeout(() => {
-                        this.classList.remove('animate-ping');
-                    }, 1000);
-                });
+                        typingIndicator.style.display = 'none';
+                    }, 2000);
+                }, 1000);
             }
+        });
 
-            // Initialize Charts
-            const attendanceCtx = document.getElementById('attendanceChart').getContext('2d');
-            const attendanceChart = new Chart(attendanceCtx, {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
-                    datasets: [{
-                        label: 'Persentase Kehadiran',
-                        data: [85, 90, 92, 89, 94, 93],
-                        backgroundColor: 'rgba(147, 197, 253, 0.2)',
-                        borderColor: 'rgba(59, 130, 246, 0.8)',
-                        borderWidth: 3,
-                        pointBackgroundColor: 'white',
-                        pointBorderColor: 'rgba(59, 130, 246, 1)',
-                        pointBorderWidth: 2,
-                        pointRadius: 5,
-                        pointHoverRadius: 7,
-                        borderWidth: 2,
-                        tension: 0.3,
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        }
-                    },
-                    scales: {
-                        y: {
-                            min: 80,
-                            max: 100
-                        }
-                    }
-                }
+        // Simulate typing indicator
+        let typingTimer;
+        messageInput.addEventListener('input', () => {
+            clearTimeout(typingTimer);
+            // In real app, you would send typing status to server
+            typingTimer = setTimeout(() => {
+                // Stop typing indicator
+            }, 1000);
+        });
+
+        // Smooth scroll to bottom on new messages
+        const observer = new MutationObserver(() => {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        });
+        observer.observe(messagesContainer, { childList: true });
+
+        // Add message reactions
+        messagesContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('fa-heart')) {
+                e.target.classList.toggle('text-red-500');
+                e.target.classList.toggle('text-gray-400');
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + Enter to send message
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                messageForm.dispatchEvent(new Event('submit'));
+            }
+            
+            // Escape to close emoji picker
+            if (e.key === 'Escape') {
+                emojiPicker.classList.remove('show');
+            }
+        });
+
+        // Add online status simulation
+        setInterval(() => {
+            const onlineCount = Math.floor(Math.random() * 5) + 15;
+            document.querySelector('.flex.items-center.space-x-2 p').textContent = `${onlineCount} anggota online`;
+        }, 30000);
+
+        // Add message status updates
+        setTimeout(() => {
+            const checkIcons = document.querySelectorAll('.fa-check:not(.fa-check-double)');
+            checkIcons.forEach(icon => {
+                icon.classList.add('fa-check-double', 'text-blue-500');
+                icon.classList.remove('text-gray-400');
             });
+        }, 3000);
 
-            const classCtx = document.getElementById('classDistributionChart').getContext('2d');
-            const classChart = new Chart(classCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['X IPA', 'X IPS', 'XI IPA', 'XI IPS', 'XII IPA', 'XII IPS'],
-                    datasets: [{
-                        data: [210, 185, 195, 175, 215, 200],
-                        backgroundColor: [
-                            'rgba(59, 130, 246, 0.7)',
-                            'rgba(16, 185, 129, 0.7)',
-                            'rgba(245, 158, 11, 0.7)',
-                            'rgba(139, 92, 246, 0.7)',
-                            'rgba(220, 38, 38, 0.7)',
-                            'rgba(20, 184, 166, 0.7)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                        }
-                    }
+        // Add notification sound (optional)
+        function playNotificationSound() {
+            // You can add audio element here
+            // const audio = new Audio('notification.mp3');
+            // audio.play();
+        }
+
+        // Simulate receiving new messages
+        const sampleMessages = [
+            { name: 'Budi', avatar: 'B', color: 'from-green-400 to-green-500', message: 'Terima kasih atas penjelasannya! 🙏', time: '11:00 AM' },
+            { name: 'Rina', avatar: 'R', color: 'from-purple-400 to-purple-500', message: 'Ada yang punya catatan tentang materi kemarin?', time: '11:05 AM' },
+            { name: 'Dani', avatar: 'D', color: 'from-yellow-400 to-yellow-500', message: 'Saya bisa share catatan saya 📝', time: '11:07 AM' }
+        ];
+
+        let messageIndex = 0;
+        setInterval(() => {
+            if (messageIndex < sampleMessages.length) {
+                const msg = sampleMessages[messageIndex];
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'flex items-end space-x-3 message-bubble';
+                messageDiv.innerHTML = `
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r ${msg.color} text-white flex items-center justify-center text-sm font-bold shadow-lg">
+                        ${msg.avatar}
+                    </div>
+                    <div class="max-w-sm">
+                        <div class="bg-white rounded-2xl rounded-bl-md p-4 shadow-lg border border-gray-100">
+                            <p class="text-sm font-semibold text-gray-800 mb-1">${msg.name}</p>
+                            <p class="text-gray-700">${msg.message}</p>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-2">
+                            <span class="text-xs text-gray-400">${msg.time}</span>
+                            <button class="text-xs text-gray-400 hover:text-indigo-600">
+                                <i class="fas fa-reply mr-1"></i>Reply
+                            </button>
+                            <button class="text-xs text-gray-400 hover:text-red-600">
+                                <i class="fas fa-heart mr-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                messagesContainer.appendChild(messageDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                
+                // Update notification badge
+                const badge = document.querySelector('.notification-badge');
+                const currentCount = parseInt(badge.textContent);
+                badge.textContent = currentCount + 1;
+                
+                messageIndex++;
+            }
+        }, 45000); // Add new message every 45 seconds
+
+        // Add room switching functionality
+        document.querySelectorAll('.room-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove active state from all cards
+                document.querySelectorAll('.room-card').forEach(c => {
+                    c.classList.remove('bg-indigo-50', 'border-l-4', 'border-indigo-500', 'shadow-md');
+                    c.classList.add('hover:bg-gray-50', 'border', 'border-gray-100');
+                });
+                
+                // Add active state to clicked card
+                card.classList.add('bg-indigo-50', 'border-l-4', 'border-indigo-500', 'shadow-md');
+                card.classList.remove('hover:bg-gray-50', 'border', 'border-gray-100');
+                
+                // Update chat header (you can customize this based on the selected room)
+                const roomName = card.querySelector('.font-semibold').textContent;
+                document.querySelector('.text-xl.font-bold.text-gray-800').textContent = roomName;
+            });
+        });
+
+        // Add drag and drop for file uploads
+        const chatArea = document.querySelector('.glass-effect');
+        
+        chatArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            chatArea.classList.add('border-2', 'border-dashed', 'border-indigo-400', 'bg-indigo-50');
+        });
+        
+        chatArea.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            chatArea.classList.remove('border-2', 'border-dashed', 'border-indigo-400', 'bg-indigo-50');
+        });
+        
+        chatArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            chatArea.classList.remove('border-2', 'border-dashed', 'border-indigo-400', 'bg-indigo-50');
+            
+            const files = Array.from(e.dataTransfer.files);
+            files.forEach(file => {
+                // Handle file upload here
+                console.log('File dropped:', file.name);
+                // You can add file upload logic here
+            });
+        });
+
+        // Add search functionality
+        const searchInput = document.querySelector('input[placeholder="Cari diskusi..."]');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const rooms = document.querySelectorAll('.room-card');
+            
+            rooms.forEach(room => {
+                const roomName = room.querySelector('.font-semibold').textContent.toLowerCase();
+                const lastMessage = room.querySelector('.text-sm.text-gray-500').textContent.toLowerCase();
+                
+                if (roomName.includes(searchTerm) || lastMessage.includes(searchTerm)) {
+                    room.style.display = 'block';
+                } else {
+                    room.style.display = 'none';
                 }
             });
         });
+
+        // Add theme toggle (optional)
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            // You can add more dark theme styles here
+        }
+
+        // Add connection status indicator
+        function updateConnectionStatus(isOnline) {
+            const statusIndicator = document.createElement('div');
+            statusIndicator.className = `fixed top-4 right-4 px-4 py-2 rounded-lg text-sm font-medium z-50 ${
+                isOnline ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+            }`;
+            statusIndicator.textContent = isOnline ? 'Connected' : 'Disconnected';
+            
+            document.body.appendChild(statusIndicator);
+            
+            setTimeout(() => {
+                statusIndicator.remove();
+            }, 3000);
+        }
+
+        // Simulate connection status
+        window.addEventListener('online', () => updateConnectionStatus(true));
+        window.addEventListener('offline', () => updateConnectionStatus(false));
+
+        // Add message search within chat
+        function searchMessages(query) {
+            const messages = document.querySelectorAll('.message-bubble');
+            messages.forEach(message => {
+                const text = message.textContent.toLowerCase();
+                if (text.includes(query.toLowerCase())) {
+                    message.style.backgroundColor = 'rgba(255, 255, 0, 0.2)';
+                } else {
+                    message.style.backgroundColor = '';
+                }
+            });
+        }
+
+        // Add right-click context menu for messages
+        messagesContainer.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            // You can add context menu functionality here
+            console.log('Right-clicked on message');
+        });
+
+        // Initialize tooltips (if using a tooltip library)
+        // You can add tooltip initialization here
+
+        // Add loading states
+        function showLoading() {
+            const loader = document.createElement('div');
+            loader.className = 'flex justify-center items-center p-4';
+            loader.innerHTML = '<div class="animate-spin rounded-full h-6 w-6 border-b-2 border-indigo-600"></div>';
+            messagesContainer.appendChild(loader);
+        }
+
+        // Add message editing functionality
+        messagesContainer.addEventListener('dblclick', (e) => {
+            const messageText = e.target.closest('.bg-gradient-to-r');
+            if (messageText && messageText.classList.contains('from-indigo-500')) {
+                // Enable editing for own messages
+                const currentText = messageText.querySelector('p').textContent;
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.value = currentText;
+                input.className = 'bg-transparent border-none outline-none text-indigo-100 w-full';
+                
+                messageText.querySelector('p').replaceWith(input);
+                input.focus();
+                
+                input.addEventListener('blur', () => {
+                    const newText = input.value || currentText;
+                    const p = document.createElement('p');
+                    p.className = 'text-indigo-100';
+                    p.textContent = newText;
+                    input.replaceWith(p);
+                });
+                
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        input.blur();
+                    }
+                });
+            }
+        });
+
+        console.log('Forum Diskusi Modern loaded successfully! 🚀');
     </script>
 </body>
-</html>
 
+</html>
