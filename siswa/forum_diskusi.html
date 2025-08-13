@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Siswa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sidebar {
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+        }
+
+        /* Hilangkan scrollbar untuk browser berbasis WebKit (Chrome, Safari) */
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hilangkan scrollbar untuk Firefox */
+        .custom-scrollbar {
+            -ms-overflow-style: none;
+            /* IE dan Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 bg-indigo-900 text-gray-100 flex flex-col h-screen overflow-hidden">
+            <div class="p-6">
+                <div class="flex items-center space-x-2">
+                    <div
+                        class="w-8 h-8 bg-orange-500 rounded flex items-center justify-center font-bold text-lg text-white">
+                        A</div>
+                    <span class="text-2xl font-semibold">Akademi</span>
+                </div>
+            </div>
+            <nav class="flex-1 overflow-y-auto custom-scrollbar">
+                <ul class="space-y-2 p-4">
+                    <li class="rounded-md hover:bg-indigo-700 transition-colors duration-200">
+                        <a href="#" class="flex items-center space-x-3 p-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 011-1h-3a1 1 01-1-1h-3a1 1 01-1-1h-3a1 1 01-1-1h-3">
+                                </path>
+                            </svg>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="rounded-md hover:bg-indigo-700 transition-colors duration-200">
+                        <a href="#" class="flex items-center space-x-3 p-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <span>Forum Diskusi</span>
+                        </a>
+                    </li>
+                    <li class="rounded-md hover:bg-indigo-700 transition-colors duration-200">
+                        <a href="#" class="flex items-center space-x-3 p-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5V16z">
+                                </path>
+                            </svg>
+                            <span>Chat</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Font Awesome CDN -->
+        
+        
+        <!-- Main Content -->
+        <div class="flex-1 overflow-auto">
+            <!-- Top Navbar -->
+            <header class="bg-white shadow-lg rounded-xl sticky top-4 z-50 mx-4">
+                <div class="flex items-center justify-between p-4">
+                    <div class="flex items-center">
+                        <button id="sidebarToggle" class="md:hidden mr-4 text-gray-600 hover:text-blue-600">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                        <h1 class="text-xl font-bold text-gray-800">Forum Diskusi</h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <button class="text-gray-600 hover:text-blue-600 relative">
+                                <i class="fas fa-bell text-xl"></i>
+                                <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500"></span>
+                            </button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png"
+                            alt="Foto profil kecil untuk navbar" class="rounded-full w-8 h-8">
+                            
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVK+Y8y+w5I3L6O5+z5xJ5t3b1iF7vWn+X9h2/p5w+f2+P9bH3Hl3p7vLp/yH+uLw+l+eH9rQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="p-6 mt-4">
+    <h2 class="text-2xl font-semibold mb-4">Selamat datang di Forum Diskusi</h2>
+    <p class="text-gray-600 mb-6">Di sini Anda dapat berdiskusi dengan teman-teman sekelas dan guru mengenai materi pelajaran.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <div class="bg-indigo-500 text-white rounded-full p-4 mb-4 transform transition-all duration-300 group-hover:bg-indigo-600 group-hover:rotate-12">
+                <i class="fas fa-calculator text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Matematika</h3>
+            <p class="text-gray-600 text-sm">Diskusi seputar aljabar, kalkulus, dan geometri.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <div class="bg-red-500 text-white rounded-full p-4 mb-4 transform transition-all duration-300 group-hover:bg-red-600 group-hover:rotate-12">
+                <i class="fas fa-book text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Bahasa Inggris</h3>
+            <p class="text-gray-600 text-sm">Pelajari tata bahasa, kosakata, dan literatur.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <div class="bg-green-500 text-white rounded-full p-4 mb-4 transform transition-all duration-300 group-hover:bg-green-600 group-hover:rotate-12">
+                <i class="fas fa-atom text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Fisika</h3>
+            <p class="text-gray-600 text-sm">Pahami konsep-konsep dasar fisika dan eksperimen.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <div class="bg-yellow-500 text-white rounded-full p-4 mb-4 transform transition-all duration-300 group-hover:bg-yellow-600 group-hover:rotate-12">
+                <i class="fas fa-flask text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Kimia</h3>
+            <p class="text-gray-600 text-sm">Jelajahi dunia unsur, senyawa, dan reaksi kimia.</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle sidebar on mobile
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== sidebarToggle) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
