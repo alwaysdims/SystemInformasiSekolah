@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+
         * {
             font-family: 'Inter', sans-serif;
         }
@@ -55,7 +55,13 @@
         }
 
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+            /* background-image: linear-gradient( 69.2deg,  rgba(77,143,251,1) 35.3%, rgba(202,51,255,1) 100.3% ); */
+            /* background-image: linear-gradient( 98.7deg,  rgba(34,175,245,1) 2.8%, rgba(98,247,151,1) 97.8% ); */
+            /* background-image: linear-gradient( 109.6deg,  rgba(75,228,255,1) 11.2%, rgba(188,204,251,1) 100.6% ); */
+
+            background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(0, 97, 255, 1) 0%, rgba(96, 239, 255, 1) 100.7%);
+            /* background: radial-gradient( circle 404px at 20.3% 15.9%,  rgba(0,79,255,1) 0%, rgba(0,240,255,1) 90% ); */
         }
 
         .message-bubble {
@@ -67,6 +73,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -88,8 +95,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         .online-indicator {
@@ -110,9 +124,17 @@
         }
 
         @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
         }
 
         .floating-action {
@@ -127,10 +149,27 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
-            40%, 43% { transform: translate3d(0, -8px, 0); }
-            70% { transform: translate3d(0, -4px, 0); }
-            90% { transform: translate3d(0, -2px, 0); }
+
+            0%,
+            20%,
+            53%,
+            80%,
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            40%,
+            43% {
+                transform: translate3d(0, -8px, 0);
+            }
+
+            70% {
+                transform: translate3d(0, -4px, 0);
+            }
+
+            90% {
+                transform: translate3d(0, -2px, 0);
+            }
         }
 
         .message-input:focus {
@@ -150,7 +189,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
@@ -165,7 +204,7 @@
             right: 0;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             padding: 12px;
             z-index: 100;
         }
@@ -183,16 +222,15 @@
         <aside class="w-64 gradient-bg text-white flex flex-col h-screen sidebar shadow-2xl">
             <div class="p-6 border-b border-white/20">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-r from-orange-400 to-pink-500 rounded-xl flex items-center justify-center font-bold text-lg text-white shadow-lg">
-                        A
-                    </div>
+                    <img src="../../assets/image/logo-smkn2kra.webp" alt="Logo SMKN 2 KRA"
+                        class="w-12 h-12 object-contain">
                     <div>
-                        <span class="text-2xl font-bold">Akademi</span>
-                        <p class="text-xs text-white/70">Learning Platform</p>
+                        <span class="text-1xl font-bold">SYSTEM INFORMASI SKANDAKRA</span>
+                        <!-- <p class="text-xs text-white/70">Learning Platform</p> -->
                     </div>
                 </div>
             </div>
-            
+
             <nav class="flex-1 overflow-y-auto custom-scrollbar p-4">
                 <ul class="space-y-3">
                     <li class="rounded-xl hover:bg-white/10 transition-all duration-300 hover-lift">
@@ -234,7 +272,8 @@
             <div class="p-4 border-t border-white/20">
                 <div class="flex items-center space-x-3 p-3 rounded-xl bg-white/10">
                     <div class="w-10 h-10 online-indicator">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png" alt="Profile" class="rounded-full w-full h-full object-cover">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png"
+                            alt="Profile" class="rounded-full w-full h-full object-cover">
                     </div>
                     <div class="flex-1">
                         <p class="font-semibold text-sm">John Doe</p>
@@ -253,27 +292,70 @@
                             <i class="fas fa-bars text-xl text-gray-600"></i>
                         </button>
                         <div>
-                            <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                            <h1
+                                class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                                 Forum Diskusi
                             </h1>
-                            <p class="text-sm text-gray-500">Diskusi interaktif dengan teman sekelas</p>
+                            <!-- <p class="text-sm text-gray-500">Diskusi interaktif dengan teman sekelas</p> -->
                         </div>
                     </div>
-                    
+
                     <div class="flex items-center space-x-4">
-                        <div class="relative">
+                        <!-- <div class="relative">
                             <input type="text" placeholder="Cari diskusi..." class="pl-10 pr-4 py-2 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
                             <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div> -->
+
+                        <div class="flex items-center space-x-4 relative">
+                            <!-- Notifikasi -->
+                            <div class="relative">
+                                <button id="notifBtn"
+                                    class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-bell text-xl text-gray-600"></i>
+                                    <span
+                                        class="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center notification-badge">3</span>
+                                </button>
+                                <!-- Dropdown Notifikasi -->
+                                <div id="notifDropdown"
+                                    class="hidden absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                                    <div class="px-4 py-2 font-semibold border-b border-gray-200">
+                                        Notifikasi
+                                    </div>
+                                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">📌 Tugas baru
+                                        telah ditambahkan</a>
+                                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">📅 Deadline
+                                        tugas besok</a>
+                                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">✅ Tugas kamu
+                                        telah dinilai</a>
+                                </div>
+                            </div>
+
+                            <!-- Profil -->
+                            <div class="relative">
+                                <div id="profileBtn" class="w-10 h-10 online-indicator cursor-pointer">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png"
+                                        alt="Profile" class="rounded-full w-full h-full object-cover">
+                                </div>
+                                <!-- Dropdown Profil -->
+                                <div id="profileDropdown"
+                                    class="hidden absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                                    <!-- Foto + Nama & Status -->
+                                    <div class="flex items-center px-4 py-3">
+                                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png"
+                                            alt="Profile" class="w-10 h-10 rounded-full object-cover mr-3">
+                                        <div>
+                                            <p class="font-semibold text-gray-800">Dimas</p>
+                                            <p class="text-sm text-green-500">Siswa</p>
+                                        </div>
+                                    </div>
+                                    <hr class="my-1">
+                                    <!-- Menu -->
+                                    <a href="#profil" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profil</a>
+                                    <a href="#logout" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <button class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
-                            <i class="fas fa-bell text-xl text-gray-600"></i>
-                            <span class="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center notification-badge">3</span>
-                        </button>
-                        
-                        <div class="w-10 h-10 online-indicator">
-                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png" alt="Profile" class="rounded-full w-full h-full object-cover">
-                        </div>
+
                     </div>
                 </div>
             </header>
@@ -284,16 +366,19 @@
                     <div class="p-6 border-b border-gray-200">
                         <div class="flex items-center justify-between">
                             <h3 class="text-lg font-bold text-gray-800">Ruang Diskusi</h3>
-                            <button class="p-2 rounded-lg bg-indigo-100 text-indigo-600 hover:bg-indigo-200 transition-colors">
+                            <button
+                                class="p-2 rounded-lg bg-indigo-100 text-indigo-600 hover:bg-indigo-200 transition-colors">
                                 <i class="fas fa-plus text-sm"></i>
                             </button>
                         </div>
                     </div>
-                    
+
                     <div class="flex-1 overflow-y-auto custom-scrollbar p-2">
-                        <div class="room-card p-4 m-2 rounded-xl hover:bg-gray-50 transition-all duration-300 hover-lift cursor-pointer border border-gray-100">
+                        <div
+                            class="room-card p-4 m-2 rounded-xl hover:bg-gray-50 transition-all duration-300 hover-lift cursor-pointer border border-gray-100">
                             <div class="flex items-center space-x-3">
-                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
                                     M
                                 </div>
                                 <div class="flex-1">
@@ -301,7 +386,7 @@
                                         <p class="font-semibold text-gray-800">Matematika</p>
                                         <span class="text-xs text-gray-400">10:30</span>
                                     </div>
-                                    <p class="text-sm text-gray-500 truncate">Ahmad: Ada yang bisa bantu...</p>
+                                    <p class="text-sm text-gray-500 truncate">Ahmad: Ada yang ...</p>
                                     <div class="flex items-center mt-1">
                                         <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
                                         <span class="text-xs text-gray-400">15 online</span>
@@ -311,9 +396,11 @@
                             </div>
                         </div>
 
-                        <div class="room-card p-4 m-2 rounded-xl hover:bg-gray-50 transition-all duration-300 hover-lift cursor-pointer border border-gray-100">
+                        <div
+                            class="room-card p-4 m-2 rounded-xl hover:bg-gray-50 transition-all duration-300 hover-lift cursor-pointer border border-gray-100">
                             <div class="flex items-center space-x-3">
-                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
                                     I
                                 </div>
                                 <div class="flex-1">
@@ -330,9 +417,11 @@
                             </div>
                         </div>
 
-                        <div class="room-card p-4 m-2 rounded-xl bg-indigo-50 border-l-4 border-indigo-500 cursor-pointer shadow-md">
+                        <div
+                            class="room-card p-4 m-2 rounded-xl bg-indigo-50 border-l-4 border-indigo-500 cursor-pointer shadow-md">
                             <div class="flex items-center space-x-3">
-                                <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
                                     B
                                 </div>
                                 <div class="flex-1">
@@ -358,7 +447,8 @@
                         <!-- Chat Header -->
                         <div class="flex items-center justify-between p-6 border-b border-gray-200">
                             <div class="flex items-center space-x-4">
-                                <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                                <div
+                                    class="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
                                     M
                                 </div>
                                 <div>
@@ -366,11 +456,12 @@
                                     <div class="flex items-center space-x-2">
                                         <div class="w-2 h-2 bg-green-500 rounded-full"></div>
                                         <p class="text-sm text-gray-500">20 anggota online</p>
-                                        <span class="typing-indicator text-sm text-gray-400">• Ahmad sedang mengetik...</span>
+                                        <span class="typing-indicator text-sm text-gray-400">• Ahmad sedang
+                                            mengetik...</span>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-center space-x-2">
                                 <button class="p-3 rounded-xl hover:bg-gray-100 transition-colors" title="Video Call">
                                     <i class="fas fa-video text-gray-600"></i>
@@ -387,13 +478,16 @@
                         <!-- Messages -->
                         <div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6" id="messagesContainer">
                             <div class="flex items-end space-x-3 message-bubble">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 text-white flex items-center justify-center text-sm font-bold shadow-lg">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-r from-orange-400 to-orange-500 text-white flex items-center justify-center text-sm font-bold shadow-lg">
                                     A
                                 </div>
                                 <div class="max-w-sm">
-                                    <div class="bg-white rounded-2xl rounded-bl-md p-4 shadow-lg border border-gray-100">
+                                    <div
+                                        class="bg-white rounded-2xl rounded-bl-md p-4 shadow-lg border border-gray-100">
                                         <p class="text-sm font-semibold text-gray-800 mb-1">Ahmad</p>
-                                        <p class="text-gray-700">Ada yang bisa bantu saya dengan soal limit fungsi trigonometri? 🤔</p>
+                                        <p class="text-gray-700">Ada yang bisa bantu saya dengan soal limit fungsi
+                                            trigonometri? 🤔</p>
                                     </div>
                                     <div class="flex items-center mt-2 space-x-2">
                                         <span class="text-xs text-gray-400">10:30 AM</span>
@@ -406,8 +500,10 @@
 
                             <div class="flex items-end justify-end space-x-3 message-bubble">
                                 <div class="max-w-sm">
-                                    <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-2xl rounded-br-md p-4 shadow-lg">
-                                        <p class="text-indigo-100">Tentu! Kirimkan saja soalnya, nanti kita coba bahas bersama. 😊</p>
+                                    <div
+                                        class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-2xl rounded-br-md p-4 shadow-lg">
+                                        <p class="text-indigo-100">Tentu! Kirimkan saja soalnya, nanti kita coba bahas
+                                            bersama. 😊</p>
                                     </div>
                                     <div class="flex items-center justify-end mt-2 space-x-2">
                                         <span class="text-xs text-gray-400">10:32 AM</span>
@@ -415,18 +511,22 @@
                                     </div>
                                 </div>
                                 <div class="w-10 h-10 online-indicator">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png" alt="Profile" class="rounded-full w-full h-full object-cover shadow-lg">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png"
+                                        alt="Profile" class="rounded-full w-full h-full object-cover shadow-lg">
                                 </div>
                             </div>
 
                             <div class="flex items-end space-x-3 message-bubble">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-red-400 to-red-500 text-white flex items-center justify-center text-sm font-bold shadow-lg">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-r from-red-400 to-red-500 text-white flex items-center justify-center text-sm font-bold shadow-lg">
                                     S
                                 </div>
                                 <div class="max-w-sm">
-                                    <div class="bg-white rounded-2xl rounded-bl-md p-4 shadow-lg border border-gray-100">
+                                    <div
+                                        class="bg-white rounded-2xl rounded-bl-md p-4 shadow-lg border border-gray-100">
                                         <p class="text-sm font-semibold text-gray-800 mb-1">Siti</p>
-                                        <p class="text-gray-700">Kalau integral tak tentu, ada tips dan trik untuk menyelesaikannya lebih cepat? 📚</p>
+                                        <p class="text-gray-700">Kalau integral tak tentu, ada tips dan trik untuk
+                                            menyelesaikannya lebih cepat? 📚</p>
                                     </div>
                                     <div class="flex items-center mt-2 space-x-2">
                                         <span class="text-xs text-gray-400">10:40 AM</span>
@@ -442,8 +542,10 @@
 
                             <div class="flex items-end justify-end space-x-3 message-bubble">
                                 <div class="max-w-sm">
-                                    <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-2xl rounded-br-md p-4 shadow-lg">
-                                        <p class="text-indigo-100">Bisa, coba latihan soal-soal variasi, itu sangat membantu! Ada banyak contoh di buku paket. 💪</p>
+                                    <div
+                                        class="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-2xl rounded-br-md p-4 shadow-lg">
+                                        <p class="text-indigo-100">Bisa, coba latihan soal-soal variasi, itu sangat
+                                            membantu! Ada banyak contoh di buku paket. 💪</p>
                                     </div>
                                     <div class="flex items-center justify-end mt-2 space-x-2">
                                         <span class="text-xs text-gray-400">10:45 AM</span>
@@ -451,7 +553,8 @@
                                     </div>
                                 </div>
                                 <div class="w-10 h-10 online-indicator">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png" alt="Profile" class="rounded-full w-full h-full object-cover shadow-lg">
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png"
+                                        alt="Profile" class="rounded-full w-full h-full object-cover shadow-lg">
                                 </div>
                             </div>
                         </div>
@@ -461,32 +564,45 @@
                             <form class="flex items-end space-x-4" id="messageForm">
                                 <div class="flex-1 relative">
                                     <div class="flex items-center space-x-2 mb-2">
-                                        <button type="button" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" title="Attach File">
+                                        <button type="button" class="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                                            title="Attach File" id="btnFile">
                                             <i class="fas fa-paperclip text-gray-500"></i>
                                         </button>
-                                        <button type="button" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" title="Image">
+
+                                        <input type="file" id="inputFile" class="hidden">
+                                        <button type="button" class="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                                            title="Image">
                                             <i class="fas fa-image text-gray-500"></i>
                                         </button>
-                                        <button type="button" id="emojiBtn" class="p-2 rounded-lg hover:bg-gray-100 transition-colors" title="Emoji">
+                                        <button type="button" id="emojiBtn"
+                                            class="p-2 rounded-lg hover:bg-gray-100 transition-colors" title="Emoji">
                                             <i class="fas fa-smile text-gray-500"></i>
                                         </button>
                                     </div>
-                                    
+
                                     <div class="emoji-picker" id="emojiPicker">
                                         <div class="grid grid-cols-6 gap-2">
-                                            <button type="button" class="p-2 hover:bg-gray-100 rounded text-lg">😊</button>
-                                            <button type="button" class="p-2 hover:bg-gray-100 rounded text-lg">😂</button>
-                                            <button type="button" class="p-2 hover:bg-gray-100 rounded text-lg">🤔</button>
-                                            <button type="button" class="p-2 hover:bg-gray-100 rounded text-lg">👍</button>
-                                            <button type="button" class="p-2 hover:bg-gray-100 rounded text-lg">❤️</button>
-                                            <button type="button" class="p-2 hover:bg-gray-100 rounded text-lg">🎉</button>
+                                            <button type="button"
+                                                class="p-2 hover:bg-gray-100 rounded text-lg">😊</button>
+                                            <button type="button"
+                                                class="p-2 hover:bg-gray-100 rounded text-lg">😂</button>
+                                            <button type="button"
+                                                class="p-2 hover:bg-gray-100 rounded text-lg">🤔</button>
+                                            <button type="button"
+                                                class="p-2 hover:bg-gray-100 rounded text-lg">👍</button>
+                                            <button type="button"
+                                                class="p-2 hover:bg-gray-100 rounded text-lg">❤️</button>
+                                            <button type="button"
+                                                class="p-2 hover:bg-gray-100 rounded text-lg">🎉</button>
                                         </div>
                                     </div>
-                                    
-                                    <textarea id="messageInput" placeholder="Ketik pesan Anda..." rows="1" class="message-input w-full p-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"></textarea>
+
+                                    <textarea id="messageInput" placeholder="Ketik pesan Anda..." rows="1"
+                                        class="message-input w-full p-4 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"></textarea>
                                 </div>
-                                
-                                <button type="submit" class="p-4 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-2xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+
+                                <button type="submit"
+                                    class="p-4 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-2xl hover:from-indigo-600 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                                     <i class="fas fa-paper-plane"></i>
                                 </button>
                             </form>
@@ -498,11 +614,11 @@
     </div>
 
     <!-- Floating Action Button -->
-    <div class="floating-action">
+    <!-- <div class="floating-action">
         <button class="w-14 h-14 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110">
             <i class="fas fa-plus"></i>
         </button>
-    </div>
+    </div> -->
 
     <script>
         // Toggle sidebar on mobile
@@ -522,7 +638,7 @@
 
         // Auto-resize textarea
         const messageInput = document.getElementById('messageInput');
-        messageInput.addEventListener('input', function() {
+        messageInput.addEventListener('input', function () {
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 120) + 'px';
         });
@@ -555,7 +671,7 @@
         messageForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const message = messageInput.value.trim();
-            
+
             if (message) {
                 // Add new message
                 const messageDiv = document.createElement('div');
@@ -574,14 +690,14 @@
                         <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c99ec721-b498-460e-9c28-915af60c5732.png" alt="Profile" class="rounded-full w-full h-full object-cover shadow-lg">
                     </div>
                 `;
-                
+
                 messagesContainer.appendChild(messageDiv);
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
-                
+
                 // Clear input
                 messageInput.value = '';
                 messageInput.style.height = 'auto';
-                
+
                 // Show typing indicator briefly
                 const typingIndicator = document.querySelector('.typing-indicator');
                 setTimeout(() => {
@@ -607,7 +723,9 @@
         const observer = new MutationObserver(() => {
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         });
-        observer.observe(messagesContainer, { childList: true });
+        observer.observe(messagesContainer, {
+            childList: true
+        });
 
         // Add message reactions
         messagesContainer.addEventListener('click', (e) => {
@@ -623,7 +741,7 @@
             if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
                 messageForm.dispatchEvent(new Event('submit'));
             }
-            
+
             // Escape to close emoji picker
             if (e.key === 'Escape') {
                 emojiPicker.classList.remove('show');
@@ -633,7 +751,8 @@
         // Add online status simulation
         setInterval(() => {
             const onlineCount = Math.floor(Math.random() * 5) + 15;
-            document.querySelector('.flex.items-center.space-x-2 p').textContent = `${onlineCount} anggota online`;
+            document.querySelector('.flex.items-center.space-x-2 p').textContent =
+                `${onlineCount} anggota online`;
         }, 30000);
 
         // Add message status updates
@@ -653,10 +772,27 @@
         }
 
         // Simulate receiving new messages
-        const sampleMessages = [
-            { name: 'Budi', avatar: 'B', color: 'from-green-400 to-green-500', message: 'Terima kasih atas penjelasannya! 🙏', time: '11:00 AM' },
-            { name: 'Rina', avatar: 'R', color: 'from-purple-400 to-purple-500', message: 'Ada yang punya catatan tentang materi kemarin?', time: '11:05 AM' },
-            { name: 'Dani', avatar: 'D', color: 'from-yellow-400 to-yellow-500', message: 'Saya bisa share catatan saya 📝', time: '11:07 AM' }
+        const sampleMessages = [{
+                name: 'Budi',
+                avatar: 'B',
+                color: 'from-green-400 to-green-500',
+                message: 'Terima kasih atas penjelasannya! 🙏',
+                time: '11:00 AM'
+            },
+            {
+                name: 'Rina',
+                avatar: 'R',
+                color: 'from-purple-400 to-purple-500',
+                message: 'Ada yang punya catatan tentang materi kemarin?',
+                time: '11:05 AM'
+            },
+            {
+                name: 'Dani',
+                avatar: 'D',
+                color: 'from-yellow-400 to-yellow-500',
+                message: 'Saya bisa share catatan saya 📝',
+                time: '11:07 AM'
+            }
         ];
 
         let messageIndex = 0;
@@ -685,15 +821,15 @@
                         </div>
                     </div>
                 `;
-                
+
                 messagesContainer.appendChild(messageDiv);
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
-                
+
                 // Update notification badge
                 const badge = document.querySelector('.notification-badge');
                 const currentCount = parseInt(badge.textContent);
                 badge.textContent = currentCount + 1;
-                
+
                 messageIndex++;
             }
         }, 45000); // Add new message every 45 seconds
@@ -703,14 +839,15 @@
             card.addEventListener('click', () => {
                 // Remove active state from all cards
                 document.querySelectorAll('.room-card').forEach(c => {
-                    c.classList.remove('bg-indigo-50', 'border-l-4', 'border-indigo-500', 'shadow-md');
+                    c.classList.remove('bg-indigo-50', 'border-l-4', 'border-indigo-500',
+                        'shadow-md');
                     c.classList.add('hover:bg-gray-50', 'border', 'border-gray-100');
                 });
-                
+
                 // Add active state to clicked card
                 card.classList.add('bg-indigo-50', 'border-l-4', 'border-indigo-500', 'shadow-md');
                 card.classList.remove('hover:bg-gray-50', 'border', 'border-gray-100');
-                
+
                 // Update chat header (you can customize this based on the selected room)
                 const roomName = card.querySelector('.font-semibold').textContent;
                 document.querySelector('.text-xl.font-bold.text-gray-800').textContent = roomName;
@@ -719,21 +856,21 @@
 
         // Add drag and drop for file uploads
         const chatArea = document.querySelector('.glass-effect');
-        
+
         chatArea.addEventListener('dragover', (e) => {
             e.preventDefault();
             chatArea.classList.add('border-2', 'border-dashed', 'border-indigo-400', 'bg-indigo-50');
         });
-        
+
         chatArea.addEventListener('dragleave', (e) => {
             e.preventDefault();
             chatArea.classList.remove('border-2', 'border-dashed', 'border-indigo-400', 'bg-indigo-50');
         });
-        
+
         chatArea.addEventListener('drop', (e) => {
             e.preventDefault();
             chatArea.classList.remove('border-2', 'border-dashed', 'border-indigo-400', 'bg-indigo-50');
-            
+
             const files = Array.from(e.dataTransfer.files);
             files.forEach(file => {
                 // Handle file upload here
@@ -747,11 +884,12 @@
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const rooms = document.querySelectorAll('.room-card');
-            
+
             rooms.forEach(room => {
                 const roomName = room.querySelector('.font-semibold').textContent.toLowerCase();
-                const lastMessage = room.querySelector('.text-sm.text-gray-500').textContent.toLowerCase();
-                
+                const lastMessage = room.querySelector('.text-sm.text-gray-500').textContent
+                    .toLowerCase();
+
                 if (roomName.includes(searchTerm) || lastMessage.includes(searchTerm)) {
                     room.style.display = 'block';
                 } else {
@@ -773,9 +911,9 @@
                 isOnline ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
             }`;
             statusIndicator.textContent = isOnline ? 'Connected' : 'Disconnected';
-            
+
             document.body.appendChild(statusIndicator);
-            
+
             setTimeout(() => {
                 statusIndicator.remove();
             }, 3000);
@@ -826,10 +964,10 @@
                 input.type = 'text';
                 input.value = currentText;
                 input.className = 'bg-transparent border-none outline-none text-indigo-100 w-full';
-                
+
                 messageText.querySelector('p').replaceWith(input);
                 input.focus();
-                
+
                 input.addEventListener('blur', () => {
                     const newText = input.value || currentText;
                     const p = document.createElement('p');
@@ -837,7 +975,7 @@
                     p.textContent = newText;
                     input.replaceWith(p);
                 });
-                
+
                 input.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter') {
                         input.blur();
@@ -847,6 +985,40 @@
         });
 
         console.log('Forum Diskusi Modern loaded successfully! 🚀');
+
+        const notifBtn = document.getElementById('notifBtn');
+        const notifDropdown = document.getElementById('notifDropdown');
+        const profileBtn = document.getElementById('profileBtn');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        notifBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notifDropdown.classList.toggle('hidden');
+            profileDropdown.classList.add('hidden');
+        });
+
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('hidden');
+            notifDropdown.classList.add('hidden');
+        });
+
+        document.addEventListener('click', () => {
+            notifDropdown.classList.add('hidden');
+            profileDropdown.classList.add('hidden');
+        });
+    </script>
+    <script>
+        document.getElementById('btnFile').addEventListener('click', function () {
+            document.getElementById('inputFile').click();
+        });
+
+        // Opsional: kalau mau tahu file yang dipilih
+        document.getElementById('inputFile').addEventListener('change', function () {
+            if (this.files.length > 0) {
+                console.log("File dipilih:", this.files[0].name);
+            }
+        });
     </script>
 </body>
 
