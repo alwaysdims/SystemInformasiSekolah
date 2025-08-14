@@ -257,104 +257,280 @@
 			</div>
 		</div>
 
-		<main class="flex-1 overflow-y-auto p-6">
-			<main class="flex-1 overflow-y-auto p-6">
-				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+		<main class="flex-1 overflow-y-auto max-auto p-6">
+			<div class="max-w-4xl mx-auto py-8">
+				<!-- Judul -->
+				<h1 class="text-center text-2xl font-bold text-gray-800 mb-6">
+					Daftar Tenaga Pengajar
+				</h1>
 
-					<!-- Matematika -->
-					<div
-						class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp">
-						<!-- Calculator Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-blue-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+				<!-- Form Pencarian -->
+				<div class="flex gap-2 mb-6">
+					<input type="text" placeholder="Cari Tenaga Pengajar Berdasarkan Nama"
+						class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500" />
+					<input type="text" placeholder="Cari Berdasarkan Kompetensi"
+						class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500" />
+					<button
+						class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center justify-center">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+							stroke="currentColor" class="w-5 h-5">
 							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M6.75 3h10.5v18H6.75V3zm3 3v3h4.5V6H9.75zm0 4.5h.008v.008H9.75V10.5zm0 3h.008v.008H9.75V13.5zm0 3h.008v.008H9.75V16.5zm4.5-6h.008v.008h-.008V10.5zm0 3h.008v.008h-.008V13.5zm0 3h.008v.008h-.008V16.5z" />
+								d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 13.65z" />
 						</svg>
-						<h3 class="text-lg font-bold text-center">Matematika</h3>
-						<p class="text-gray-600 text-sm text-center">Diskusi seputar aljabar, kalkulus, dan geometri.
-						</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
-					</div>
-
-					<!-- Bahasa Inggris -->
-					<div
-						class="bg-red-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-1s">
-						<!-- Book Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-red-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M4.5 4.75h15v14.5h-15zM6 6.5v11m12-11v11M6 6.5h12" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Bahasa Inggris</h3>
-						<p class="text-gray-600 text-sm text-center">Pelajari tata bahasa, kosakata, dan literatur.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Siti Aminah</p>
-					</div>
-
-					<!-- Pemrograman Web -->
-					<div
-						class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-2s">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-							class="mx-auto mb-4 h-16 w-16 text-blue-600 fill-current">
-							<path
-								d="M197.4 0L77.5 94.6 33.4 62.7 0 81.6l44.2 37.5L0 156.5l33.4 18.9 44.1-31.9L197.4 256 256 229.3V26.7L197.4 0zM197.4 33.1v189.8l-89.6-94.9 89.6-94.9z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Pemrograman Web</h3>
-						<p class="text-gray-600 text-sm text-center">Materi pembuatan website dan aplikasi web.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dwi Buk E Orlando</p>
-					</div>
-
-					<!-- Fisika -->
-					<div
-						class="bg-green-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-3s">
-						<!-- Atom Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-green-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M12 3.75a8.25 8.25 0 108.25 8.25A8.26 8.26 0 0012 3.75zm0 0v4.5m0 0l2.25-2.25m-2.25 2.25L9.75 6" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Fisika</h3>
-						<p class="text-gray-600 text-sm text-center">Pahami konsep dasar fisika dan eksperimen.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rudi Santoso</p>
-					</div>
-
-					<!-- Kimia -->
-					<div
-						class="bg-yellow-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-4s">
-						<!-- Flask Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-yellow-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M9.75 3v4.5l-5.25 9v.75h15v-.75l-5.25-9V3" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Kimia</h3>
-						<p class="text-gray-600 text-sm text-center">Jelajahi dunia unsur, senyawa, dan reaksi kimia.
-						</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rina Maulida</p>
-					</div>
-
-					<!-- Basis Data -->
-					<div
-						class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-5s">
-						<!-- Database Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-gray-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<ellipse cx="12" cy="5" rx="9" ry="3" />
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Basis Data</h3>
-						<p class="text-gray-600 text-sm text-center">Belajar membuat, mengatur, dan mengolah data.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dimas Prakoso</p>
-					</div>
-
+					</button>
 				</div>
-			</main>
 
+				<div class="border rounded-lg overflow-hidden">
+					<button onclick="toggleAccordion(this)"
+						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
+						<span class="flex items-center gap-3">
+							<svg class="w-4 h-4 transform transition-transform duration-300"
+								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M19 9l-7 7-7-7" />
+							</svg>
+							Agus Rumahno
+						</span>
+					</button>
+					<div class="hidden bg-blue-100 px-6 py-4">
+						<div class="flex gap-4 items-center">
+							<!-- Icon Profile -->
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
+								viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+							</svg>
+							<!-- Detail Guru -->
+							<div>
+								<p><strong>Nama :</strong> Agus Rumahno</p>
+								<p><strong>Jenis Kelamin :</strong> Laki - Laki</p>
+								<p><strong>Kompetensi :</strong> Umum</p>
+								<p><strong>Mata Pelajaran :</strong> -</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="border rounded-lg overflow-hidden">
+					<button onclick="toggleAccordion(this)"
+						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
+						<span class="flex items-center gap-3">
+							<svg class="w-4 h-4 transform transition-transform duration-300"
+								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M19 9l-7 7-7-7" />
+							</svg>
+							Afif Nurudin Maisaroh
+						</span>
+					</button>
+					<div class="hidden bg-blue-100 px-6 py-4">
+						<div class="flex gap-4 items-center">
+							<!-- Icon Profile -->
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
+								viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+							</svg>
+							<!-- Detail Guru -->
+							<div>
+								<p><strong>Nama :</strong> Afif Nurudin Maisaroh</p>
+								<p><strong>Jenis Kelamin :</strong> Laki - Laki</p>
+								<p><strong>Kompetensi :</strong>Rekayasa Perangkat Lunak</p>
+								<p><strong>Mata Pelajaran :</strong>Pemrograman Web</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="border rounded-lg overflow-hidden">
+					<button onclick="toggleAccordion(this)"
+						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
+						<span class="flex items-center gap-3">
+							<svg class="w-4 h-4 transform transition-transform duration-300"
+								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M19 9l-7 7-7-7" />
+							</svg>
+							Dwi Nuryani
+						</span>
+					</button>
+					<div class="hidden bg-blue-100 px-6 py-4">
+						<div class="flex gap-4 items-center">
+							<!-- Icon Profile -->
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
+								viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+							</svg>
+							<!-- Detail Guru -->
+							<div>
+								<p><strong>Nama :</strong> Dwi Nuryani</p>
+								<p><strong>Jenis Kelamin :</strong> Perempuan</p>
+								<p><strong>Kompetensi :</strong> Umum</p>
+								<p><strong>Mata Pelajaran :</strong>Pemrograman Web</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="border rounded-lg overflow-hidden">
+					<button onclick="toggleAccordion(this)"
+						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
+						<span class="flex items-center gap-3">
+							<svg class="w-4 h-4 transform transition-transform duration-300"
+								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M19 9l-7 7-7-7" />
+							</svg>
+							Agus Rumahno
+						</span>
+					</button>
+					<div class="hidden bg-blue-100 px-6 py-4">
+						<div class="flex gap-4 items-center">
+							<!-- Icon Profile -->
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
+								viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+							</svg>
+							<!-- Detail Guru -->
+							<div>
+								<p><strong>Nama :</strong> Agus Rumahno</p>
+								<p><strong>Jenis Kelamin :</strong> Laki - Laki</p>
+								<p><strong>Kompetensi :</strong> Umum</p>
+								<p><strong>Mata Pelajaran :</strong> -</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="border rounded-lg overflow-hidden">
+					<button onclick="toggleAccordion(this)"
+						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
+						<span class="flex items-center gap-3">
+							<svg class="w-4 h-4 transform transition-transform duration-300"
+								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M19 9l-7 7-7-7" />
+							</svg>
+							Agus Rumahno
+						</span>
+					</button>
+					<div class="hidden bg-blue-100 px-6 py-4">
+						<div class="flex gap-4 items-center">
+							<!-- Icon Profile -->
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
+								viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+							</svg>
+							<!-- Detail Guru -->
+							<div>
+								<p><strong>Nama :</strong> Agus Rumahno</p>
+								<p><strong>Jenis Kelamin :</strong> Laki - Laki</p>
+								<p><strong>Kompetensi :</strong> Umum</p>
+								<p><strong>Mata Pelajaran :</strong> -</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Info Data -->
+				<p class="mt-4 text-sm text-gray-600">
+					Menampilkan 1 sampai 25 dari 73 hasil
+				</p>
+
+				<!-- Pagination -->
+				<div class="flex items-center justify-center mt-4 gap-1">
+					<button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-100">«
+						Previous</button>
+					<button class="px-3 py-1 border border-green-500 bg-green-500 text-white rounded-lg">1</button>
+					<button class="px-3 py-1 border border-gray-300 text-gray-600 hover:bg-gray-100">2</button>
+					<button class="px-3 py-1 border border-gray-300 text-gray-600 hover:bg-gray-100">3</button>
+					<button class="px-3 py-1 border border-gray-300 text-gray-600 hover:bg-gray-100">Next »</button>
+				</div>
+			</div>
 		</main>
-
 	</main>
 
 	<script>
+		function toggleAccordion(button) {
+			const svg = button.querySelector("svg");
+			const content = button.nextElementSibling;
+
+			svg.classList.toggle("rotate-180");
+			content.classList.toggle("hidden");
+		}
+
+		let currentPage = 1;
+		const rowsPerPage = 4;
+
+		function renderTable(page = 1, search = "") {
+			const start = (page - 1) * rowsPerPage;
+			let filteredData = dataGuru.filter(g =>
+				g.nama.toLowerCase().includes(search.toLowerCase()) ||
+				g.kompetensi.toLowerCase().includes(search.toLowerCase()) ||
+				g.mapel.toLowerCase().includes(search.toLowerCase())
+			);
+			const paginatedData = filteredData.slice(start, start + rowsPerPage);
+
+			document.getElementById("tableBody").innerHTML = paginatedData.map(g => `
+        <tr class="hover:bg-gray-50">
+          <td class="px-4 py-2 border"><img src="${g.foto}" class="w-10 h-10 rounded-full object-cover"></td>
+          <td class="px-4 py-2 border font-medium">${g.nama}</td>
+          <td class="px-4 py-2 border">${g.jk}</td>
+          <td class="px-4 py-2 border">${g.kompetensi}</td>
+          <td class="px-4 py-2 border">${g.mapel}</td>
+        </tr>
+      `).join("");
+
+			renderPagination(filteredData.length);
+		}
+
+		function renderPagination(totalItems) {
+			const totalPages = Math.ceil(totalItems / rowsPerPage);
+			const paginationDiv = document.getElementById("pagination");
+			paginationDiv.innerHTML = "";
+
+			for (let i = 1; i <= totalPages; i++) {
+				paginationDiv.innerHTML += `
+          <button onclick="goToPage(${i})" class="px-4 py-2 rounded ${i === currentPage ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-gray-300'}">${i}</button>
+        `;
+			}
+		}
+
+		function goToPage(page) {
+			currentPage = page;
+			renderTable(currentPage, document.getElementById("searchInput").value);
+		}
+
+		document.getElementById("searchInput").addEventListener("input", function () {
+			currentPage = 1;
+			renderTable(currentPage, this.value);
+		});
+
+		function sortTable(colIndex) {
+			dataGuru.sort((a, b) => {
+				const valA = Object.values(a)[colIndex + 0].toString().toLowerCase();
+				const valB = Object.values(b)[colIndex + 0].toString().toLowerCase();
+				return valA.localeCompare(valB);
+			});
+			renderTable(currentPage, document.getElementById("searchInput").value);
+		}
+
+		renderTable();
+
 		// Toggle Dropdown for User Profile
 		function toggleDropdown() {
 			const dropdown = document.getElementById("dropdown-menu");
@@ -403,6 +579,7 @@
 		});
 
 	</script>
+	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -102,7 +102,7 @@
 					</svg>
 				</button>
 				<div class="items-center">
-					<h3 class="text-md sm:text-2xl text-white font-semibold">Mata Pelajaran</h3>
+					<h3 class="text-md sm:text-2xl text-white font-semibold">Nilai</h3>
 				</div>
 			</div>
 
@@ -258,103 +258,117 @@
 		</div>
 
 		<main class="flex-1 overflow-y-auto p-6">
-			<main class="flex-1 overflow-y-auto p-6">
-				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+			<main class="max-w-7xl mx-auto p-6 space-y-6">
 
-					<!-- Matematika -->
+				<!-- Kartu Ringkasan -->
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 					<div
-						class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp">
-						<!-- Calculator Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-blue-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M6.75 3h10.5v18H6.75V3zm3 3v3h4.5V6H9.75zm0 4.5h.008v.008H9.75V10.5zm0 3h.008v.008H9.75V13.5zm0 3h.008v.008H9.75V16.5zm4.5-6h.008v.008h-.008V10.5zm0 3h.008v.008h-.008V13.5zm0 3h.008v.008h-.008V16.5z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Matematika</h3>
-						<p class="text-gray-600 text-sm text-center">Diskusi seputar aljabar, kalkulus, dan geometri.
-						</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
+						class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-xl shadow hover:shadow-lg transition">
+						<h3 class="text-sm font-medium">Rata-rata Nilai</h3>
+						<p class="text-2xl font-bold mt-2">81</p>
 					</div>
-
-					<!-- Bahasa Inggris -->
 					<div
-						class="bg-red-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-1s">
-						<!-- Book Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-red-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M4.5 4.75h15v14.5h-15zM6 6.5v11m12-11v11M6 6.5h12" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Bahasa Inggris</h3>
-						<p class="text-gray-600 text-sm text-center">Pelajari tata bahasa, kosakata, dan literatur.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Siti Aminah</p>
+						class="bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-xl shadow hover:shadow-lg transition">
+						<h3 class="text-sm font-medium">Nilai Tertinggi</h3>
+						<p class="text-2xl font-bold mt-2">98</p>
 					</div>
-
-					<!-- Pemrograman Web -->
 					<div
-						class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-2s">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-							class="mx-auto mb-4 h-16 w-16 text-blue-600 fill-current">
-							<path
-								d="M197.4 0L77.5 94.6 33.4 62.7 0 81.6l44.2 37.5L0 156.5l33.4 18.9 44.1-31.9L197.4 256 256 229.3V26.7L197.4 0zM197.4 33.1v189.8l-89.6-94.9 89.6-94.9z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Pemrograman Web</h3>
-						<p class="text-gray-600 text-sm text-center">Materi pembuatan website dan aplikasi web.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dwi Buk E Orlando</p>
+						class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white p-4 rounded-xl shadow hover:shadow-lg transition">
+						<h3 class="text-sm font-medium">Nilai Terendah</h3>
+						<p class="text-2xl font-bold mt-2">60</p>
 					</div>
-
-					<!-- Fisika -->
 					<div
-						class="bg-green-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-3s">
-						<!-- Atom Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-green-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M12 3.75a8.25 8.25 0 108.25 8.25A8.26 8.26 0 0012 3.75zm0 0v4.5m0 0l2.25-2.25m-2.25 2.25L9.75 6" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Fisika</h3>
-						<p class="text-gray-600 text-sm text-center">Pahami konsep dasar fisika dan eksperimen.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rudi Santoso</p>
+						class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-4 rounded-xl shadow hover:shadow-lg transition">
+						<h3 class="text-sm font-medium">Jurusan Terbaik</h3>
+						<p class="text-2xl font-bold mt-2">RPL</p>
 					</div>
-
-					<!-- Kimia -->
-					<div
-						class="bg-yellow-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-4s">
-						<!-- Flask Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-yellow-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M9.75 3v4.5l-5.25 9v.75h15v-.75l-5.25-9V3" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Kimia</h3>
-						<p class="text-gray-600 text-sm text-center">Jelajahi dunia unsur, senyawa, dan reaksi kimia.
-						</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rina Maulida</p>
-					</div>
-
-					<!-- Basis Data -->
-					<div
-						class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition animate__animated animate__fadeInUp animate__delay-5s">
-						<!-- Database Icon -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-gray-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<ellipse cx="12" cy="5" rx="9" ry="3" />
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Basis Data</h3>
-						<p class="text-gray-600 text-sm text-center">Belajar membuat, mengatur, dan mengolah data.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dimas Prakoso</p>
-					</div>
-
 				</div>
-			</main>
 
+				<!-- Diagram & Tabel -->
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+					<!-- Diagram -->
+					<div class="bg-white rounded-xl shadow p-6">
+						<h2 class="text-lg font-semibold text-gray-800 mb-4">Perbandingan Nilai Rata-rata per Jurusan
+						</h2>
+						<canvas id="nilaiChart" height="200"></canvas>
+					</div>
+
+					<!-- Tabel Eligibility -->
+					<div class="bg-white rounded-xl shadow p-6 overflow-x-auto">
+						<h2 class="text-lg font-semibold text-gray-800 mb-4">Tabel Eligibility Antar Jurusan</h2>
+						<table class="min-w-full text-sm text-left border-collapse">
+							<thead class="bg-gray-100">
+								<tr>
+									<th class="px-4 py-2 border">Jurusan</th>
+									<th class="px-4 py-2 border">Persentase Eligible</th>
+									<th class="px-4 py-2 border">Total Siswa</th>
+									<th class="px-4 py-2 border">Jumlah Eligible</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="hover:bg-gray-50">
+									<td class="px-4 py-2 border">Ototronik</td>
+									<td class="px-4 py-2 border text-green-600 font-bold">85%</td>
+									<td class="px-4 py-2 border">40</td>
+									<td class="px-4 py-2 border">34</td>
+								</tr>
+								<tr class="hover:bg-gray-50">
+									<td class="px-4 py-2 border">Tekstil</td>
+									<td class="px-4 py-2 border text-green-600 font-bold">78%</td>
+									<td class="px-4 py-2 border">45</td>
+									<td class="px-4 py-2 border">35</td>
+								</tr>
+								<tr class="hover:bg-gray-50">
+									<td class="px-4 py-2 border">Rekayasa Perangkat Lunak</td>
+									<td class="px-4 py-2 border text-green-600 font-bold">92%</td>
+									<td class="px-4 py-2 border">50</td>
+									<td class="px-4 py-2 border">46</td>
+								</tr>
+								<tr class="hover:bg-gray-50">
+									<td class="px-4 py-2 border">Mesin</td>
+									<td class="px-4 py-2 border text-green-600 font-bold">70%</td>
+									<td class="px-4 py-2 border">38</td>
+									<td class="px-4 py-2 border">27</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</main>
 		</main>
 
 	</main>
 
 	<script>
+		const ctx = document.getElementById('nilaiChart').getContext('2d');
+		new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Ototronik', 'Tekstil', 'RPL', 'Mesin'],
+				datasets: [{
+					label: 'Rata-rata Nilai',
+					data: [82, 79, 88, 75],
+					backgroundColor: ['#3b82f6', '#ef4444', '#10b981', '#f59e0b'],
+					borderRadius: 8
+				}]
+			},
+			options: {
+				responsive: true,
+				plugins: {
+					legend: {
+						display: false
+					}
+				},
+				scales: {
+					y: {
+						beginAtZero: true,
+						max: 100
+					}
+				}
+			}
+		});
 		// Toggle Dropdown for User Profile
 		function toggleDropdown() {
 			const dropdown = document.getElementById("dropdown-menu");
