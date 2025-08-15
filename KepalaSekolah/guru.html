@@ -267,11 +267,17 @@
 				<!-- Form Pencarian -->
 				<div class="flex gap-2 mb-6">
 					<input type="text" placeholder="Cari Tenaga Pengajar Berdasarkan Nama"
-						class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500" />
-					<input type="text" placeholder="Cari Berdasarkan Kompetensi"
-						class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500" />
+						class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+					<select
+						class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+						<option value="">Pilih Kompetensi</option>
+						<option value="mesin">Mesin</option>
+						<option value="ototronik">Ototronik</option>
+						<option value="tekstil">Tekstil</option>
+						<option value="rpl">Rekayasa Perangkat Lunak</option>
+					</select>
 					<button
-						class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center justify-center">
+						class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center justify-center">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
 							stroke="currentColor" class="w-5 h-5">
 							<path stroke-linecap="round" stroke-linejoin="round"
@@ -279,171 +285,608 @@
 						</svg>
 					</button>
 				</div>
+				<div class="space-y-2">
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Agus Rumahno
+							</div>
+						</button>
 
-				<div class="border rounded-lg overflow-hidden">
-					<button onclick="toggleAccordion(this)"
-						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
-						<span class="flex items-center gap-3">
-							<svg class="w-4 h-4 transform transition-transform duration-300"
-								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-								stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M19 9l-7 7-7-7" />
-							</svg>
-							Agus Rumahno
-						</span>
-					</button>
-					<div class="hidden bg-blue-100 px-6 py-4">
-						<div class="flex gap-4 items-center">
-							<!-- Icon Profile -->
-							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
-								viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
-							</svg>
-							<!-- Detail Guru -->
-							<div>
-								<p><strong>Nama :</strong> Agus Rumahno</p>
-								<p><strong>Jenis Kelamin :</strong> Laki - Laki</p>
-								<p><strong>Kompetensi :</strong> Umum</p>
-								<p><strong>Mata Pelajaran :</strong> -</p>
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden ">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700 ">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="border rounded-lg overflow-hidden">
-					<button onclick="toggleAccordion(this)"
-						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
-						<span class="flex items-center gap-3">
-							<svg class="w-4 h-4 transform transition-transform duration-300"
-								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-								stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M19 9l-7 7-7-7" />
-							</svg>
-							Afif Nurudin Maisaroh
-						</span>
-					</button>
-					<div class="hidden bg-blue-100 px-6 py-4">
-						<div class="flex gap-4 items-center">
-							<!-- Icon Profile -->
-							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
-								viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
-							</svg>
-							<!-- Detail Guru -->
-							<div>
-								<p><strong>Nama :</strong> Afif Nurudin Maisaroh</p>
-								<p><strong>Jenis Kelamin :</strong> Laki - Laki</p>
-								<p><strong>Kompetensi :</strong>Rekayasa Perangkat Lunak</p>
-								<p><strong>Mata Pelajaran :</strong>Pemrograman Web</p>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Afif Nurudin Maisaroh
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="border rounded-lg overflow-hidden">
-					<button onclick="toggleAccordion(this)"
-						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
-						<span class="flex items-center gap-3">
-							<svg class="w-4 h-4 transform transition-transform duration-300"
-								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-								stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M19 9l-7 7-7-7" />
-							</svg>
-							Dwi Nuryani
-						</span>
-					</button>
-					<div class="hidden bg-blue-100 px-6 py-4">
-						<div class="flex gap-4 items-center">
-							<!-- Icon Profile -->
-							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
-								viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
-							</svg>
-							<!-- Detail Guru -->
-							<div>
-								<p><strong>Nama :</strong> Dwi Nuryani</p>
-								<p><strong>Jenis Kelamin :</strong> Perempuan</p>
-								<p><strong>Kompetensi :</strong> Umum</p>
-								<p><strong>Mata Pelajaran :</strong>Pemrograman Web</p>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Agung Wiratmo
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="border rounded-lg overflow-hidden">
-					<button onclick="toggleAccordion(this)"
-						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
-						<span class="flex items-center gap-3">
-							<svg class="w-4 h-4 transform transition-transform duration-300"
-								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-								stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M19 9l-7 7-7-7" />
-							</svg>
-							Agus Rumahno
-						</span>
-					</button>
-					<div class="hidden bg-blue-100 px-6 py-4">
-						<div class="flex gap-4 items-center">
-							<!-- Icon Profile -->
-							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
-								viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
-							</svg>
-							<!-- Detail Guru -->
-							<div>
-								<p><strong>Nama :</strong> Agus Rumahno</p>
-								<p><strong>Jenis Kelamin :</strong> Laki - Laki</p>
-								<p><strong>Kompetensi :</strong> Umum</p>
-								<p><strong>Mata Pelajaran :</strong> -</p>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Agus Darmadi
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="border rounded-lg overflow-hidden">
-					<button onclick="toggleAccordion(this)"
-						class="flex items-center justify-between w-full bg-white-500 text-black px-4 py-3 text-left font-semibold focus:outline-none">
-						<span class="flex items-center gap-3">
-							<svg class="w-4 h-4 transform transition-transform duration-300"
-								xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-								stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M19 9l-7 7-7-7" />
-							</svg>
-							Agus Rumahno
-						</span>
-					</button>
-					<div class="hidden bg-blue-100 px-6 py-4">
-						<div class="flex gap-4 items-center">
-							<!-- Icon Profile -->
-							<svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-700" fill="none"
-								viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
-							</svg>
-							<!-- Detail Guru -->
-							<div>
-								<p><strong>Nama :</strong> Agus Rumahno</p>
-								<p><strong>Jenis Kelamin :</strong> Laki - Laki</p>
-								<p><strong>Kompetensi :</strong> Umum</p>
-								<p><strong>Mata Pelajaran :</strong> -</p>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Arief Kurniawan
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
 							</div>
 						</div>
 					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Astitik
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Atik Retnoningsih
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Budi Sulistiyo
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Cahyono
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Carolin Windiasri
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Danang Cahyo Binarto
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Daniel Kristanto
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Darsono
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Dian Ekawati
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white border rounded-xl shadow-sm hover:shadow-md transition">
+						<!-- Header -->
+						<button onclick="toggleAccordion(this)"
+							class="flex items-center justify-between w-full px-5 py-3 text-left focus:outline-none">
+							<div class="flex items-center gap-3 font-semibold text-gray-800">
+								<svg class="w-4 h-4 text-gray-500 transform transition-transform duration-300"
+									xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M19 9l-7 7-7-7" />
+								</svg>
+								Dorotea Sri Herny Ss	
+							</div>
+						</button>
+
+						<!-- Isi -->
+						<div class="accordion-content px-6 pb-4 hidden">
+							<div class="flex items-center gap-5">
+								<!-- Foto/Profile -->
+								<div
+									class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center shadow-inner">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-600" fill="none"
+										viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+									</svg>
+								</div>
+
+								<!-- Detail -->
+								<div class="space-y-1 text-gray-700">
+									<p><span class="font-medium">Nama:</span> Agus Rumahno</p>
+									<p><span class="font-medium">Jenis Kelamin:</span> Laki - Laki</p>
+									<p><span class="font-medium">Kompetensi:</span> Umum</p>
+									<p><span class="font-medium">Mata Pelajaran:</span> -</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 
 				<!-- Info Data -->
@@ -455,7 +898,7 @@
 				<div class="flex items-center justify-center mt-4 gap-1">
 					<button class="px-3 py-1 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-100">«
 						Previous</button>
-					<button class="px-3 py-1 border border-green-500 bg-green-500 text-white rounded-lg">1</button>
+					<button class="px-3 py-1 border border-blue-500 bg-blue-500 text-white rounded-lg">1</button>
 					<button class="px-3 py-1 border border-gray-300 text-gray-600 hover:bg-gray-100">2</button>
 					<button class="px-3 py-1 border border-gray-300 text-gray-600 hover:bg-gray-100">3</button>
 					<button class="px-3 py-1 border border-gray-300 text-gray-600 hover:bg-gray-100">Next »</button>
@@ -465,6 +908,7 @@
 	</main>
 
 	<script>
+		
 		function toggleAccordion(button) {
 			const svg = button.querySelector("svg");
 			const content = button.nextElementSibling;

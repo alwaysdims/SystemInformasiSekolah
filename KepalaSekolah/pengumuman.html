@@ -25,7 +25,7 @@
 
 		<nav class="space-y-2">
 			<a href="dashboard.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -58,7 +58,7 @@
 			</a>
 
 			<a href="mataPelajaran.html"
-				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -102,7 +102,7 @@
 					</svg>
 				</button>
 				<div class="items-center">
-					<h3 class="text-md sm:text-2xl text-white font-semibold">Mata Pelajaran</h3>
+					<h3 class="text-md sm:text-2xl text-white font-semibold">Pengumuman</h3>
 				</div>
 			</div>
 
@@ -258,180 +258,90 @@
 		</div>
 
 		<main class="flex-1 overflow-y-auto p-6">
-			<main class="flex-1 overflow-y-auto p-6">
-				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+			<main class="flex-1 flex items-center justify-center p-6">
+				<div class="bg-white rounded-2xl shadow-lg w-full max-w-3xl p-8 border border-gray-100">
+					<h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center justify-center gap-2 text-center">
+                        <!-- Ikon Megaphone -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 5.882V19a1 1 0 001.447.894l6.764-3.382A2 2 0 0021 14.764V9.236a2 2 0 00-1.789-1.988l-6.764-3.382A1 1 0 0011 5.882zM4 15h1a1 1 0 001-1V8a1 1 0 00-1-1H4a2 2 0 00-2 2v4a2 2 0 002 2z" />
+                        </svg>
+                        Buat Pengumuman Baru
+                    </h2>
 
-					<!-- Matematika -->
-					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-blue-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M6.75 3h10.5v18H6.75V3zm3 3v3h4.5V6H9.75zm0 4.5h.008v.008H9.75V10.5zm0 3h.008v.008H9.75V13.5zm0 3h.008v.008H9.75V16.5zm4.5-6h.008v.008h-.008V10.5zm0 3h.008v.008h-.008V13.5zm0 3h.008v.008h-.008V16.5z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Matematika</h3>
-						<p class="text-gray-600 text-sm text-center">Aljabar, kalkulus, geometri, dan statistika.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
-					</div>
+					<form action="simpan_pengumuman.php" method="POST" class="space-y-6">
 
-					<!-- Bahasa Indonesia -->
-					<div class="bg-red-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-red-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16M4 10h16M4 15h16M4 20h16" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Bahasa Indonesia</h3>
-						<p class="text-gray-600 text-sm text-center">Membaca, menulis, dan keterampilan bahasa.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Budi Santoso</p>
-					</div>
+						<!-- Judul -->
+						<div>
+							<label class="block text-sm font-semibold text-gray-700 mb-2">Judul Pengumuman</label>
+							<input type="text" name="judul" placeholder="Masukkan judul pengumuman"
+								class="w-full rounded-xl border border-gray-200 p-3 text-gray-700 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+								required>
+						</div>
 
-					<!-- Bahasa Inggris -->
-					<div class="bg-yellow-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-red-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M4.5 4.75h15v14.5h-15zM6 6.5v11m12-11v11M6 6.5h12" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Bahasa Inggris</h3>
-						<p class="text-gray-600 text-sm text-center">Grammar, speaking, reading, and writing.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Siti Aminah</p>
-					</div>
+						<!-- Ringkasan -->
+						<div>
+							<label class="block text-sm font-semibold text-gray-700 mb-2">Ringkasan Singkat</label>
+							<textarea name="ringkasan" placeholder="Tuliskan ringkasan singkat pengumuman..."
+								class="w-full rounded-xl border border-gray-200 p-3 text-gray-700 shadow-sm h-28 resize-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+								required></textarea>
+						</div>
 
-					<!-- Bahasa Jawa -->
-					<div class="bg-green-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-green-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Bahasa Jawa</h3>
-						<p class="text-gray-600 text-sm text-center">Budaya, sastra, dan bahasa daerah.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rizky Nugroho</p>
-					</div>
+						<!-- Tanggal -->
+						<div>
+							<label class="block text-sm font-semibold text-gray-700 mb-2">Tanggal</label>
+							<input type="date" name="tanggal"
+								class="w-full rounded-xl border border-gray-200 p-3 text-gray-700 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+								required>
+						</div>
 
-					<!-- PIPAS -->
-					<div class="bg-indigo-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-indigo-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">PIPAS</h3>
-						<p class="text-gray-600 text-sm text-center">Pendidikan Pancasila dan wawasan sosial.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Indah Pratiwi</p>
-					</div>
+						<!-- Tombol -->
+						<div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
+							<a href="dashboard.html"
+								class="px-5 py-2 rounded-xl bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition shadow-sm">
+								Batal
+							</a>
+							<button type="submit"
+								class="px-5 py-2 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm">
+								Simpan
+							</button>
+						</div>
 
-					<!-- Olahraga -->
-					<div class="bg-orange-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-orange-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M12 4.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Olahraga</h3>
-						<p class="text-gray-600 text-sm text-center">Kesehatan, kebugaran, dan keterampilan olahraga.
-						</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rudi Santoso</p>
-					</div>
-
-					<!-- Pancasila -->
-					<div class="bg-purple-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-purple-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Pancasila</h3>
-						<p class="text-gray-600 text-sm text-center">Nilai-nilai Pancasila dan kewarganegaraan.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Adi Wibowo</p>
-					</div>
-
-					<!-- Pendidikan Agama Islam -->
-					<div class="bg-teal-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-teal-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Pendidikan Agama Islam</h3>
-						<p class="text-gray-600 text-sm text-center">Aqidah, ibadah, akhlak, dan sejarah Islam.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Fathur Rahman</p>
-					</div>
-
-					<!-- Informatika -->
-					<div class="bg-cyan-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-cyan-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Informatika</h3>
-						<p class="text-gray-600 text-sm text-center">Dasar-dasar komputer, algoritma, dan teknologi.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dimas Prakoso</p>
-					</div>
-
-					<!-- PKKWU -->
-					<div class="bg-pink-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-pink-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">PKKWU</h3>
-						<p class="text-gray-600 text-sm text-center">Kewirausahaan dan pengembangan usaha.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rina Maulida</p>
-					</div>
-
-					<!-- Basis Data -->
-					<div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-gray-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<ellipse cx="12" cy="5" rx="9" ry="3" />
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M3 5v14c0 1.657 4.03 3 9 3s9-1.343 9-3V5" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Basis Data</h3>
-						<p class="text-gray-600 text-sm text-center">Membuat, mengelola, dan mengolah data.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dwi Santoso</p>
-					</div>
-
-					<!-- Pemrograman Web -->
-					<div class="bg-blue-100 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-							class="mx-auto mb-4 h-16 w-16 text-blue-600 fill-current">
-							<path
-								d="M197.4 0L77.5 94.6 33.4 62.7 0 81.6l44.2 37.5L0 156.5l33.4 18.9 44.1-31.9L197.4 256 256 229.3V26.7L197.4 0zM197.4 33.1v189.8l-89.6-94.9 89.6-94.9z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Pemrograman Web</h3>
-						<p class="text-gray-600 text-sm text-center">Pengembangan website & aplikasi web.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dwi Buk E Orlando</p>
-					</div>
-
-					<!-- PBTGM -->
-					<div class="bg-lime-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-lime-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M12 4l9 4.5-9 4.5-9-4.5z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">PBTGM</h3>
-						<p class="text-gray-600 text-sm text-center">Pengelolaan bisnis dan teknologi grafika.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Bagus Setiawan</p>
-					</div>
-
-					<!-- Perangkat Bergerak -->
-					<div class="bg-emerald-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-emerald-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 2.25h10.5v19.5H6.75z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Perangkat Bergerak</h3>
-						<p class="text-gray-600 text-sm text-center">Pemrograman & pengembangan aplikasi mobile.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Putri Ayu Lestari</p>
-					</div>
-
+					</form>
 				</div>
 			</main>
-
 		</main>
 
 	</main>
 
 	<script>
+		const ctx = document.getElementById('nilaiChart').getContext('2d');
+		new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Ototronik', 'Tekstil', 'RPL', 'Mesin'],
+				datasets: [{
+					label: 'Rata-rata Nilai',
+					data: [82, 79, 88, 75],
+					backgroundColor: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6'],
+					borderRadius: 8
+				}]
+			},
+			options: {
+				responsive: true,
+				plugins: {
+					legend: {
+						display: false
+					}
+				},
+				scales: {
+					y: {
+						beginAtZero: true,
+						max: 100
+					}
+				}
+			}
+		});
 		// Toggle Dropdown for User Profile
 		function toggleDropdown() {
 			const dropdown = document.getElementById("dropdown-menu");
