@@ -2,7 +2,6 @@
 <html lang="id">
 
 <head>
-
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Dashboard Pengaduan</title>
@@ -276,8 +275,7 @@
                     </div>
 				</div>
 			</div>
-
-		<!-- Stats Cards -->
+			<!-- Stats Cards -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
 				<!-- Total Siswa -->
 				<div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 animate-fade-in"
@@ -713,7 +711,8 @@
 		function toggleDropdown() {
 			const dropdown = document.getElementById("dropdown-menu");
 			dropdown.classList.toggle("hidden");
-		} 
+		}
+
 		const toggleSidebarBtn = document.getElementById("toggleSidebar");
 		const sidebar = document.getElementById("sidebar");
 		const overlay = document.getElementById('overlay');
@@ -722,7 +721,7 @@
 			sidebar.classList.toggle("-translate-x-full");
 			overlay.classList.toggle("hidden");
 		});
- 
+
 		window.addEventListener("click", function (e) {
 			const profileButton = document.querySelector(
 				"button[onclick='toggleDropdown()']"
@@ -753,4 +752,4 @@
 	</script>
 </body>
 
-</html> 
+</html>
