@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SekolahKu - Jadwal Kelas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .floating-card {
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .schedule-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-start), var(--color-end));
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .bounce-in {
+            animation: bounceIn 0.6s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        'primary-dark': '#5a67d8',
+                        'primary-light': '#e6f3ff',
+                        secondary: '#48bb78',
+                        'secondary-light': '#c6f6d5',
+                        accent: '#ed8936',
+                        'accent-light': '#fbd38d',
+                        dark: '#2d3748',
+                        light: '#f7fafc'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.4s ease-out',
+                        'bounce-in': 'bounceIn 0.6s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-purple-50 text-dark font-sans min-h-screen">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"></div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed left-0 top-0 h-full w-80 bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 z-50 lg:hidden">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/740af846-d4f3-495f-ac0f-edf275f5ab0c.png" alt="SekolahKu Logo" class="rounded-full w-10 h-10">
+                    <h1 class="text-xl font-bold text-dark">SekolahKu</h1>
+                </div>
+                <button id="close-mobile-menu" class="p-2 rounded-full hover:bg-gray-100">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="p-6 space-y-3">
+            <a href="#" class="flex items-center space-x-3 px-4 py-3 bg-primary text-white rounded-xl font-semibold">
+                <i class="fas fa-calendar-alt text-xl"></i>
+                <span>Jadwal Kelas</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-xl font-medium transition-colors duration-200">
+                <i class="fas fa-book text-xl"></i>
+                <span>Materi Pelajaran</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-xl font-medium transition-colors duration-200">
+                <i class="fas fa-tasks text-xl"></i>
+                <span>Tugas & Ujian</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-xl font-medium transition-colors duration-200">
+                <i class="fas fa-chart-line text-xl"></i>
+                <span>Nilai</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-xl font-medium transition-colors duration-200">
+                <i class="fas fa-users text-xl"></i>
+                <span>Teman Sekelas</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="glass-effect sticky top-0 z-30 border-b border-white/20">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-3">
+                        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-full hover:bg-gray-100 transition-colors duration-200">
+                            <i class="fas fa-bars text-gray-700"></i>
+                        </button>
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/740af846-d4f3-495f-ac0f-edf275f5ab0c.png" alt="SekolahKu Logo" class="rounded-full w-10 h-10">
+                        <h1 class="text-2xl font-bold text-dark hidden sm:block">SekolahKu</h1>
+                    </div>
+                    
+                    <!-- Quick Stats - Hidden on mobile -->
+                    <div class="hidden md:flex items-center space-x-6 text-sm">
+                        <div class="flex items-center space-x-2 bg-white/50 px-3 py-2 rounded-full">
+                            <div class="w-2 h-2 bg-green-500 rounded-full pulse-dot"></div>
+                            <span class="font-medium">3 Kelas Hari Ini</span>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-white/50 px-3 py-2 rounded-full">
+                            <i class="fas fa-tasks text-accent"></i>
+                            <span class="font-medium">2 Tugas Pending</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-3">
+                        <button class="relative p-3 rounded-full bg-white/50 text-gray-700 hover:bg-white hover:shadow-lg transition-all duration-200" aria-label="Notifications">
+                            <i class="fas fa-bell text-lg"></i>
+                            <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center animate-pulse">3</span>
+                        </button>
+                        <div class="relative group">
+                            <button class="flex items-center space-x-2 focus:outline-none p-2 rounded-full hover:bg-white/50 transition-all duration-200">
+                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4d494460-dc5d-43f4-a7f2-e1168754c37e.png" alt="Profile" class="rounded-full w-9 h-9 border-2 border-primary">
+                                <span class="text-sm font-medium hidden sm:inline text-dark">John Doe</span>
+                                <i class="fas fa-chevron-down text-xs text-gray-500 hidden sm:inline"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="flex-1 container mx-auto px-4 py-6 lg:py-8">
+            <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
+                <!-- Sidebar - Hidden on mobile, shown in mobile menu -->
+                <aside class="hidden lg:block w-64 flex-shrink-0">
+                    <div class="sticky top-24">
+                        <nav class="space-y-2 mb-6">
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 bg-primary text-white rounded-xl font-semibold transform transition-all duration-200 hover:scale-105 shadow-lg">
+                                <i class="fas fa-calendar-alt text-xl"></i>
+                                <span>Jadwal Kelas</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-white hover:shadow-md rounded-xl font-medium transition-all duration-200">
+                                <i class="fas fa-book text-xl"></i>
+                                <span>Materi Pelajaran</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-white hover:shadow-md rounded-xl font-medium transition-all duration-200">
+                                <i class="fas fa-tasks text-xl"></i>
+                                <span>Tugas & Ujian</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-white hover:shadow-md rounded-xl font-medium transition-all duration-200">
+                                <i class="fas fa-chart-line text-xl"></i>
+                                <span>Nilai</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-white hover:shadow-md rounded-xl font-medium transition-all duration-200">
+                                <i class="fas fa-users text-xl"></i>
+                                <span>Teman Sekelas</span>
+                            </a>
+                        </nav>
+                        
+                        <!-- Quick Calendar Widget -->
+                        <div class="bg-white p-4 rounded-2xl shadow-lg border border-gray-100">
+                            <h3 class="font-bold text-lg text-dark mb-3 flex items-center">
+                                <i class="fas fa-calendar-check text-primary mr-2"></i>
+                                Kalender Cepat
+                            </h3>
+                            <div class="text-sm space-y-2">
+                                <div class="flex items-center justify-between p-2 bg-red-50 rounded-lg">
+                                    <span class="text-red-700">UTS Matematika</span>
+                                    <span class="text-xs text-red-500">Besok</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-blue-50 rounded-lg">
+                                    <span class="text-blue-700">Presentasi Fisika</span>
+                                    <span class="text-xs text-blue-500">Jumat</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="flex-1 space-y-6 lg:space-y-8">
+                    <!-- Header Section -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div class="slide-in">
+                            <h2 class="text-2xl lg:text-3xl font-bold text-dark">Jadwal Kelas</h2>
+                            <p class="text-gray-500 text-base lg:text-lg mt-1 flex items-center">
+                                <i class="fas fa-calendar-day text-primary mr-2"></i>
+                                <span id="current-date">Selasa, 13 Juni 2023</span>
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <button id="sync-calendar-btn" class="px-4 lg:px-5 py-2 lg:py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary-dark transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+                                <i class="fas fa-sync-alt"></i>
+                                <span class="hidden sm:inline">Sinkronkan</span>
+                                <span class="sm:hidden">Sync</span>
+                            </button>
+                            <button class="p-2 lg:p-3 bg-white border border-gray-300 rounded-full text-gray-600 hover:bg-gray-50 hover:shadow-md transition-all duration-200" aria-label="Settings">
+                                <i class="fas fa-cog text-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats Cards - Mobile -->
+                    <div class="grid grid-cols-2 gap-4 md:hidden">
+                        <div class="bg-white p-4 rounded-xl shadow-md border border-gray-100 text-center">
+                            <div class="text-2xl font-bold text-primary">3</div>
+                            <div class="text-sm text-gray-600">Kelas Hari Ini</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-md border border-gray-100 text-center">
+                            <div class="text-2xl font-bold text-accent">2</div>
+                            <div class="text-sm text-gray-600">Tugas Pending</div>
+                        </div>
+                    </div>
+
+                    <!-- Schedule Container -->
+                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden floating-card">
+                        <!-- Tabs -->
+                        <div class="border-b border-gray-200 p-2 bg-gray-50">
+                            <nav class="flex space-x-1" role="tablist">
+                                <button role="tab" class="tab-button active py-2 px-4 text-center border-b-4 border-primary text-primary font-bold rounded-t-lg transition-all duration-200 text-sm lg:text-base" data-tab="today">
+                                    <i class="fas fa-clock mr-1"></i>
+                                    <span class="hidden sm:inline">Hari Ini</span>
+                                    <span class="sm:hidden">Hari Ini</span>
+                                </button>
+                                <button role="tab" class="tab-button py-2 px-4 text-center border-b-4 border-transparent text-gray-500 hover:text-dark hover:border-gray-300 transition-all duration-200 text-sm lg:text-base" data-tab="this-week">
+                                    <i class="fas fa-calendar-week mr-1"></i>
+                                    <span class="hidden sm:inline">Pekan Ini</span>
+                                    <span class="sm:hidden">Minggu</span>
+                                </button>
+                                <button role="tab" class="tab-button py-2 px-4 text-center border-b-4 border-transparent text-gray-500 hover:text-dark hover:border-gray-300 transition-all duration-200 text-sm lg:text-base" data-tab="this-month">
+                                    <i class="fas fa-calendar-alt mr-1"></i>
+                                    <span class="hidden sm:inline">Bulan Ini</span>
+                                    <span class="sm:hidden">Bulan</span>
+                                </button>
+                            </nav>
+                        </div>
+                        
+                        <!-- Schedule Content -->
+                        <div class="p-4 lg:p-6">
+                            <div id="schedule-content" class="space-y-4 lg:space-y-6">
+                                <!-- Schedule Card 1 -->
+                                <div class="schedule-card relative bg-gradient-to-r from-blue-50 to-indigo-50 p-4 lg:p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-primary" style="--color-start: #667eea; --color-end: #764ba2;">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3">
+                                        <div class="flex-1">
+                                            <div class="flex items-center space-x-2 mb-2">
+                                                <h3 class="font-bold text-lg lg:text-xl text-dark">Matematika Lanjutan</h3>
+                                                <span class="px-2 py-1 bg-primary text-white text-xs rounded-full">Live</span>
+                                            </div>
+                                            <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-gray-600">
+                                                <div class="flex items-center space-x-1">
+                                                    <i class="fas fa-clock text-primary"></i>
+                                                    <span>07:30 - 09:00</span>
+                                                </div>
+                                                <div class="hidden sm:block">•</div>
+                                                <div class="flex items-center space-x-1">
+                                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                                    <span>Ruang 203</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="p-2 text-primary hover:bg-primary hover:text-white rounded-full transition-all duration-200 transform hover:scale-110" aria-label="Join class">
+                                                <i class="fas fa-video"></i>
+                                            </button>
+                                            <button class="p-2 text-gray-400 hover:text-gray-600 rounded-full transition-colors duration-200" aria-label="More options">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 flex items-center space-x-3">
+                                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bc55c1f1-c4d6-4507-bd21-c6bd275f59ec.png" alt="Pak Anton" class="rounded-full w-8 h-8 border-2 border-primary">
+                                        <span class="text-sm font-medium">Pak Anton Susanto</span>
+                                        <div class="flex items-center space-x-1 text-xs text-green-600">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full pulse-dot"></div>
+                                            <span>Online</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 pt-4 border-t border-gray-200 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-xs font-semibold px-3 py-1 bg-white text-red-600 rounded-full border border-red-200">
+                                                <i class="fas fa-exclamation-triangle mr-1"></i> UTS
+                                            </span>
+                                            <span class="text-xs font-semibold px-3 py-1 bg-white text-blue-600 rounded-full border border-blue-200">
+                                                <i class="fas fa-users mr-1"></i> 28 Siswa
+                                            </span>
+                                        </div>
+                                        <a href="#" class="inline-flex items-center px-4 py-2 bg-primary text-white text-sm font-medium rounded-full hover:bg-primary-dark transition-all duration-200 transform hover:scale-105">
+                                            <i class="fas fa-external-link-alt mr-2"></i> 
+                                            <span>Gabung Kelas</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Schedule Card 2 -->
+                                <div class="schedule-card relative bg-gradient-to-r from-green-50 to-emerald-50 p-4 lg:p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-secondary" style="--color-start: #48bb78; --color-end: #38a169;">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3">
+                                        <div class="flex-1">
+                                            <div class="flex items-center space-x-2 mb-2">
+                                                <h3 class="font-bold text-lg lg:text-xl text-dark">Fisika Dasar</h3>
+                                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Upcoming</span>
+                                            </div>
+                                            <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-gray-600">
+                                                <div class="flex items-center space-x-1">
+                                                    <i class="fas fa-clock text-secondary"></i>
+                                                    <span>09:30 - 11:00</span>
+                                                </div>
+                                                <div class="hidden sm:block">•</div>
+                                                <div class="flex items-center space-x-1">
+                                                    <i class="fas fa-flask text-secondary"></i>
+                                                    <span>Lab Fisika</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="p-2 text-secondary hover:bg-secondary hover:text-white rounded-full transition-all duration-200 transform hover:scale-110" aria-label="Set reminder">
+                                                <i class="fas fa-bell"></i>
+                                            </button>
+                                            <button class="p-2 text-gray-400 hover:text-gray-600 rounded-full transition-colors duration-200" aria-label="More options">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 flex items-center space-x-3">
+                                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2d02c0a0-6de9-4448-8770-4e9188b0d966.png" alt="Ibu Sinta" class="rounded-full w-8 h-8 border-2 border-secondary">
+                                        <span class="text-sm font-medium">Ibu Sinta Wulandari</span>
+                                        <div class="flex items-center space-x-1 text-xs text-gray-500">
+                                            <i class="fas fa-clock"></i>
+                                            <span>30 menit lagi</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 pt-4 border-t border-gray-200 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-xs font-semibold px-3 py-1 bg-white text-secondary rounded-full border border-green-200">
+                                                <i class="fas fa-flask mr-1"></i> Praktikum
+                                            </span>
+                                            <span class="text-xs font-semibold px-3 py-1 bg-white text-purple-600 rounded-full border border-purple-200">
+                                                <i class="fas fa-clipboard-list mr-1"></i> Laporan
+                                            </span>
+                                        </div>
+                                        <button class="inline-flex items-center px-4 py-2 bg-secondary text-white text-sm font-medium rounded-full hover:bg-green-600 transition-all duration-200 transform hover:scale-105">
+                                            <i class="fas fa-calendar-plus mr-2"></i> 
+                                            <span>Set Reminder</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Schedule Card 3 -->
+                                <div class="schedule-card relative bg-gradient-to-r from-purple-50 to-pink-50 p-4 lg:p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-purple-500" style="--color-start: #9f7aea; --color-end: #ed64a6;">
+                                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3">
+                                        <div class="flex-1">
+                                            <div class="flex items-center space-x-2 mb-2">
+                                                <h3 class="font-bold text-lg lg:text-xl text-dark">Bahasa Inggris</h3>
+                                                <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full animate-pulse">Deadline!</span>
+                                            </div>
+                                            <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-gray-600">
+                                                <div class="flex items-center space-x-1">
+                                                    <i class="fas fa-clock text-purple-600"></i>
+                                                    <span>13:00 - 14:30</span>
+                                                </div>
+                                                <div class="hidden sm:block">•</div>
+                                                <div class="flex items-center space-x-1">
+                                                    <i class="fas fa-map-marker-alt text-purple-600"></i>
+                                                    <span>Ruang 102</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="p-2 text-purple-600 hover:bg-purple-600 hover:text-white rounded-full transition-all duration-200 transform hover:scale-110" aria-label="View assignment">
+                                                <i class="fas fa-file-alt"></i>
+                                            </button>
+                                            <button class="p-2 text-gray-400 hover:text-gray-600 rounded-full transition-colors duration-200" aria-label="More options">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-4 flex items-center space-x-3">
+                                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/97409043-ccc0-4487-9544-87ec0d9e7268.png" alt="Buk Sarah" class="rounded-full w-8 h-8 border-2 border-purple-500">
+                                        <span class="text-sm font-medium">Buk Sarah Johnson</span>
+                                        <div class="flex items-center space-x-1 text-xs text-red-600">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                            <span>Tugas belum selesai</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="                                    <div class="mt-4 pt-4 border-t border-gray-200 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-xs font-semibold px-3 py-1 bg-white text-red-600 rounded-full border border-red-200 animate-pulse">
+                                                <i class="fas fa-bell mr-1"></i> Tugas Deadline
+                                            </span>
+                                            <span class="text-xs font-semibold px-3 py-1 bg-white text-orange-600 rounded-full border border-orange-200">
+                                                <i class="fas fa-book-open mr-1"></i> Essay
+                                            </span>
+                                        </div>
+                                        <button class="inline-flex items-center px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-full hover:bg-purple-700 transition-all duration-200 transform hover:scale-105">
+                                            <i class="fas fa-upload mr-2"></i> 
+                                            <span>Submit Tugas</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tasks Section -->
+                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden floating-card">
+                        <div class="border-b border-gray-200 p-4 lg:p-6 bg-gradient-to-r from-gray-50 to-blue-50">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <h3 class="font-bold text-xl text-dark flex items-center space-x-3">
+                                    <i class="fas fa-tasks text-primary text-2xl"></i>
+                                    <span>Pengingat Tugas</span>
+                                    <span class="bg-red-500 text-white text-xs px-2 py-1 rounded-full">2 Urgent</span>
+                                </h3>
+                                <button class="inline-flex items-center px-4 py-2 bg-primary text-white text-sm font-medium rounded-full hover:bg-primary-dark transition-all duration-200">
+                                    <i class="fas fa-plus mr-2"></i>
+                                    <span class="hidden sm:inline">Tambah Tugas</span>
+                                    <span class="sm:hidden">Tambah</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="tasks-container" class="divide-y divide-gray-100">
+                            <!-- Tasks will be rendered here by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Study Groups Section -->
+                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden floating-card">
+                        <div class="border-b border-gray-200 p-4 lg:p-6 bg-gradient-to-r from-green-50 to-blue-50">
+                            <h3 class="font-bold text-xl text-dark flex items-center space-x-3">
+                                <i class="fas fa-users text-secondary text-2xl"></i>
+                                <span>Grup Belajar</span>
+                                <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">3 Active</span>
+                            </h3>
+                        </div>
+                        <div class="p-4 lg:p-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-all duration-200">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-semibold text-dark">Matematika UTS</h4>
+                                        <div class="flex items-center space-x-1">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                            <span class="text-xs text-green-600">5 online</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex -space-x-2 mb-3">
+                                        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4d494460-dc5d-43f4-a7f2-e1168754c37e.png" alt="Student 1">
+                                        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2d02c0a0-6de9-4448-8770-4e9188b0d966.png" alt="Student 2">
+                                        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bc55c1f1-c4d6-4507-bd21-c6bd275f59ec.png" alt="Student 3">
+                                        <div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-medium">+2</div>
+                                    </div>
+                                    <button class="w-full bg-blue-500 text-white text-sm py-2 rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                                        <i class="fas fa-comments mr-1"></i> Join Chat
+                                    </button>
+                                </div>
+
+                                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl border border-green-100 hover:shadow-md transition-all duration-200">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-semibold text-dark">Fisika Lab</h4>
+                                        <div class="flex items-center space-x-1">
+                                            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                            <span class="text-xs text-yellow-600">2 online</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex -space-x-2 mb-3">
+                                        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4d494460-dc5d-43f4-a7f2-e1168754c37e.png" alt="Student 1">
+                                        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/97409043-ccc0-4487-9544-87ec0d9e7268.png" alt="Student 2">
+                                        <div class="w-6 h-6 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs font-medium">+3</div>
+                                    </div>
+                                    <button class="w-full bg-green-500 text-white text-sm py-2 rounded-lg hover:bg-green-600 transition-colors duration-200">
+                                        <i class="fas fa-video mr-1"></i> Video Call
+                                    </button>
+                                </div>
+
+                                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-xl border border-purple-100 hover:shadow-md transition-all duration-200">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-semibold text-dark">English Essay</h4>
+                                        <div class="flex items-center space-x-1">
+                                            <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                                            <span class="text-xs text-red-600">Deadline!</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex -space-x-2 mb-3">
+                                        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2d02c0a0-6de9-4448-8770-4e9188b0d966.png" alt="Student 1">
+                                        <img class="w-6 h-6 rounded-full border-2 border-white" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bc55c1f1-c4d6-4507-bd21-c6bd275f59ec.png" alt="Student 2">
+                                    </div>
+                                    <button class="w-full bg-purple-500 text-white text-sm py-2 rounded-lg hover:bg-purple-600 transition-colors duration-200">
+                                        <i class="fas fa-edit mr-1"></i> Collaborate
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Quick Action Floating Button - Mobile -->
+        <div class="fixed bottom-6 right-6 lg:hidden z-30">
+            <button id="fab-main" class="w-14 h-14 bg-primary text-white rounded-full shadow-2xl hover:bg-primary-dark transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
+                <i class="fas fa-plus text-xl"></i>
+            </button>
+            
+            <!-- FAB Menu -->
+            <div id="fab-menu" class="absolute bottom-16 right-0 space-y-3 transform scale-0 transition-transform duration-300 origin-bottom-right">
+                <button class="w-12 h-12 bg-secondary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center">
+                    <i class="fas fa-calendar-plus"></i>
+                </button>
+                <button class="w-12 h-12 bg-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center">
+                    <i class="fas fa-tasks"></i>
+                </button>
+                <button class="w-12 h-12 bg-purple-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center">
+                    <i class="fas fa-users"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Calendar Sync Modal -->
+        <div id="calendarModal" class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center p-4 z-[100] transition-opacity duration-300 opacity-0 pointer-events-none">
+            <div class="bg-white rounded-2xl max-w-lg w-full p-6 lg:p-8 shadow-2xl transform scale-95 transition-transform duration-300">
+                <div class="flex justify-between items-center mb-5">
+                    <h3 class="text-xl lg:text-2xl font-bold text-dark">Sinkronkan Kalender</h3>
+                    <button id="close-modal-btn" class="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors duration-200" aria-label="Close modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <p class="text-gray-600 mb-6 text-sm lg:text-base">Dengan menyinkronkan, jadwal kelas dan deadline tugas akan otomatis muncul di kalender Anda.</p>
+                <div class="space-y-4">
+                    <button id="google-sync-btn" class="w-full flex items-center justify-center space-x-3 bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 shadow-md transform hover:scale-105">
+                        <i class="fab fa-google text-lg"></i>
+                        <span>Lanjutkan dengan Google</span>
+                    </button>
+                    <div class="text-center text-sm text-gray-500">
+                        <div class="flex items-center my-4">
+                            <div class="flex-1 border-t border-gray-200"></div>
+                            <span class="mx-4 text-gray-400">atau</span>
+                            <div class="flex-1 border-t border-gray-200"></div>
+                        </div>
+                        <p class="mb-3">Salin link kalender untuk import manual:</p>
+                        <div class="flex shadow-sm rounded-xl overflow-hidden">
+                            <input type="text" value="https://schoolapi.com/calendar/ics/12345" class="flex-1 border-0 focus:ring-0 px-4 py-2 text-sm bg-gray-100 text-gray-600" readonly>
+                            <button id="copy-link-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium px-4 transition-colors duration-200 text-sm">
+                                Salin
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-200 py-6 mt-12 shadow-inner">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-center md:text-left">
+                        <p class="text-gray-500 text-sm">© 2023 SekolahKu. All rights reserved.</p>
+                    </div>
+                    <div class="flex items-center space-x-6 text-sm text-gray-500">
+                        <a href="#" class="hover:text-primary transition-colors duration-200">Bantuan</a>
+                        <a href="#" class="hover:text-primary transition-colors duration-200">Kebijakan</a>
+                        <a href="#" class="hover:text-primary transition-colors duration-200">Kontak</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const closeMobileMenu = document.getElementById('close-mobile-menu');
+
+            function toggleMobileMenu(show) {
+                if (show) {
+                    mobileMenu.classList.remove('-translate-x-full');
+                    mobileMenuOverlay.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('-translate-x-full');
+                    mobileMenuOverlay.classList.add('hidden');
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', () => toggleMobileMenu(true));
+            closeMobileMenu.addEventListener('click', () => toggleMobileMenu(false));
+            mobileMenuOverlay.addEventListener('click', () => toggleMobileMenu(false));
+
+            // FAB Menu Toggle
+            const fabMain = document.getElementById('fab-main');
+            const fabMenu = document.getElementById('fab-menu');
+            let fabOpen = false;
+
+            fabMain.addEventListener('click', () => {
+                fabOpen = !fabOpen;
+                if (fabOpen) {
+                    fabMenu.classList.remove('scale-0');
+                    fabMenu.classList.add('scale-100');
+                    fabMain.innerHTML = '<i class="fas fa-times text-xl"></i>';
+                } else {
+                    fabMenu.classList.add('scale-0');
+                    fabMenu.classList.remove('scale-100');
+                    fabMain.innerHTML = '<i class="fas fa-plus text-xl"></i>';
+                }
+            });
+
+            // Tab Management
+            const tabButtons = document.querySelectorAll('[role="tab"]');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabButtons.forEach(tab => {
+                        tab.classList.remove('border-primary', 'text-primary', 'font-bold');
+                        tab.classList.add('border-transparent', 'text-gray-500');
+                    });
+                    
+                    // Add active class to clicked tab
+                    button.classList.remove('border-transparent', 'text-gray-500');
+                    button.classList.add('border-primary', 'text-primary', 'font-bold');
+                    
+                    // Here you would typically load different content based on the tab
+                    const tabName = button.dataset.tab;
+                    console.log(`Loading content for: ${tabName}`);
+                });
+            });
+
+            // Modal Management
+            function toggleModal(show) {
+                const modal = document.getElementById('calendarModal');
+                if (show) {
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modal.querySelector('div').classList.remove('scale-95');
+                    modal.classList.add('opacity-100');
+                } else {
+                    modal.classList.add('opacity-0', 'pointer-events-none');
+                    modal.querySelector('div').classList.add('scale-95');
+                }
+            }
+            
+            document.getElementById('sync-calendar-btn').addEventListener('click', () => toggleModal(true));
+            document.getElementById('close-modal-btn').addEventListener('click', () => toggleModal(false));
+            document.getElementById('calendarModal').addEventListener('click', (e) => {
+                if (e.target.id === 'calendarModal') {
+                    toggleModal(false);
+                }
+            });
+
+            // Copy to clipboard functionality
+            document.getElementById('copy-link-btn').addEventListener('click', function() {
+                const linkInput = this.previousElementSibling;
+                linkInput.select();
+                document.execCommand('copy');
+                
+                // Visual feedback
+                const originalText = this.textContent;
+                this.textContent = 'Disalin!';
+                this.classList.add('bg-secondary', 'text-white');
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.classList.remove('bg-secondary', 'text-white');
+                }, 2000);
+            });
+
+            // Google OAuth simulation
+            document.getElementById('google-sync-btn').addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Menghubungkan...';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    toggleModal(false);
+                    // Show success notification
+                    showNotification('Kalender berhasil disinkronkan!', 'success');
+                    this.innerHTML = '<i class="fab fa-google text-lg mr-2"></i> Lanjutkan dengan Google';
+                    this.disabled = false;
+                }, 2000);
+            });
+
+            // Date formatting
+            const formatDate = (date) => {
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                return date.toLocaleDateString('id-ID', options);
+            };
+            document.getElementById('current-date').textContent = formatDate(new Date());
+
+            // Task Management
+            const tasksContainer = document.getElementById('tasks-container');
+            let tasks = [
+                { 
+                    id: 1, 
+                    title: 'Essay Fisika - Gerak Parabola', 
+                    subject: 'Fisika',
+                    due: 'Besok, 09:00', 
+                    priority: 'high', 
+                    completed: false,
+                    progress: 60
+                },
+                { 
+                    id: 2, 
+                    title: 'Proyek Matematika - Turunan Fungsi', 
+                    subject: 'Matematika',
+                    due: '2 hari lagi', 
+                    priority: 'medium', 
+                    completed: false,
+                    progress: 30
+                },
+                { 
+                    id: 3, 
+                    title: 'Membaca Novel Bahasa Inggris', 
+                    subject: 'Bahasa Inggris',
+                    due: '5 hari lagi', 
+                    priority: 'low', 
+                    completed: false,
+                    progress: 80
+                }
+            ];
+
+            const renderTasks = () => {
+                tasksContainer.innerHTML = '';
+                tasks.forEach((task, index) => {
+                    const priorityConfig = {
+                        high: { bg: 'bg-red-50', text: 'text-red-800', border: 'border-red-200', label: 'Tinggi', icon: 'fas fa-exclamation-triangle' },
+                        medium: { bg: 'bg-yellow-50', text: 'text-yellow-800', border: 'border-yellow-200', label: 'Sedang', icon: 'fas fa-clock' },
+                        low: { bg: 'bg-green-50', text: 'text-green-800', border: 'border-green-200', label: 'Rendah', icon: 'fas fa-check-circle' }
+                    }[task.priority];
+
+                    const subjectColors = {
+                        'Fisika': 'bg-blue-100 text-blue-800',
+                        'Matematika': 'bg-purple-100 text-purple-800',
+                        'Bahasa Inggris': 'bg-pink-100 text-pink-800'
+                    };
+
+                    const lineThroughClass = task.completed ? 'line-through text-gray-400' : 'text-dark';
+                    const checkedAttribute = task.completed ? 'checked' : '';
+                    const cardOpacity = task.completed ? 'opacity-60' : 'opacity-100';
+
+                    tasksContainer.innerHTML += `
+                        <div class="p-4 lg:p-6 ${cardOpacity} transition-all duration-300 hover:bg-gray-50 group slide-in" data-task-id="${task.id}" style="animation-delay: ${index * 0.1}s">
+                            <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+                                <div class="flex items-start space-x-4 flex-1">
+                                    <div class="flex items-center space-x-3 mt-1">
+                                        <input type="checkbox" class="h-5 w-5 text-primary rounded-md border-gray-300 focus:ring-primary task-checkbox transform transition-transform duration-200 hover:scale-110" ${checkedAttribute}>
+                                        <div class="w-12 h-12 rounded-full ${subjectColors[task.subject] || 'bg-gray-100 text-gray-800'} flex items-center justify-center font-bold text-sm">
+                                            ${task.subject.charAt(0)}
+                                        </div>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <h4 class="font-semibold text-base lg:text-lg ${lineThroughClass} mb-1">${task.title}</h4>
+                                        <div class="flex flex-wrap items-center gap-2 text-sm text-gray-500 mb-2">
+                                            <span class="flex items-center space-x-1">
+                                                <i class="fas fa-clock"></i>
+                                                <span>Deadline: ${task.due}</span>
+                                            </span>
+                                            <span class="hidden sm:inline">•</span>
+                                            <span class="px-2 py-1 ${subjectColors[task.subject]} rounded-full text-xs font-medium">
+                                                ${task.subject}
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="flex-1 bg-gray-200 rounded-full h-2">
+                                                <div class="bg-primary h-2 rounded-full transition-all duration-500" style="width: ${task.progress}%"></div>
+                                            </div>
+                                            <span class="text-xs font-medium text-gray-600">${task.progress}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between lg:justify-end space-x-3">
+                                    <span class="text-xs px-3 py-1 rounded-full font-semibold border ${priorityConfig.bg} ${priorityConfig.text} ${priorityConfig.border}">
+                                        <i class="${priorityConfig.icon} mr-1"></i> ${priorityConfig.label}
+                                    </span>
+                                    <div class="flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                        <button class="p-2 text-blue-500 hover:bg-blue-100 rounded-full transition-colors duration-200" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="p-2 text-red-500 hover:bg-red-100 rounded-full transition-colors duration-200" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                // Add checkbox event listeners
+                document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        const taskId = parseInt(this.closest('[data-task-id]').dataset.taskId);
+                        const taskIndex = tasks.findIndex(t => t.id === taskId);
+                        if (taskIndex !== -1) {
+                            tasks[taskIndex].completed = this.checked;
+                            if (this.checked) {
+                                tasks[taskIndex].progress = 100;
+                                showNotification('Tugas selesai! 🎉', 'success');
+                            }
+                            renderTasks();
+                        }
+                    });
+                });
+            };
+
+            // Notification system
+            function showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 ${
+                    type === 'success' ? 'bg-green-500 text-white' : 
+                    type === 'error' ? 'bg-red-500 text-white' : 
+                    'bg-blue-500 text-white'
+                }`;
+                notification.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'times' : 'info'}-circle"></i>
+                        <span>${message}</span>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.remove('translate-x-full');
+                }, 100);
+                
+                setTimeout(() => {
+                    notification.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+
+            // Initialize tasks
+            renderTasks();
+
+            // Add some interactive animations on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all floating cards
+            document.querySelectorAll('.floating-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                // Ctrl/Cmd + K to open search (placeholder)
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    showNotification('Fitur pencarian akan segera hadir! 🔍', 'info');
+                }
+                
+                // Escape to close modals
+                if (e.key === 'Escape') {
+                    toggleModal(false);
+                    toggleMobileMenu(false);
+                }
+            });
+
+            // Add some fun easter eggs
+            let clickCount = 0;
+            document.querySelector('h1').addEventListener('click', () => {
+                clickCount++;
+                if (clickCount === 5) {
+                    showNotification('Selamat belajar! Semangat ya! 📚✨', 'success');
+                    clickCount = 0;
+                }
+            });
+
+            // Auto-refresh time every minute
+            setInterval(() => {
+                document.getElementById('current-date').textContent = formatDate(new Date());
+            }, 60000);
+
+            console.log('SekolahKu Dashboard loaded successfully! 🎓');
+        </script>
+    </div>
+</body>
+</html>
+
