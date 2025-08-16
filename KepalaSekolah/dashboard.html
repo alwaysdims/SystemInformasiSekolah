@@ -16,47 +16,55 @@
         .animate-fade-in {
             animation: fadeIn 0.5s ease-out forwards;
         }
+        .shadow-custom {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .shadow-custom:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .sidebar-gradient {
+            background-image: linear-gradient(to bottom, #1E3A8A, #1C274E);
+        }
     </style>
 </head>
-<body class="bg-gray-50 font-sans scroll-smooth">
+<body class="bg-gray-100 font-sans antialiased">
     <div class="flex h-screen overflow-hidden">
-        <!-- Sidebar -->
         <div class="hidden md:flex md:flex-shrink-0">
-            <div class="flex flex-col w-64 bg-white border-r border-gray-200">
-                <div class="flex items-center justify-center h-16 border-b border-gray-200 bg-white">
-                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c3541d5-0191-4019-aadb-7478e9f9daf3.png" alt="Logo Sekolah ABC - Desain modern dengan ikon pendidikan dan teks berwarna putih" class="h-10" />
+            <div class="flex flex-col w-64 sidebar-gradient text-white">
+                <div class="flex items-center justify-center h-16 border-b border-gray-700">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c3541d5-0191-4019-aadb-7478e9f9daf3.png" alt="Logo Sekolah ABC" class="h-10" />
                 </div>
                 <div class="flex flex-col flex-grow px-4 py-6 overflow-y-auto">
-                    <nav class="space-y-1">
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-white bg-blue-500 rounded-lg">
+                    <nav class="space-y-2">
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 bg-blue-600 text-white shadow-md">
                             <i class="fas fa-home mr-3"></i>
                             Dashboard
                         </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200">
                             <i class="fas fa-users mr-3"></i>
                             Siswa
                         </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200">
                             <i class="fas fa-chalkboard-teacher mr-3"></i>
                             Guru
                         </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200">
                             <i class="fas fa-book mr-3"></i>
                             Mata Pelajaran
                         </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200">
                             <i class="fas fa-calendar-alt mr-3"></i>
                             Jadwal
                         </a>
-                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-600 hover:bg-blue-100 rounded-lg">
+                        <a href="#" class="flex items-center px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200">
                             <i class="fas fa-clipboard-list mr-3"></i>
                             Nilai
                         </a>
                     </nav>
                     <div class="mt-auto">
-                        <div class="p-4 mt-6 bg-blue-100 rounded-lg">
-                            <h3 class="text-sm font-medium text-blue-800">Upcoming Event</h3>
-                            <p class="mt-1 text-xs text-blue-600">Rapat Orang Tua: 15 Juni 2023</p>
+                        <div class="p-4 mt-6 bg-gray-800 rounded-xl">
+                            <h3 class="text-sm font-medium text-gray-100">Upcoming Event</h3>
+                            <p class="mt-1 text-xs text-gray-400">Rapat Orang Tua: 15 Juni 2023</p>
                         </div>
                     </div>
                 </div>
@@ -64,161 +72,162 @@
         </div>
 
         <div class="flex flex-col flex-1 overflow-hidden">
-            <!-- Header -->
-            <header class="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200">
+            <header class="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200 shadow-sm">
                 <div class="flex items-center">
                     <button class="md:hidden text-gray-500 mr-4">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <h1 class="text-xl font-semibold text-gray-800">Dashboard Sekolah</h1>
+                    <h1 class="text-2xl font-bold text-gray-900">Dashboard Sekolah</h1>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <button class="p-2 text-gray-400 hover:text-gray-600">
+                    <button class="p-2 text-gray-400 hover:text-blue-500 transition-colors duration-200">
                         <i class="fas fa-bell"></i>
                     </button>
                     <div class="flex items-center">
-                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1cfcdff4-4de4-45fd-8eb7-03b04efa688c.png" alt="Foto profil admin sekolah dengan latar belakang biru" class="w-8 h-8 rounded-full" />
-                        <span class="ml-2 text-sm font-medium text-gray-700">Admin Sekolah</span>
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1cfcdff4-4de4-45fd-8eb7-03b04efa688c.png" alt="Foto profil admin sekolah" class="w-10 h-10 rounded-full border-2 border-blue-500" />
+                        <span class="ml-2 text-sm font-medium text-gray-700 hidden md:block">Admin Sekolah</span>
                     </div>
                 </div>
             </header>
 
-            <!-- Main Content -->
             <main class="flex-1 overflow-y-auto p-6">
-                <!-- Welcome Banner -->
-                <div class="bg-white border border-gray-200 rounded-xl p-6 mb-6 shadow-sm animate-fade-in hover:shadow-md transition-shadow duration-300">
+                <div class="bg-blue-600 text-white rounded-3xl p-8 mb-6 shadow-custom animate-fade-in transition-all duration-300">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                         <div>
-                            <h2 class="text-2xl font-bold">Selamat Datang!</h2>
-                            <p class="mt-2 opacity-90">Sistem Manajemen Sekolah Terpadu - Semua yang Anda butuhkan dalam satu tempat</p>
+                            <h2 class="text-3xl font-extrabold tracking-tight">Selamat Datang, Admin!</h2>
+                            <p class="mt-2 text-blue-100 opacity-90">Sistem Manajemen Sekolah Terpadu - Semua yang Anda butuhkan dalam satu tempat</p>
                         </div>
-                        <div class="mt-4 md:mt-0">
-                            <button class="px-4 py-2 bg-white text-blue-600 rounded-lg font-medium hover:bg-opacity-90 transition">
+                        <div class="mt-6 md:mt-0">
+                            <button class="px-6 py-3 bg-white text-blue-600 rounded-full font-bold shadow-lg hover:shadow-xl hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1">
                                 <i class="fas fa-plus mr-2"></i> Buat Pengumuman Baru
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Stats Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                    <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-500 transition-all duration-200 animate__animated animate__fadeIn">
+                    <div class="bg-white p-6 rounded-2xl shadow-custom transition-all duration-300 animate__animated animate__fadeIn">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm font-medium text-gray-500">Total Siswa</p>
-                                <p class="mt-1 text-2xl font-semibold text-blue-600">1,245</p>
+                                <p class="mt-1 text-3xl font-extrabold text-blue-600">1,245</p>
                             </div>
-                            <div class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-lg">
-                                <i class="fas fa-users text-blue-600 text-xl"></i>
+                            <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full transition-colors duration-200">
+                                <i class="fas fa-users text-blue-600 text-2xl"></i>
                             </div>
                         </div>
-                        <div class="mt-4">
-                            <span class="text-sm text-green-500 font-medium">+5.2%</span>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-sm text-green-500 font-medium flex items-center">
+                                <i class="fas fa-arrow-up mr-1 text-xs"></i> 5.2%
+                            </span>
                             <span class="text-sm text-gray-500 ml-1">dari bulan lalu</span>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 animate-fade-in" style="animation-delay: 0.2s">
+                    <div class="bg-white p-6 rounded-2xl shadow-custom transition-all duration-300 animate__animated animate__fadeIn" style="animation-delay: 0.1s">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm font-medium text-gray-500">Total Guru</p>
-                                <p class="mt-1 text-2xl font-semibold text-blue-600">48</p>
+                                <p class="mt-1 text-3xl font-extrabold text-blue-600">48</p>
                             </div>
-                            <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
-                                <i class="fas fa-chalkboard-teacher text-blue-600 text-xl"></i>
+                            <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full">
+                                <i class="fas fa-chalkboard-teacher text-blue-600 text-2xl"></i>
                             </div>
                         </div>
-                        <div class="mt-4">
-                            <span class="text-sm text-green-500 font-medium">+2.1%</span>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-sm text-green-500 font-medium flex items-center">
+                                <i class="fas fa-arrow-up mr-1 text-xs"></i> 2.1%
+                            </span>
                             <span class="text-sm text-gray-500 ml-1">dari bulan lalu</span>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 animate-fade-in" style="animation-delay: 0.3s">
+                    <div class="bg-white p-6 rounded-2xl shadow-custom transition-all duration-300 animate__animated animate__fadeIn" style="animation-delay: 0.2s">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm font-medium text-gray-500">Kelas Aktif</p>
-                                <p class="mt-1 text-2xl font-semibold text-blue-600">24</p>
+                                <p class="mt-1 text-3xl font-extrabold text-blue-600">24</p>
                             </div>
-                            <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
-                                <i class="fas fa-school text-blue-600 text-xl"></i>
+                            <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full">
+                                <i class="fas fa-school text-blue-600 text-2xl"></i>
                             </div>
                         </div>
-                        <div class="mt-4">
-                            <span class="text-sm text-green-500 font-medium">+1.3%</span>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-sm text-green-500 font-medium flex items-center">
+                                <i class="fas fa-arrow-up mr-1 text-xs"></i> 1.3%
+                            </span>
                             <span class="text-sm text-gray-500 ml-1">dari bulan lalu</span>
                         </div>
                     </div>
 
-                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition duration-300 animate-fade-in" style="animation-delay: 0.4s">
+                    <div class="bg-white p-6 rounded-2xl shadow-custom transition-all duration-300 animate__animated animate__fadeIn" style="animation-delay: 0.3s">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-sm font-medium text-gray-500">Kehadiran Hari Ini</p>
-                                <p class="mt-1 text-2xl font-semibold text-blue-600">92.5%</p>
+                                <p class="mt-1 text-3xl font-extrabold text-blue-600">92.5%</p>
                             </div>
-                            <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
-                                <i class="fas fa-clipboard-check text-blue-600 text-xl"></i>
+                            <div class="flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full">
+                                <i class="fas fa-clipboard-check text-blue-600 text-2xl"></i>
                             </div>
                         </div>
-                        <div class="mt-4">
-                            <span class="text-sm text-green-500 font-medium">+0.8%</span>
+                        <div class="mt-4 flex items-center">
+                            <span class="text-sm text-green-500 font-medium flex items-center">
+                                <i class="fas fa-arrow-up mr-1 text-xs"></i> 0.8%
+                            </span>
                             <span class="text-sm text-gray-500 ml-1">dari kemarin</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Charts Section -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                    <div class="bg-white p-6 rounded-xl shadow-sm animate__animated animate__fadeInLeft">
-                        <h2 class="text-lg font-semibold text-gray-800 mb-4">Kehadiran Bulanan</h2>
+                    <div class="bg-white p-6 rounded-2xl shadow-custom animate__animated animate__fadeInLeft">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Kehadiran Bulanan</h2>
                         <canvas id="attendanceChart" height="250"></canvas>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-sm animate__animated animate__fadeInRight">
-                        <h2 class="text-lg font-semibold text-gray-800 mb-4">Distribusi Siswa per Kelas</h2>
+                    <div class="bg-white p-6 rounded-2xl shadow-custom animate__animated animate__fadeInRight">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4">Distribusi Siswa per Kelas</h2>
                         <canvas id="classDistributionChart" height="250"></canvas>
                     </div>
                 </div>
 
-                <!-- Recent Announcements and Activity -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Recent Announcements -->
-                    <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6 animate-fade-in" style="animation-delay: 0.2s">
+                    <div class="lg:col-span-2 bg-white rounded-2xl shadow-custom p-6 animate-fade-in" style="animation-delay: 0.4s">
                         <div class="flex items-center justify-between mb-6">
-                            <h2 class="text-lg font-semibold text-gray-800">Pengumuman Terbaru</h2>
-                            <button class="text-sm text-blue-500 hover:text-blue-700">Lihat Semua</button>
+                            <h2 class="text-xl font-bold text-gray-900">Pengumuman Terbaru</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800 font-medium">Lihat Semua</button>
                         </div>
                         <div class="space-y-4">
-                            <div class="p-4 border border-gray-100 rounded-lg hover:bg-blue-50 transition">
+                            <div class="p-4 border-l-4 border-blue-500 bg-blue-50 rounded-r-lg hover:bg-blue-100 transition-colors duration-200">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0 text-blue-500 bg-blue-100 rounded-full p-2">
                                         <i class="fas fa-bullhorn"></i>
                                     </div>
                                     <div class="ml-3">
-                                        <h3 class="text-sm font-medium text-gray-800">Ujian Semester Ganjil</h3>
+                                        <h3 class="text-base font-semibold text-gray-800">Ujian Semester Ganjil</h3>
                                         <p class="mt-1 text-xs text-gray-500">Tanggal: 20-25 Desember 2023</p>
                                         <p class="mt-2 text-sm text-gray-600">Persiapkan siswa untuk ujian semester ganjil. Silahkan cek jadwal lengkapnya di menu Jadwal.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="p-4 border border-gray-100 rounded-lg hover:bg-blue-50 transition">
+                            <div class="p-4 border-l-4 border-blue-500 bg-blue-50 rounded-r-lg hover:bg-blue-100 transition-colors duration-200">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0 text-blue-500 bg-blue-100 rounded-full p-2">
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                     <div class="ml-3">
-                                        <h3 class="text-sm font-medium text-gray-800">Penerimaan Siswa Baru 2024</h3>
+                                        <h3 class="text-base font-semibold text-gray-800">Penerimaan Siswa Baru 2024</h3>
                                         <p class="mt-1 text-xs text-gray-500">Pendaftaran dibuka: 1 Januari 2024</p>
                                         <p class="mt-2 text-sm text-gray-600">Persiapkan dokumen dan formulir untuk penerimaan siswa baru tahun ajaran 2024/2025.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="p-4 border border-gray-100 rounded-lg hover:bg-blue-50 transition">
+                            <div class="p-4 border-l-4 border-blue-500 bg-blue-50 rounded-r-lg hover:bg-blue-100 transition-colors duration-200">
                                 <div class="flex items-start">
                                     <div class="flex-shrink-0 text-blue-500 bg-blue-100 rounded-full p-2">
                                         <i class="fas fa-flag"></i>
                                     </div>
                                     <div class="ml-3">
-                                        <h3 class="text-sm font-medium text-gray-800">Hari Pendidikan Nasional</h3>
+                                        <h3 class="text-base font-semibold text-gray-800">Hari Pendidikan Nasional</h3>
                                         <p class="mt-1 text-xs text-gray-500">2 Mei 2023</p>
                                         <p class="mt-2 text-sm text-gray-600">Akan ada upacara bendera dan berbagai lomba antar kelas. Mohon partisipasinya.</p>
                                     </div>
@@ -227,80 +236,68 @@
                         </div>
                     </div>
 
-                    <!-- Recent Activity -->
-                    <div class="bg-white rounded-xl shadow-sm p-6 animate-fade-in" style="animation-delay: 0.3s">
+                    <div class="bg-white rounded-2xl shadow-custom p-6 animate-fade-in" style="animation-delay: 0.5s">
                         <div class="flex items-center justify-between mb-6">
-                            <h2 class="text-lg font-semibold text-gray-800">Aktivitas Terkini</h2>
-                            <button class="text-sm text-blue-500 hover:text-blue-700">Lihat Semua</button>
+                            <h2 class="text-xl font-bold text-gray-900">Aktivitas Terkini</h2>
+                            <button class="text-sm text-blue-600 hover:text-blue-800 font-medium">Lihat Semua</button>
                         </div>
                         <div class="space-y-4">
-                            <div class="flex items-start">
+                            <div class="flex items-center">
                                 <div class="flex-shrink-0">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ef61b820-1169-4e00-8534-c6a071310e2d.png" alt="Foto profil guru matematika dengan latar belakang biru" class="w-8 h-8 rounded-full" />
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ef61b820-1169-4e00-8534-c6a071310e2d.png" alt="Foto profil guru matematika" class="w-10 h-10 rounded-full border-2 border-gray-200" />
                                 </div>
                                 <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-800">Bpk. Ahmad Setiawan</p>
-                                    <p class="text-xs text-gray-500">Guru Matematika - 10 menit lalu</p>
-                                    <p class="mt-1 text-sm text-gray-600">Memperbarui nilai ulangan harian kelas XI IPA 2</p>
+                                    <p class="text-sm font-semibold text-gray-800">Bpk. Ahmad Setiawan</p>
+                                    <p class="text-xs text-gray-500">Memperbarui nilai ulangan harian kelas XI IPA 2</p>
+                                    <p class="text-xs text-gray-400 mt-1">10 menit lalu</p>
                                 </div>
                             </div>
-                            <div class="flex items-start">
+                            <div class="flex items-center">
                                 <div class="flex-shrink-0">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/19ca5338-9dfa-4b93-a049-1faed1337bff.png" alt="Foto profil wali kelas X IPA 1 dengan ekspresi ramah" class="w-8 h-8 rounded-full" />
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/19ca5338-9dfa-4b93-a049-1faed1337bff.png" alt="Foto profil wali kelas X IPA 1" class="w-10 h-10 rounded-full border-2 border-gray-200" />
                                 </div>
                                 <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-800">Ibu Siti Rahayu</p>
-                                    <p class="text-xs text-gray-500">Wali Kelas X IPA 1 - 1 jam lalu</p>
-                                    <p class="mt-1 text-sm text-gray-600">Mengupload jadwal tambahan pelajaran fisika</p>
+                                    <p class="text-sm font-semibold text-gray-800">Ibu Siti Rahayu</p>
+                                    <p class="text-xs text-gray-500">Mengupload jadwal tambahan pelajaran fisika</p>
+                                    <p class="text-xs text-gray-400 mt-1">1 jam lalu</p>
                                 </div>
                             </div>
-                            <div class="flex items-start">
+                            <div class="flex items-center">
                                 <div class="flex-shrink-0">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/12965a39-150a-4612-8834-ec7f08120961.png" alt="Foto profil admin TU dengan pakaian formal" class="w-8 h-8 rounded-full" />
+                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/12965a39-150a-4612-8834-ec7f08120961.png" alt="Foto profil admin TU" class="w-10 h-10 rounded-full border-2 border-gray-200" />
                                 </div>
                                 <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-800">Bpk. Joko Susilo</p>
-                                    <p class="text-xs text-gray-500">Staff TU - 2 jam lalu</p>
-                                    <p class="mt-1 text-sm text-gray-600">Memverifikasi 5 dokumen administrasi siswa baru</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d3db5449-af61-4d3f-8c4e-705e90576996.png" alt="Foto profil kepala sekolah dengan kacamata" class="w-8 h-8 rounded-full" />
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm font-medium text-gray-800">Bpk. Drs. Budi Santoso</p>
-                                    <p class="text-xs text-gray-500">Kepala Sekolah - 3 jam lalu</p>
-                                    <p class="mt-1 text-sm text-gray-600">Membuat pengumuman rapat dewan guru bulanan</p>
+                                    <p class="text-sm font-semibold text-gray-800">Bpk. Joko Susilo</p>
+                                    <p class="text-xs text-gray-500">Memverifikasi 5 dokumen administrasi siswa baru</p>
+                                    <p class="text-xs text-gray-400 mt-1">2 jam lalu</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Recent Students Table -->
-                <div class="mt-6 bg-white rounded-xl shadow-sm overflow-hidden animate-fade-in" style="animation-delay: 0.4s">
+                <div class="mt-6 bg-white rounded-2xl shadow-custom overflow-hidden animate-fade-in" style="animation-delay: 0.6s">
                     <div class="flex items-center justify-between p-6 border-b border-gray-200">
-                        <h2 class="text-lg font-semibold text-gray-800">Daftar Siswa Terbaru</h2>
-                        <button class="text-sm text-blue-500 hover:text-blue-700">Lihat Semua</button>
+                        <h2 class="text-xl font-bold text-gray-900">Daftar Siswa Terbaru</h2>
+                        <button class="text-sm text-blue-600 hover:text-blue-800 font-medium">Lihat Semua</button>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Siswa</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kelas</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NIS</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Nama Siswa</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Kelas</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">NIS</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                                <tr class="hover:bg-gray-50/50 transition-all duration-150">
+                                <tr class="hover:bg-blue-50 transition-colors duration-150">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
-                                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/958a5e2d-215d-4db1-80d3-48f1cc108e12.png" alt="Foto profil siswa kelas X IPA 1" class="h-10 w-10 rounded-full" />
+                                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/958a5e2d-215d-4db1-80d3-48f1cc108e12.png" alt="Foto profil siswa Dewi Lestari" class="h-10 w-10 rounded-full" />
                                             </div>
                                             <div class="ml-4">
                                                 <div class="text-sm font-medium text-gray-900">Dewi Lestari</div>
@@ -315,7 +312,7 @@
                                         <div class="text-sm text-gray-900">20230101</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                             Aktif
                                         </span>
                                     </td>
@@ -324,11 +321,11 @@
                                         <a href="#" class="text-red-600 hover:text-red-900">Hapus</a>
                                     </td>
                                 </tr>
-                                <tr class="hover:bg-blue-50">
+                                <tr class="hover:bg-blue-50 transition-colors duration-150">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
-                                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8b7dc4ad-0285-4126-aec9-699cc1f8a8ce.png" alt="Foto profil siswa kelas XI IPS 2" class="h-10 w-10 rounded-full" />
+                                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8b7dc4ad-0285-4126-aec9-699cc1f8a8ce.png" alt="Foto profil siswa Andi Saputra" class="h-10 w-10 rounded-full" />
                                             </div>
                                             <div class="ml-4">
                                                 <div class="text-sm font-medium text-gray-900">Andi Saputra</div>
@@ -343,7 +340,7 @@
                                         <div class="text-sm text-gray-900">20220245</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                             Aktif
                                         </span>
                                     </td>
@@ -352,11 +349,11 @@
                                         <a href="#" class="text-red-600 hover:text-red-900">Hapus</a>
                                     </td>
                                 </tr>
-                                <tr class="hover:bg-blue-50">
+                                <tr class="hover:bg-blue-50 transition-colors duration-150">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
-                                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/406100d0-049c-4840-8669-af6ea3ac3966.png" alt="Foto profil siswa kelas XII IPA 3" class="h-10 w-10 rounded-full" />
+                                                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/406100d0-049c-4840-8669-af6ea3ac3966.png" alt="Foto profil siswa Rina Wijaya" class="h-10 w-10 rounded-full" />
                                             </div>
                                             <div class="ml-4">
                                                 <div class="text-sm font-medium text-gray-900">Rina Wijaya</div>
@@ -371,7 +368,7 @@
                                         <div class="text-sm text-gray-900">20210124</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
                                             Perlu Verifikasi
                                         </span>
                                     </td>
@@ -386,13 +383,13 @@
                     <div class="px-6 py-4 border-t border-gray-200">
                         <div class="flex items-center justify-between">
                             <div class="text-sm text-gray-500">
-                                Menampilkan <span class="font-medium">1</span> sampai <span class="font-medium">3</span> dari <span class="font-medium">1,245</span> siswa
+                                Menampilkan <span class="font-bold">1</span> sampai <span class="font-bold">3</span> dari <span class="font-bold">1,245</span> siswa
                             </div>
                             <div class="flex space-x-2">
-                                <button class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200">
                                     Sebelumnya
                                 </button>
-                                <button class="px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-white bg-blue-500 hover:bg-blue-600">
+                                <button class="px-4 py-2 border border-blue-500 rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200">
                                     Berikutnya
                                 </button>
                             </div>
@@ -400,7 +397,6 @@
                     </div>
                 </div>
             </main>
-            <!-- Floating Action Button -->
             <button class="fixed bottom-8 right-8 md:hidden w-14 h-14 bg-blue-600 text-white rounded-full shadow-xl flex items-center justify-center hover:bg-blue-700 transition-colors duration-200">
                 <i class="fas fa-bars text-xl"></i>
             </button>
@@ -408,7 +404,7 @@
     </div>
 
     <script>
-        // Simple interactivity
+        // Simple interactivity and chart initialization
         document.addEventListener('DOMContentLoaded', function() {
             // Toggle mobile menu
             const mobileMenuButton = document.querySelector('.md\\:hidden');
@@ -420,13 +416,13 @@
                 });
             }
 
-            // Add animation to cards when they come into view
-            const animatedElements = document.querySelectorAll('.animate-fade-in');
-            
+            // Add animation to elements when they come into view
+            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate__animated');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = 1;
+                        entry.target.classList.add('in-view');
                     }
                 });
             }, { threshold: 0.1 });
@@ -456,15 +452,14 @@
                     datasets: [{
                         label: 'Persentase Kehadiran',
                         data: [85, 90, 92, 89, 94, 93],
-                        backgroundColor: 'rgba(147, 197, 253, 0.2)',
-                        borderColor: 'rgba(59, 130, 246, 0.8)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
                         borderWidth: 3,
                         pointBackgroundColor: 'white',
                         pointBorderColor: 'rgba(59, 130, 246, 1)',
                         pointBorderWidth: 2,
                         pointRadius: 5,
                         pointHoverRadius: 7,
-                        borderWidth: 2,
                         tension: 0.3,
                         fill: true
                     }]
@@ -479,7 +474,15 @@
                     scales: {
                         y: {
                             min: 80,
-                            max: 100
+                            max: 100,
+                            grid: {
+                                color: 'rgba(200, 200, 200, 0.2)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
                         }
                     }
                 }
@@ -493,14 +496,16 @@
                     datasets: [{
                         data: [210, 185, 195, 175, 215, 200],
                         backgroundColor: [
-                            'rgba(59, 130, 246, 0.7)',
-                            'rgba(16, 185, 129, 0.7)',
-                            'rgba(245, 158, 11, 0.7)',
-                            'rgba(139, 92, 246, 0.7)',
-                            'rgba(220, 38, 38, 0.7)',
-                            'rgba(20, 184, 166, 0.7)'
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(147, 197, 253, 0.8)',
+                            'rgba(34, 197, 94, 0.8)',
+                            'rgba(74, 222, 128, 0.8)',
+                            'rgba(251, 146, 60, 0.8)',
+                            'rgba(253, 186, 116, 0.8)'
                         ],
-                        borderWidth: 1
+                        borderColor: 'white',
+                        borderWidth: 2,
+                        hoverOffset: 4
                     }]
                 },
                 options: {
@@ -516,4 +521,3 @@
     </script>
 </body>
 </html>
-
