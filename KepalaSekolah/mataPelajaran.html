@@ -67,14 +67,14 @@
 				Mata Pelajaran
 			</a>
 
-			<a href="jadwal.html"
+			<a href="kelas.html"
 				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 						d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
 				</svg>
-				Jadwal
+				Kelas
 			</a>
 
 			<a href="nilai.html"
@@ -262,7 +262,8 @@
 				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
 					<!-- Matematika -->
-					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-blue-600" fill="none"
 							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
@@ -273,19 +274,127 @@
 						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- Bahasa Indonesia -->
-					<div class="bg-red-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-red-600" fill="none"
-							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16M4 10h16M4 15h16M4 20h16" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Bahasa Indonesia</h3>
-						<p class="text-gray-600 text-sm text-center">Membaca, menulis, dan keterampilan bahasa.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Budi Santoso</p>
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
 					</div>
 
-					<!-- Bahasa Inggris -->
-					<div class="bg-yellow-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Bahasa Indonesia -->
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
+						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-green-600"
+							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z" />
+						</svg>
+						<h3 class="text-lg font-bold text-center">Bahasa Jawa</h3>
+						<p class="text-gray-600 text-sm text-center">Budaya, sastra, dan bahasa daerah.</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
+					</div>
+
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-red-600" fill="none"
 							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
@@ -293,46 +402,194 @@
 						</svg>
 						<h3 class="text-lg font-bold text-center">Bahasa Inggris</h3>
 						<p class="text-gray-600 text-sm text-center">Grammar, speaking, reading, and writing.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Siti Aminah</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- Bahasa Jawa -->
-					<div class="bg-green-50 p-6 rounded-lg shadow hover:shadow-lg transition">
-						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-green-600"
-							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z" />
-						</svg>
-						<h3 class="text-lg font-bold text-center">Bahasa Jawa</h3>
-						<p class="text-gray-600 text-sm text-center">Budaya, sastra, dan bahasa daerah.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rizky Nugroho</p>
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
 					</div>
 
-					<!-- PIPAS -->
-					<div class="bg-indigo-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-indigo-600"
 							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
 						</svg>
 						<h3 class="text-lg font-bold text-center">PIPAS</h3>
-						<p class="text-gray-600 text-sm text-center">Pendidikan Pancasila dan wawasan sosial.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Indah Pratiwi</p>
+						<p class="text-gray-600 text-sm text-center">IPA IPS</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- Olahraga -->
-					<div class="bg-orange-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-orange-600"
 							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
 								d="M12 4.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15z" />
 						</svg>
 						<h3 class="text-lg font-bold text-center">Olahraga</h3>
-						<p class="text-gray-600 text-sm text-center">Kesehatan, kebugaran, dan keterampilan olahraga.
-						</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rudi Santoso</p>
+						<p class="text-gray-600 text-sm text-center">Kesehatan, kebugaran, dan keterampilan olahraga.</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- Pancasila -->
-					<div class="bg-purple-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-purple-600"
 							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
@@ -340,11 +597,64 @@
 						</svg>
 						<h3 class="text-lg font-bold text-center">Pancasila</h3>
 						<p class="text-gray-600 text-sm text-center">Nilai-nilai Pancasila dan kewarganegaraan.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Adi Wibowo</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- Pendidikan Agama Islam -->
-					<div class="bg-teal-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-teal-600" fill="none"
 							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
@@ -352,33 +662,192 @@
 						</svg>
 						<h3 class="text-lg font-bold text-center">Pendidikan Agama Islam</h3>
 						<p class="text-gray-600 text-sm text-center">Aqidah, ibadah, akhlak, dan sejarah Islam.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Fathur Rahman</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- Informatika -->
-					<div class="bg-cyan-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-cyan-600" fill="none"
 							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z" />
 						</svg>
 						<h3 class="text-lg font-bold text-center">Informatika</h3>
 						<p class="text-gray-600 text-sm text-center">Dasar-dasar komputer, algoritma, dan teknologi.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dimas Prakoso</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- PKKWU -->
-					<div class="bg-pink-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-pink-600" fill="none"
 							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3z" />
 						</svg>
 						<h3 class="text-lg font-bold text-center">PKKWU</h3>
 						<p class="text-gray-600 text-sm text-center">Kewirausahaan dan pengembangan usaha.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Rina Maulida</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- Basis Data -->
-					<div class="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-gray-600" fill="none"
 							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<ellipse cx="12" cy="5" rx="9" ry="3" />
@@ -387,11 +856,64 @@
 						</svg>
 						<h3 class="text-lg font-bold text-center">Basis Data</h3>
 						<p class="text-gray-600 text-sm text-center">Membuat, mengelola, dan mengolah data.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dwi Santoso</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- Pemrograman Web -->
-					<div class="bg-blue-100 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
 							class="mx-auto mb-4 h-16 w-16 text-blue-600 fill-current">
 							<path
@@ -399,31 +921,190 @@
 						</svg>
 						<h3 class="text-lg font-bold text-center">Pemrograman Web</h3>
 						<p class="text-gray-600 text-sm text-center">Pengembangan website & aplikasi web.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Dwi Buk E Orlando</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- PBTGM -->
-					<div class="bg-lime-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-lime-600" fill="none"
 							viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M12 4l9 4.5-9 4.5-9-4.5z" />
 						</svg>
 						<h3 class="text-lg font-bold text-center">PBTGM</h3>
-						<p class="text-gray-600 text-sm text-center">Pengelolaan bisnis dan teknologi grafika.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Bagus Setiawan</p>
+						<p class="text-gray-600 text-sm text-center">Pemrograman Berbasis Teks Grafis dan Multimedia</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
-					<!-- Perangkat Bergerak -->
-					<div class="bg-emerald-50 p-6 rounded-lg shadow hover:shadow-lg transition">
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
+					<div class="bg-blue-50 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer"
+						onclick="openModal('matematikaModal')">
 						<svg xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 h-16 w-16 text-emerald-600"
 							fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 2.25h10.5v19.5H6.75z" />
 						</svg>
 						<h3 class="text-lg font-bold text-center">Perangkat Bergerak</h3>
 						<p class="text-gray-600 text-sm text-center">Pemrograman & pengembangan aplikasi mobile.</p>
-						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Putri Ayu Lestari</p>
+						<p class="mt-2 text-xs text-gray-500 font-medium text-center">Andi Prasetyo</p>
 					</div>
 
+					<!-- Modal Matematika -->
+					<div id="matematikaModal"
+						class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+						<div
+							class="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[1000px] max-h-[90vh] overflow-y-auto">
+							<h2 class="text-xl font-bold mb-4">Daftar Guru Matematika</h2>
+
+							<input type="text" id="searchGuru" placeholder="Cari Nama Guru..."
+								class="w-full mb-4 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+							<div class="overflow-x-auto">
+								<table class="w-full border border-gray-300 text-sm">
+									<thead>
+										<tr class="bg-blue-100 text-gray-700">
+											<th class="border px-3 py-2 text-left">NIP</th>
+											<th class="border px-3 py-2 text-left">Nama Guru</th>
+											<th class="border px-3 py-2 text-left">Jurusan</th>
+											<th class="border px-3 py-2 text-left">Mapel</th>
+											<th class="border px-3 py-2 text-left">Kelas</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr>
+											<td class="border px-3 py-2">19781230 200501 1 001</td>
+											<td class="border px-3 py-2">Andi Prasetyo</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">X IPA 1, X IPA 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19850214 200701 1 002</td>
+											<td class="border px-3 py-2">Siti Aminah</td>
+											<td class="border px-3 py-2">IPS</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XI IPS 1, XI IPS 2</td>
+										</tr>
+										<tr>
+											<td class="border px-3 py-2">19791123 200601 1 003</td>
+											<td class="border px-3 py-2">Budi Santoso</td>
+											<td class="border px-3 py-2">IPA</td>
+											<td class="border px-3 py-2">Matematika</td>
+											<td class="border px-3 py-2">XII IPA 3</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<button onclick="closeModal('matematikaModal')"
+								class="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
+								Tutup
+							</button>
+						</div>
+					</div>
 				</div>
 			</main>
 
@@ -432,6 +1113,15 @@
 	</main>
 
 	<script>
+		function openModal(id) {
+			document.getElementById(id).classList.remove('hidden');
+			document.getElementById(id).classList.add('flex');
+		}
+
+		function closeModal(id) {
+			document.getElementById(id).classList.add('hidden');
+			document.getElementById(id).classList.remove('flex');
+		}
 		// Toggle Dropdown for User Profile
 		function toggleDropdown() {
 			const dropdown = document.getElementById("dropdown-menu");

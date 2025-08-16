@@ -67,14 +67,14 @@
 				Mata Pelajaran
 			</a>
 
-			<a href="jadwal.html"
+			<a href="kelas.html"
 				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 						d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
 				</svg>
-				Jadwal
+				Kelas
 			</a>
 
 			<a href="nilai.html"
@@ -264,8 +264,8 @@
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 					<div
 						class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-xl shadow hover:shadow-lg transition">
-						<h3 class="text-sm font-medium">Jumlah Siswa</h3>
-						<p class="text-2xl font-bold mt-2">500</p>
+						<h3 class="text-sm font-medium">Mesin</h3>
+						<p class="text-2xl font-bold mt-2">150</p>
 					</div>
 					<div
 						class="bg-gradient-to-r from-red-500 to-red-600 text-white p-4 rounded-xl shadow hover:shadow-lg transition">
@@ -284,69 +284,179 @@
 					</div>
 				</div>
 
-				<!-- Filter Pencarian -->
-				<div class="bg-white rounded-xl shadow p-6">
-					<h2 class="text-lg font-semibold text-gray-800 mb-4">Cari Siswa</h2>
-					<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-						<input type="text" placeholder="Cari NIS..."
-							class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-						<select
-							class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-							<option value="">Pilih Jurusan</option>
-							<option>Ototronik</option>
-							<option>Tekstil</option>
-							<option>RPL</option>
-							<option>Mesin</option>
-						</select>
-						<select
-							class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-							<option value="">Pilih Kelas</option>
-							<option>X</option>
-							<option>XI</option>
-							<option>XII</option>
-						</select>
-						<button
-							class="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 font-medium transition">Cari</button>
-					</div>
-				</div>
+				<div class="max-w-7xl mx-auto bg-white p-6 mt-10 rounded-lg shadow-lg">
+					<!-- Filter Bar -->
+					<div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0 mb-6">
+						<!-- Search -->
+						<div class="flex items-center border rounded-lg px-3 py-2 w-full sm:w-64 bg-gray-100">
+							<svg class="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" stroke-width="2"
+								stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+								<circle cx="11" cy="11" r="7"></circle>
+								<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+							</svg>
+							<input id="searchInput" type="text" placeholder="Cari siswa.."
+								class="bg-transparent outline-none w-full text-gray-700" />
+						</div>
 
-				<!-- Tabel List Siswa -->
-				<div class="bg-white rounded-xl shadow p-6 overflow-x-auto">
-					<h2 class="text-lg font-semibold text-gray-800 mb-4">Daftar Siswa</h2>
-					<table class="min-w-full text-sm text-left border-collapse">
-						<thead class="bg-gray-100">
-							<tr>
-								<th class="px-4 py-2 border">NIS</th>
-								<th class="px-4 py-2 border">Nama</th>
-								<th class="px-4 py-2 border">Jurusan</th>
-								<th class="px-4 py-2 border">Kelas</th>
-								<th class="px-4 py-2 border">Jenis Kelamin</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="hover:bg-gray-50">
-								<td class="px-4 py-2 border">123456</td>
-								<td class="px-4 py-2 border">Budi Santoso</td>
-								<td class="px-4 py-2 border">RPL</td>
-								<td class="px-4 py-2 border">XI</td>
-								<td class="px-4 py-2 border">Laki-laki</td>
-							</tr>
-							<tr class="hover:bg-gray-50">
-								<td class="px-4 py-2 border">234567</td>
-								<td class="px-4 py-2 border">Siti Aminah</td>
-								<td class="px-4 py-2 border">Tekstil</td>
-								<td class="px-4 py-2 border">XII</td>
-								<td class="px-4 py-2 border">Perempuan</td>
-							</tr>
-							<tr class="hover:bg-gray-50">
-								<td class="px-4 py-2 border">345678</td>
-								<td class="px-4 py-2 border">Andi Pratama</td>
-								<td class="px-4 py-2 border">Ototronik</td>
-								<td class="px-4 py-2 border">X</td>
-								<td class="px-4 py-2 border">Laki-laki</td>
-							</tr>
-						</tbody>
-					</table>
+						<!-- Filter Status -->
+						<select id="jurusanFilter"
+							class="border rounded-lg px-3 py-2 w-full sm:w-48 bg-white text-gray-700 focus:outline-blue-500">
+							<option value="">Pilih Jurusan</option>
+							<option value="Mesin">Mesin</option>
+							<option value="Ototronik">Ototronik</option>
+							<option value="Tekstil">Tekstil</option>
+							<option value="RPL">RPL</option>
+						</select>
+
+						<!-- Filter Tanggal -->
+						<select id="kelasFilter"
+							class="border rounded-lg px-3 py-2 w-full sm:w-48 bg-white text-gray-700 focus:outline-blue-500">
+							<option value="">Pilih Kelas</option>
+							<option value="X">X</option>
+							<option value="XI">XI</option>
+							<option value="XII">XII</option>
+						</select>
+					</div>
+
+					<!-- Table -->
+					<div class="overflow-x-auto">
+						<table class="w-full text-left border-collapse">
+							<thead>
+								<tr class="border-b border-gray-200 text-sm text-gray-500">
+									<th class="px-4 py-3">NIS</th>
+									<th class="px-4 py-3">NAMA</th>
+									<th class="px-4 py-3">JURUSAN</th>
+									<th class="px-4 py-3">KELAS</th>
+									<th class="px-4 py-3">JENIS KELAMIN</th>
+								</tr>
+							</thead>
+							<tbody id="tableBody" class="text-gray-700">
+
+
+								<!-- Row 1 -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<!-- NIS -->
+									<td class="px-4 py-3">20231001</td>
+									<!-- Nama -->
+									<td class="px-4 py-3">Orlando Dimas</td>
+									<!-- Kelas -->
+									<td class="px-4 py-3">XII Mesin B</td>
+									<!-- Jurusan -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Mesin
+										</span>
+									</td>
+									<!-- Jenis Kelamin -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Laki-laki
+										</span>
+									</td>
+								</tr>
+
+
+								<!-- Row 2 -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<!-- NIS -->
+									<td class="px-4 py-3">20231001</td>
+									<!-- Nama -->
+									<td class="px-4 py-3">Putri Solo</td>
+									<!-- Kelas -->
+									<td class="px-4 py-3">XII RPL A</td>
+									<!-- Jurusan -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Rekayasa Perangkat Lunak
+										</span>
+									</td>
+									<!-- Jenis Kelamin -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-pink-100 text-pink-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Perempuan
+										</span>
+									</td>
+								</tr>
+
+
+								<!-- Row 3 -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<!-- NIS -->
+									<td class="px-4 py-3">20231001</td>
+									<!-- Nama -->
+									<td class="px-4 py-3">Tegar Triadi</td>
+									<!-- Kelas -->
+									<td class="px-4 py-3">XII Tekstil C</td>
+									<!-- Jurusan -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-orange-100 text-orange-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Tekstil
+										</span>
+									</td>
+									<!-- Jenis Kelamin -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Laki-laki
+										</span>
+									</td>
+								</tr>
+
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<!-- NIS -->
+									<td class="px-4 py-3">20231001</td>
+									<!-- Nama -->
+									<td class="px-4 py-3">Fiyona</td>
+									<!-- Kelas -->
+									<td class="px-4 py-3">XII RPL A</td>
+									<!-- Jurusan -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Rekayasa Perangkat Lunak
+										</span>
+									</td>
+									<!-- Jenis Kelamin -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-pink-100 text-pink-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Perempuan
+										</span>
+									</td>
+								</tr>
+
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<!-- NIS -->
+									<td class="px-4 py-3">20231001</td>
+									<!-- Nama -->
+									<td class="px-4 py-3">Ode Arstiko</td>
+									<!-- Kelas -->
+									<td class="px-4 py-3">XII Ototronik A</td>
+									<!-- Jurusan -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Ototronik
+										</span>
+									</td>
+									<!-- Jenis Kelamin -->
+									<td class="px-4 py-3">
+										<span
+											class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+											Laki-laki
+										</span>
+									</td>
+								</tr>
+
+
+							</tbody>
+						</table>
+					</div>
 				</div>
 
 			</main>
@@ -356,6 +466,32 @@
 	</main>
 
 	<script>
+		const jurusanFilter = document.getElementById("jurusanFilter");
+		const kelasFilter = document.getElementById("kelasFilter");
+		const tableRows = document.querySelectorAll("#siswaTable tr");
+
+		function applyFilter() {
+			const jurusanVal = jurusanFilter.value;
+			const kelasVal = kelasFilter.value;
+
+			tableRows.forEach(row => {
+				const rowJurusan = row.getAttribute("data-jurusan");
+				const rowKelas = row.getAttribute("data-kelas");
+
+				// cek apakah sesuai filter
+				const jurusanMatch = jurusanVal === "" || rowJurusan === jurusanVal;
+				const kelasMatch = kelasVal === "" || rowKelas === kelasVal;
+
+				if (jurusanMatch && kelasMatch) {
+					row.style.display = "";
+				} else {
+					row.style.display = "none";
+				}
+			});
+		}
+
+		jurusanFilter.addEventListener("change", applyFilter);
+		kelasFilter.addEventListener("change", applyFilter);
 		// Toggle Dropdown for User Profile
 		function toggleDropdown() {
 			const dropdown = document.getElementById("dropdown-menu");
