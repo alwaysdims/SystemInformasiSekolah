@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Detail Riwayat Tanggapan</title>
+	<title>Dashboard Sistem Informasi Sekolah</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" /> -->
 	<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
@@ -25,7 +25,7 @@
 
 		<nav class="space-y-2">
 			<a href="dashboard.html"
-				class="flex items-center gap-2 hover:bg-blue-700 p-3 rounded-lg transition">
+				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -44,7 +44,7 @@
 			</a>
 
 			<a href="riwayat_tanggapan.html"
-				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+				class="flex items-center gap-2 hover:bg-blue-700 p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -62,7 +62,6 @@
 				Cetak Laporan
 			</a>
 
-			
 			<a href="manajemen_jadwal.html" class="flex items-center gap-2 hover:bg-blue-700 p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor" stroke-width="2">
@@ -76,10 +75,10 @@
 
 	</aside>
 
-	<main class="flex-1 sm:ml-[17rem] p-6 ">
+	<main class="flex-1 sm:ml-[17rem] p-6">
 		<div
 			class="flex sm:relative z-30 justify-between items-center bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-4 rounded-lg shadow mb-6">
-			<div class="flex items-center space-x-4">
+			<div class="flex items-center space-x-4 mr-5">
 				<button id="toggleSidebar" class="sm:hidden p-2 text-white rounded-lg hover:bg-blue-700 transition">
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
 						stroke="currentColor">
@@ -88,11 +87,13 @@
 					</svg>
 				</button>
 				<div class="items-center">
-					<h3 class="text-md sm:text-2xl text-white font-semibold">Detail Riwayat Tanggapan</h3>
+					<h3 class="text-md sm:text-2xl text-white font-semibold">Dashboard</h3>
 				</div>
 			</div>
 
-			<div class="flex items-center space-x-4">
+			
+
+			<div class="flex items-center space-x-4 ml-5">
 				<button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"
 					class="relative inline-flex items-center text-sm font-medium text-center text-gray-100 hover:text-gray-100 focus:outline-none light:hover:text-white light:text-gray-400"
 					type="button">
@@ -243,112 +244,192 @@
 			</div>
 		</div>
 
-		<div class="max-w-3xl mx-auto bg-white shadow-md rounded-xl p-6 mt-6">
-			<div class="mb-6 border-b pb-4">
-				<h2 class="text-2xl font-bold text-red-600 mb-1">Detail Pengaduan - Ditolak</h2>
-				<p class="text-sm text-gray-500">Status laporan kamu: <span
-						class="font-semibold text-red-600">Ditolak</span></p>
-			</div>
+		<main class="flex-1 overflow-y-auto">
+			<div class="max-w-6xl mx-auto space-y-6 lg:px-10">
 
-			<div class="flex flex-col md:flex-row gap-6">
-				<img src="image/logo-smkn2kra.webp" alt="Logo Sekolah"
-					class="w-24 h-24 rounded-lg object-cover shadow-md" />
-
-				<div class="flex-1 space-y-2">
-					<div>
-						<h3 class="font-semibold text-gray-800">Judul Pengaduan:</h3>
-						<p class="text-gray-700">Kantin Sekolah</p>
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+					<div class="bg-white rounded-2xl shadow p-4">
+						<div class="flex items-center justify-between">
+							<h2 class="text-gray-500 text-sm font-medium">Total Aduan Masuk</h2>
+							<span class="bg-blue-100 text-blue-600 px-2 py-1 rounded-md text-xs">📄</span>
+						</div>
+						<p class="text-2xl font-semibold mt-2">5</p>
+						<p class="text-green-500 text-xs mt-1">⬆ 12% vs bulan lalu</p>
 					</div>
 
-					<div>
-						<h3 class="font-semibold text-gray-800">Nama Pengadu:</h3>
-						<p class="text-gray-700">Nur Hasanah</p>
+					<div class="bg-white rounded-2xl shadow p-4">
+						<div class="flex items-center justify-between">
+							<h2 class="text-gray-500 text-sm font-medium">Aduan Masih Aktif</h2>
+							<span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-md text-xs">⏱</span>
+						</div>
+						<p class="text-2xl font-semibold mt-2">1</p>
+						<p class="text-red-500 text-xs mt-1">⬇ 3% vs bulan lalu</p>
 					</div>
 
-					<div>
-						<h3 class="font-semibold text-gray-800">Tanggal Pengaduan:</h3>
-						<p class="text-gray-700">19 Juli 2025, 09:00</p>
+					<div class="bg-white rounded-2xl shadow p-4">
+						<div class="flex items-center justify-between">
+							<h2 class="text-gray-500 text-sm font-medium">Selesai</h2>
+							<span class="bg-green-100 text-green-600 px-2 py-1 rounded-md text-xs">✔</span>
+						</div>
+						<p class="text-2xl font-semibold mt-2">1</p>
+						<p class="text-green-500 text-xs mt-1">⬆ 8% vs bulan lalu</p>
 					</div>
 
-					<div>
-						<h3 class="font-semibold text-gray-800">Ditujukan Kepada:</h3>
-						<p class="text-gray-700">Tata Usaha (TU)</p>
-					</div>
-
-					<div>
-						<h3 class="font-semibold text-gray-800">Isi Pengaduan:</h3>
-						<p class="text-gray-700 text-justify">
-							Banyak sampah menumpuk di sekitar kantin dan belum dibersihkan sejak pagi. Harap ditindak.
-						</p>
-					</div>
-
-					<div>
-						<h3 class="font-semibold text-gray-800">Alasan Penolakan:</h3>
-						<p class="text-red-600 italic">
-							Laporan sudah pernah diajukan sebelumnya dan sedang dalam proses penanganan.
-						</p>
+					<div class="bg-white rounded-2xl shadow p-4">
+						<div class="flex items-center justify-between">
+							<h2 class="text-gray-500 text-sm font-medium">Rata-rata Waktu</h2>
+							<span class="bg-purple-100 text-purple-600 px-2 py-1 rounded-md text-xs">⏳</span>
+						</div>
+						<p class="text-2xl font-semibold mt-2">1 Jam</p>
+						<p class="text-green-500 text-xs mt-1">⬇ 15% vs bulan lalu</p>
 					</div>
 				</div>
-			</div>
 
-			<div class="mt-8 text-right">
-				<a href="riwayat_tanggapan.html"
-					class="inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition text-sm font-semibold">
-					Kembali ke Riwayat
-				</a>
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
+
+					<div class="bg-white rounded-2xl shadow-md p-6 col-span-2">
+						<div class="flex items-center justify-between mb-6">
+							<h2 class="text-xl font-bold text-gray-800">Aduan Terbaru</h2>
+							<a href="riwayat_tanggapan.html"
+								class="text-sm text-blue-600 hover:underline hover:text-blue-800 transition">Lihat
+								Semua</a>
+						</div>
+
+						<div class="space-y-5">
+							<!-- Laporan Rina Maulida -->
+							<div
+								class="flex items-start gap-4 border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-200 bg-gray-50">
+								<a href="detail-riwayat-proses.html">
+									<div class="flex-1">
+										<div class="flex justify-between items-start">
+											<div>
+												<p class="font-semibold text-gray-900">Pintu Gerbang Utama</p>
+												<p class="text-xs text-gray-500 mt-1">18 Juli 2025, 07:45</p>
+											</div>
+											<span
+												class="text-xs font-semibold bg-green-100 text-green-600 px-2 py-1 rounded-full">Proses</span>
+										</div>
+										<p class="text-sm text-gray-700 mt-3 line-clamp-2">
+											Pintu gerbang utama rusak dan tidak bisa dikunci, berpotensi menimbulkan
+											masalah
+											keamanan saat malam hari.
+										</p>
+										<p class="text-xs text-gray-400 mt-2">Rina Maulida (Waka Kurikulum)</p>
+									</div>
+								</a>
+							</div>
+
+							<!-- Laporan Dimas Prakoso -->
+							<div
+								class="flex items-start gap-4 border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-200 bg-gray-50">
+								<a href="detail-riwayat-proses.html">
+									<div class="flex-1">
+										<div class="flex justify-between items-start">
+											<div>
+												<p class="font-semibold text-gray-900">Ruang Multimedia</p>
+												<p class="text-xs text-gray-500 mt-1">17 Juli 2025, 10:20</p>
+											</div>
+											<span
+												class="text-xs font-semibold bg-green-100 text-green-600 px-2 py-1 rounded-full">Proses</span>
+										</div>
+										<p class="text-sm text-gray-700 mt-3 line-clamp-2">
+											Beberapa komputer di ruang multimedia tidak bisa menyala, mohon segera
+											diperbaiki karena akan digunakan ujian.
+										</p>
+										<p class="text-xs text-gray-400 mt-2">Dimas Prakoso (Waka Kurikulum)</p>
+									</div>
+								</a>
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class="bg-white rounded-2xl shadow p-4">
+						<canvas id="myChart" class="w-full max-w-xl h-96 mx-auto"></canvas>
+					</div>
+
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+					<script>
+						const xValues = ["Pending", "Proses", "Selesai", "Ditolak"];
+						const yValues = [1, 2, 1, 1];
+						const barColors = ["#eab308", "#22c55e", "#2563eb", "#ef4444"];
+
+						new Chart("myChart", {
+							type: "pie",
+							data: {
+								labels: xValues,
+								datasets: [{
+									backgroundColor: barColors,
+									data: yValues
+								}]
+							},
+							options: {
+								title: {
+									display: true,
+									text: "Distribusi Status Pengaduan"
+								},
+								responsive: true,
+								maintainAspectRatio: false
+							}
+						});
+					</script>
+
+				</div>
 			</div>
-		</div>
+		</main>
+
 	</main>
 
 	<script>
-		// Toggle Profile Dropdown
+		// Toggle Dropdown for User Profile
 		function toggleDropdown() {
-			const dropdownMenu = document.getElementById('dropdown-menu');
-			dropdownMenu.classList.toggle('hidden');
+			const dropdown = document.getElementById("dropdown-menu");
+			dropdown.classList.toggle("hidden");
 		}
 
-		// Toggle Notification Dropdown
-		document.getElementById('dropdownNotificationButton').addEventListener('click', function () {
-			const notificationDropdown = document.getElementById('dropdownNotification');
-			notificationDropdown.classList.toggle('hidden');
+		// Toggle Sidebar for Mobile
+		const toggleSidebarBtn = document.getElementById("toggleSidebar");
+		const sidebar = document.getElementById("sidebar");
+		const overlay = document.getElementById('overlay');
+
+		toggleSidebarBtn.addEventListener("click", () => {
+			sidebar.classList.toggle("-translate-x-full");
+			overlay.classList.toggle("hidden");
 		});
 
-		// Close dropdowns when clicking outside
-		window.addEventListener('click', function (event) {
-			const profileButton = document.querySelector('button[onclick="toggleDropdown()"]');
-			const profileDropdown = document.getElementById('dropdown-menu');
-			const notificationButton = document.getElementById('dropdownNotificationButton');
-			const notificationDropdown = document.getElementById('dropdownNotification');
+		// Close Dropdown and Sidebar when clicking outside
+		window.addEventListener("click", function (e) {
+			const profileButton = document.querySelector(
+				"button[onclick='toggleDropdown()']"
+			);
+			const dropdownMenu = document.getElementById("dropdown-menu");
+			const overlay = document.getElementById('overlay');
 
-			if (!profileButton.contains(event.target) && !profileDropdown.contains(event.target)) {
-				profileDropdown.classList.add('hidden');
+			// Close profile dropdown
+			if (
+				profileButton &&
+				!profileButton.contains(e.target) &&
+				!dropdownMenu.contains(e.target)
+			) {
+				dropdownMenu.classList.add("hidden");
 			}
 
-			if (!notificationButton.contains(event.target) && !notificationDropdown.contains(event.target)) {
-				notificationDropdown.classList.add('hidden');
+			// Close sidebar if open and clicked outside on small screens
+			// Check if sidebar is NOT hidden (-translate-x-full) and click is outside sidebar and toggle button
+			if (
+				window.innerWidth < 640 &&
+				!sidebar.contains(e.target) &&
+				!toggleSidebarBtn.contains(e.target) &&
+				!sidebar.classList.contains("-translate-x-full") &&
+				!overlay.classList.contains("hidden")
+			) {
+				sidebar.classList.add("-translate-x-full");
+				overlay.classList.add("hidden");
 			}
 		});
-
-		// Hamburger menu functionality
-		document.getElementById('hamburger-button').addEventListener('click', function () {
-			const sidebar = document.getElementById('sidebar');
-			sidebar.classList.toggle('-translate-x-full');
-		});
-
-		// Close sidebar when clicking outside on small screens
-		document.addEventListener('click', function (event) {
-			const sidebar = document.getElementById('sidebar');
-			const hamburgerButton = document.getElementById('hamburger-button');
-
-			// Check if the click is outside the sidebar and not on the hamburger button
-			if (!sidebar.contains(event.target) && !hamburgerButton.contains(event.target) && !sidebar.classList
-				.contains('-translate-x-full')) {
-				sidebar.classList.add('-translate-x-full');
-			}
-		});
-
 	</script>
-
 </body>
 
 </html>
