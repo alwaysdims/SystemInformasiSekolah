@@ -100,6 +100,43 @@
 					class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">+ Tambah
 					Jadwal</button>
 			</div>
+			<!-- Filter & Search -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+	<div class="flex flex-wrap gap-2">
+	  <select id="filterHari" class="p-2 border rounded-lg">
+		<option value="">Semua Hari</option>
+		<option>Senin</option>
+		<option>Selasa</option>
+		<option>Rabu</option>
+		<option>Kamis</option>
+		<option>Jumat</option>
+	  </select>
+  
+	  <select id="filterMapel" class="p-2 border rounded-lg">
+		<option value="">Semua Mapel</option>
+		<option>PKKWU</option>
+		<option>Pendidikan Agama Islam</option>
+		<option>MP Sistem</option>
+		<option>Pemrograman Web</option>
+		<option>Pemrograman Perangkat Bergerak</option>
+		<option>Basis Data</option>
+	  </select>
+  
+	  <select id="filterKelas" class="p-2 border rounded-lg">
+		<option value="">Semua Kelas</option>
+		<option>12 RA</option>
+		<option>12 RB</option>
+		<option>12 RC</option>
+	  </select>
+	</div>
+  
+	<!-- Search Guru -->
+	<div>
+	  <input id="searchGuru" type="text" placeholder="Cari nama guru..."
+		class="p-2 border rounded-lg w-60">
+	</div>
+  </div>
+  
 
 			<!-- Tabel Jadwal -->
 			<div class="overflow-x-auto">
@@ -119,10 +156,108 @@
 						<tr>
 							<td class="px-4 py-2">1</td>
 							<td class="px-4 py-2">Senin</td>
-							<td class="px-4 py-2">08:00 - 09:00</td>
-							<td class="px-4 py-2">Bahasa Indonesia</td>
-							<td class="px-4 py-2">Bu Ani</td>
+							<td class="px-4 py-2">07:45 - 11:00</td>
+							<td class="px-4 py-2">PKKWU</td>
+							<td class="px-4 py-2">Atik Retnoningsih</td>
+							<td class="px-4 py-2">12 RA</td>
+							<td class="px-4 py-2 flex gap-2">
+								<button
+									class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
+								<button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-4 py-2">2</td>
+							<td class="px-4 py-2">Senin</td>
+							<td class="px-4 py-2">12:15 - 14:00</td>
+							<td class="px-4 py-2">Pendidikan Agama Islam</td>
+							<td class="px-4 py-2">Agus Rumahno</td>
 							<td class="px-4 py-2">12 RB</td>
+							<td class="px-4 py-2 flex gap-2">
+								<button
+									class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
+								<button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-4 py-2">3</td>
+							<td class="px-4 py-2">Selasa</td>
+							<td class="px-4 py-2">07:45 - 11:00</td>
+							<td class="px-4 py-2">MP Sistem</td>
+							<td class="px-4 py-2">Budi Sulistiyo</td>
+							<td class="px-4 py-2">12 RA</td>
+							<td class="px-4 py-2 flex gap-2">
+								<button
+									class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
+								<button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-4 py-2">4</td>
+							<td class="px-4 py-2">Selasa</td>
+							<td class="px-4 py-2">12:15 - 14:00</td>
+							<td class="px-4 py-2">Pemrograman Web</td>
+							<td class="px-4 py-2">Afif Nurudin Maisaroh</td>
+							<td class="px-4 py-2">12 RC</td>
+							<td class="px-4 py-2 flex gap-2">
+								<button
+									class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
+								<button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-4 py-2">3</td>
+							<td class="px-4 py-2">Rabu</td>
+							<td class="px-4 py-2">07:45 - 11:00</td>
+							<td class="px-4 py-2">Pemrograman Perangkat Bergerak</td>
+							<td class="px-4 py-2">Carolin Windiasri</td>
+							<td class="px-4 py-2">12 RB</td>
+							<td class="px-4 py-2 flex gap-2">
+								<button
+									class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
+								<button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-4 py-2">4</td>
+							<td class="px-4 py-2">Rabu</td>
+							<td class="px-4 py-2">12:15 - 14:00</td>
+							<td class="px-4 py-2">Pemrograman Web</td>
+							<td class="px-4 py-2">Dwi Nuryani</td>
+							<td class="px-4 py-2">12 RB</td>
+							<td class="px-4 py-2 flex gap-2">
+								<button
+									class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
+								<button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-4 py-2">5</td>
+							<td class="px-4 py-2">Kamis</td>
+							<td class="px-4 py-2">07:45 - 11:00</td>
+							<td class="px-4 py-2">Basis Data</td>
+							<td class="px-4 py-2">Arief Kurniawan</td>
+							<td class="px-4 py-2">12 RB</td>
+							<td class="px-4 py-2 flex gap-2">
+								<button
+									class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
+								<button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="px-4 py-2">6</td>
+							<td class="px-4 py-2">Jumat</td>
+							<td class="px-4 py-2">07:45 - 11:00</td>
+							<td class="px-4 py-2">PKKWU</td>
+							<td class="px-4 py-2">Atik Retnoningsih</td>
+							<td class="px-4 py-2">12 RC</td>
 							<td class="px-4 py-2 flex gap-2">
 								<button
 									class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</button>
@@ -167,7 +302,7 @@
 					</div>
 					<div>
 						<label class="block text-gray-600">Guru</label>
-						<input type="text" class="w-full p-2 border rounded-lg" placeholder="Contoh: Bu Ani" required>
+						<input type="text" class="w-full p-2 border rounded-lg" placeholder="Contoh: Dwi Nuryani" required>
 					</div>
 					<div>
 						<label class="block text-gray-600">Kelas</label>
@@ -184,6 +319,45 @@
 		</div>
 
 	</main>
+	<script>
+		const filterHari = document.getElementById("filterHari");
+		const filterMapel = document.getElementById("filterMapel");
+		const filterKelas = document.getElementById("filterKelas");
+		const searchGuru = document.getElementById("searchGuru");
+		const rows = document.querySelectorAll("tbody tr");
+	  
+		function filterTable() {
+		  const hariVal = filterHari.value.toLowerCase();
+		  const mapelVal = filterMapel.value.toLowerCase();
+		  const kelasVal = filterKelas.value.toLowerCase();
+		  const guruVal = searchGuru.value.toLowerCase();
+	  
+		  rows.forEach(row => {
+			const hari = row.cells[1].textContent.toLowerCase();
+			const jam = row.cells[2].textContent.toLowerCase();
+			const mapel = row.cells[3].textContent.toLowerCase();
+			const guru = row.cells[4].textContent.toLowerCase();
+			const kelas = row.cells[5].textContent.toLowerCase();
+	  
+			const matchHari = !hariVal || hari.includes(hariVal);
+			const matchMapel = !mapelVal || mapel.includes(mapelVal);
+			const matchKelas = !kelasVal || kelas.includes(kelasVal);
+			const matchGuru = !guruVal || guru.includes(guruVal);
+	  
+			if (matchHari && matchMapel && matchKelas && matchGuru) {
+			  row.style.display = "";
+			} else {
+			  row.style.display = "none";
+			}
+		  });
+		}
+	  
+		[filterHari, filterMapel, filterKelas, searchGuru].forEach(el => {
+		  el.addEventListener("input", filterTable);
+		});
+	  </script>
+	  
+	
 </body>
 
 </html>
