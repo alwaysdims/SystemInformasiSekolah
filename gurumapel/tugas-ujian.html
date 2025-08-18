@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Pengaduan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden sm:hidden z-40"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-gradient-to-br from-blue-500 to-blue-800 text-white p-5 flex flex-col shadow-2xl 
+    sm:rounded-2xl fixed inset-y-0 sm:inset-y-auto sm:top-4 sm:left-4 h-full sm:h-[95%] 
+    transform -translate-x-full sm:translate-x-0 transition-transform duration-300 ease z-40">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-5 mb-10">
+            <img src="../assets/image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 mx-auto rounded mb-2" />
+            <h1 class="text-sm font-bold leading-tight">
+                SYSTEM INFORMASI SKANDAKRA
+            </h1>
+        </div>
+
+        <!-- Navigasi -->
+        <nav class="space-y-2">
+            <!-- Dashboard -->
+            <a href="index.html"
+                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4 0v-8m-4 0h4" />
+                </svg>
+                Dashboard
+            </a>
+
+            <!-- Forum Diskusi -->
+            <a href="forum-diskusi.html"
+                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 14c4.418 0 8-1.79 8-4V5a2 2 0 00-2-2h-2.586a1 1 0 01-.707-.293l-1.414-1.414A2 2 0 0011.586 1H8a2 2 0 00-2 2v1" />
+                    <circle cx="12" cy="10" r="3" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18v-1a4 4 0 014-4h0a4 4 0 014 4v1" />
+                </svg>
+                Forum Diskusi
+            </a>
+
+            <!-- Menu Belajar (Dropdown) -->
+            <div>
+                <button id="belajarToggle"
+                    class="w-full flex items-center justify-between hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                    <span class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 20H6a2 2 0 01-2-2V6a2 2 0 012-2h6m0 0h6a2 2 0 012 2v12a2 2 0 01-2 2h-6m0-16v16" />
+                        </svg>
+                        Menu Belajar
+                    </span>
+                    <svg id="belajarIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <!-- Submenu -->
+                <div id="belajarMenu" class="hidden ml-6 mt-2 flex flex-col gap-2">
+                    <a href="materi_pelajaran.html"
+                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                        📘 Materi Pelajaran
+                    </a>
+                    <a href="tugas-ujian.html"
+                        class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+                        📝 Tugas Ujian
+                    </a>
+                </div>
+            </div>
+
+            <!-- Layanan Aduan (Dropdown) -->
+            <div>
+                <button id="aduanToggle"
+                    class="w-full flex items-center justify-between hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                    <span class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 14c4.418 0 8-1.79 8-4V5a2 2 0 00-2-2h-2.586a1 1 0 01-.707-.293l-1.414-1.414A2 2 0 0011.586 1H8a2 2 0 00-2 2v1" />
+                        </svg>
+                        Layanan Aduan
+                    </span>
+                    <svg id="aduanIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <!-- Submenu -->
+                <div id="aduanMenu" class="hidden ml-6 mt-2 flex flex-col gap-2">
+                    <a href="pengaduan.html"
+                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                        📢 Pengaduan
+                    </a>
+                    <a href="riwayat-tanggapan.html"
+                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                        📜 Riwayat Tanggapan
+                    </a>
+                </div>
+            </div>
+
+            <!-- Jadwal -->
+            <a href="jadwal.html"
+                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Jadwal
+            </a>
+
+            <!-- Nilai -->
+            <a href="nilai.html"
+                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m4 0v-8a2 2 0 00-2-2h-2m-4 0H7a2 2 0 00-2 2v8" />
+                </svg>
+                Nilai
+            </a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 sm:ml-[17rem] p-6 ">
+        <div
+            class="flex sm:relative z-30 justify-between items-center bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-4 rounded-lg shadow mb-6">
+            <div class="flex items-center space-x-4">
+                <!-- Tombol Hamburger -->
+                <button id="toggleSidebar" class="sm:hidden p-2 text-white rounded-lg hover:bg-blue-700 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <div class="items-center">
+                    <h3 class="text-md sm:text-2xl text-white font-semibold">Dashboard</h3>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"
+                    class="relative inline-flex items-center text-sm font-medium text-center text-gray-100 hover:text-gray-100 focus:outline-none light:hover:text-white light:text-gray-400"
+                    type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    <div
+                        class="absolute block w-3 h-3 bg-red-500 border-2 border-white rounded-full -top-0.5 start-2.5 light:border-gray-900">
+                    </div>
+                </button>
+
+                <div id="dropdownNotification"
+                    class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 rounded-lg shadow-xl light:bg-gray-800 light:divide-gray-700"
+                    aria-labelledby="dropdownNotificationButton">
+                    <!-- Judul -->
+                    <div
+                        class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50 light:bg-gray-800 light:text-white">
+                        Notifications
+                    </div>
+
+                    <!-- Isi Notifikasi -->
+                    <div class="divide-y divide-gray-100 light:divide-gray-700">
+                        <!-- Notifikasi: Pending -->
+                        <a href="detail-riwayat-pending.html"
+                            class="flex px-4 py-3 hover:bg-gray-100 light:hover:bg-gray-700">
+                            <div class="shrink-0 relative">
+                                <img class="rounded-full object-cover w-11 h-11"
+                                    src="https://mm.feb.uncen.ac.id/wp-content/uploads/2016/01/tutor-8.jpg"
+                                    alt="Dimas Prakoso" />
+                                <div
+                                    class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-yellow-500 border border-white rounded-full light:border-gray-800">
+                                    <svg class="w-2 h-2 text-white" xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 18 18">
+                                        <circle cx="9" cy="9" r="8" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-full ps-3">
+                                <div class="text-gray-500 text-sm light:text-gray-400">
+                                    <span class="font-semibold text-gray-900 light:text-white">Dimas Prakoso</span>
+                                    • Ruang Multimedia
+                                </div>
+                                <span class="text-gray-400 text-xs light:text-white">Beberapa komputer tidak menyala,
+                                    mohon segera
+                                    diperbaiki.</span>
+                                <div class="text-xs text-yellow-500 font-medium mt-1">
+                                    17 Juli 2025, 10:20
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Notifikasi: Selesai -->
+                        <a href="detail-riwayat-selesai.html"
+                            class="flex px-4 py-3 hover:bg-gray-100 light:hover:bg-gray-700">
+                            <div class="shrink-0 relative">
+                                <img class="rounded-full object-cover w-11 h-11"
+                                    src="https://mm.feb.uncen.ac.id/wp-content/uploads/2016/01/tutor-8.jpg"
+                                    alt="Siti Aminah" />
+                                <div
+                                    class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-blue-500 border border-white rounded-full light:border-gray-800">
+                                    <svg class="w-2 h-2 text-white" xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 18 18">
+                                        <circle cx="9" cy="9" r="8" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-full ps-3">
+                                <div class="text-gray-500 text-sm light:text-gray-400">
+                                    <span class="font-semibold text-gray-900 light:text-white">Siti Aminah</span>
+                                    • Toilet Gedung B
+                                </div>
+                                <span class="text-gray-400 text-xs light:text-white">Toilet rusak sudah diperbaiki.
+                                    Terima kasih.</span>
+                                <div class="text-xs text-blue-500 font-medium mt-1">
+                                    16 Juli 2025, 08:10
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Notifikasi: Ditolak -->
+                        <a href="detail-riwayat-ditolak.html"
+                            class="flex px-4 py-3 hover:bg-gray-100 light:hover:bg-gray-700">
+                            <div class="shrink-0 relative">
+                                <img class="rounded-full object-cover w-11 h-11"
+                                    src="https://mm.feb.uncen.ac.id/wp-content/uploads/2016/01/tutor-8.jpg"
+                                    alt="Rina Maulida" />
+                                <div
+                                    class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-red-500 border border-white rounded-full light:border-gray-800">
+                                    <svg class="w-2 h-2 text-white" xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 18 18">
+                                        <circle cx="9" cy="9" r="8" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-full ps-3">
+                                <div class="text-gray-500 text-sm light:text-gray-400">
+                                    <span class="font-semibold text-gray-900 light:text-white">Rina Maulida</span>
+                                    • Gerbang Utama
+                                </div>
+                                <span class="text-gray-400 text-xs light:text-white">Pintu gerbang rusak, tidak bisa
+                                    dikunci.</span>
+                                <div class="text-xs text-red-500 font-medium mt-1">
+                                    18 Juli 2025, 07:45
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- View All -->
+                    <a href="notifikasi.html"
+                        class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-gray-50 hover:bg-gray-100 light:bg-gray-800 light:hover:bg-gray-700 light:text-white">
+                        <div class="inline-flex items-center">
+                            <svg class="w-4 h-4 me-2 text-gray-500 light:text-gray-400"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+                                <path
+                                    d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                            </svg>
+                            View all
+                        </div>
+                    </a>
+                </div>
+
+                <div class="relative">
+                    <!-- Tombol Foto Guru -->
+                    <button onclick="toggleDropdown()"
+                        class="p-1 rounded-full hover:ring-2 hover:ring-blue-500 transition">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Foto Guru"
+                            class="h-10 w-10 rounded-full object-cover border-2 border-white shadow"
+                            onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" />
+                    </button>
+
+
+                    <div id="dropdown-menu"
+                        class="absolute right-0 mt-2 w-48 bg-white text-gray-700 rounded-xl shadow-lg hidden z-50">
+                        <div class="flex flex-col items-center py-4 px-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Foto Guru"
+                                class="h-10 w-10 rounded-full object-cover border-2 border-white shadow"
+                                onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" />
+                            <p class="mt-2 font-semibold text-green-600">Kurikulum</p>
+                        </div>
+
+                        <hr class="border-gray-200" />
+
+                        <a href="edit-profil.html" class="block px-4 py-2 hover:bg-blue-50 text-center">Edit Profil</a>
+                        <a href="/laporan-masyarakat/index.html"
+                            class="block px-4 py-2 hover:bg-blue-50 text-center text-red-500">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex">
+            <main class="flex-1 overflow-y-auto p-6">
+                <div class="max-w-7xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+
+                    <!-- Filter Bar -->
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center sm:justify-between sm:space-x-4 space-y-3 sm:space-y-0 mb-6 bg-gray-50 p-4 rounded-lg shadow-sm">
+
+                        <!-- Left Filters -->
+                        <div
+                            class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-3 sm:space-y-0 w-full">
+
+                            <!-- Search -->
+                            <div class="relative w-full sm:w-72">
+                                <input id="searchInput" type="text" placeholder="🔍 Cari soal..."
+                                    class="w-full pl-10 pr-4 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white shadow-sm" />
+                                <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <circle cx="11" cy="11" r="7"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </div>
+
+                            <!-- Filter Mapel -->
+                            <div class="relative w-full sm:w-52">
+                                <select id="mapelFilter"
+                                    class="w-full pl-10 pr-4 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white shadow-sm appearance-none">
+                                    <option value="">📘 Semua Mapel</option>
+                                    <option value="Matematika">Matematika</option>
+                                    <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                                    <option value="IPA">IPA</option>
+                                    <option value="IPS">IPS</option>
+                                    <option value="Bahasa Inggris">Bahasa Inggris</option>
+                                    <option value="Agama">Agama</option>
+                                </select>
+                                <svg class="w-4 h-4 text-gray-400 absolute left-3 top-3 pointer-events-none" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+
+                            <!-- Filter Hari -->
+
+                        </div>
+
+                        <!-- Right Action -->
+                        <div>
+                            <button onclick="openAddModal()"
+                                class="bg-green-600 hover:bg-green-700 text-white text-sm px-5 py-2 rounded-lg flex items-center space-x-2 shadow">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                    <path d="M12 4v16m8-8H4"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="overflow-x-auto">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse shadow rounded-lg overflow-hidden">
+                                <thead>
+                                    <tr class="border-b border-gray-200 text-sm text-gray-600 bg-gray-100">
+                                        <th class="px-4 py-3">NO</th>
+                                        <th class="px-4 py-3">JUDUL</th>
+                                        <th class="px-4 py-3">MAPEL</th>
+                                        <th class="px-4 py-3 text-center">LIHAT SOAL</th>
+                                        <th class="px-4 py-3 text-center">SUDAH MENGERJAKAN</th>
+                                        <th class="px-4 py-3 text-center">TERBITKAN</th>
+                                        <th class="px-4 py-3 text-center">AKSI</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="questionsTableBody" class="text-gray-700">
+                                    <!-- Data 1 -->
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="px-4 py-3">1</td>
+                                        <td class="px-4 py-3">Bangun Datar</td>
+                                        <td class="px-4 py-3">Matematika</td>
+
+                                        <!-- Lihat Soal -->
+                                        <td class="px-4 py-3 text-center">
+                                            <a href="detail.html"
+                                                class="p-2 bg-green-600 hover:bg-green-700 text-white rounded-full inline-flex items-center justify-center"
+                                                title="Lihat Soal">
+                                                <!-- Icon Search -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+                                                </svg>
+                                            </a>
+
+                                        </td>
+
+                                        <!-- Sudah Mengerjakan -->
+                                        <td class="px-4 py-3 text-center">
+                                            <a href="hasil.html"
+                                                class="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full inline-flex items-center justify-center"
+                                                title="Lihat Hasil">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </a>
+                                        </td>
+
+                                        <!-- Terbitkan -->
+                                        <td class="px-4 py-3 text-center">
+                                            <!-- Tombol Terbitkan -->
+                                            <button
+                                                onclick="document.getElementById('modalTerbitkan').classList.remove('hidden')"
+                                                class="p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full"
+                                                title="Terbitkan">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12V4m0 0L8 8m4-4l4 4" />
+                                                </svg>
+                                            </button>
+
+                                            <!-- Modal Terbitkan -->
+                                            <div id="modalTerbitkan"
+                                                class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4">
+                                                <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative">
+
+                                                    <!-- Tombol Close -->
+                                                    <button
+                                                        onclick="document.getElementById('modalTerbitkan').classList.add('hidden')"
+                                                        class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                                                        ✖
+                                                    </button>
+
+                                                    <!-- Judul Modal -->
+                                                    <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">
+                                                        Terbitkan Soal</h2>
+
+                                                    <!-- Pilih Kelas -->
+                                                    <div class="mb-4">
+                                                        <label
+                                                            class="block text-sm font-medium text-gray-700 mb-2">Kelas</label>
+                                                        <select multiple
+                                                            class="w-full border-gray-300 rounded-lg px-3 py-2 text-sm shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                                                            <option>X IPA 1</option>
+                                                            <option>X IPA 2</option>
+                                                            <option>XI IPA 1</option>
+                                                            <option>XI IPA 2</option>
+                                                            <option>XII IPA 1</option>
+                                                            <option>XII IPA 2</option>
+                                                        </select>
+                                                        <p class="text-xs text-gray-500 mt-1">*Bisa pilih lebih dari
+                                                            satu kelas (Ctrl / Cmd + klik).</p>
+                                                    </div>
+
+                                                    <!-- Jam Terbit -->
+                                                    <div class="mb-4">
+                                                        <label class="block text-sm font-medium text-gray-700 mb-1">Jam
+                                                            Terbit</label>
+                                                        <input type="datetime-local"
+                                                            class="w-full border-gray-300 rounded-lg px-3 py-2 text-sm shadow-sm focus:ring-purple-500 focus:border-purple-500">
+                                                    </div>
+
+                                                    <!-- Info Detail Soal -->
+                                                    <div class="mb-4">
+                                                        <label class="block text-sm font-medium text-gray-700 mb-1">Info
+                                                            Soal</label>
+                                                        <textarea rows="3"
+                                                            class="w-full border-gray-300 rounded-lg px-3 py-2 text-sm shadow-sm focus:ring-purple-500 focus:border-purple-500"
+                                                            placeholder="Contoh: Hitung luas segitiga dengan alas 10 cm dan tinggi 12 cm."></textarea>
+                                                    </div>
+
+                                                    <!-- Tombol Aksi -->
+                                                    <div class="flex justify-end space-x-3">
+                                                        <button
+                                                            onclick="document.getElementById('modalTerbitkan').classList.add('hidden')"
+                                                            class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-semibold">
+                                                            Batal
+                                                        </button>
+                                                        <button
+                                                            class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold">
+                                                            Terbitkan
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </td>
+
+                                        <!-- Aksi -->
+                                        <td class="px-4 py-3 text-center">
+                                            <div class="flex justify-center space-x-2">
+                                                <!-- Edit -->
+                                                <button
+                                                    class="p-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full"
+                                                    title="Edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M11 4h2m-1 0v16m8-8H4" />
+                                                    </svg>
+                                                </button>
+
+                                                <!-- Hapus -->
+                                                <button class="p-2 bg-red-600 hover:bg-red-700 text-white rounded-full"
+                                                    title="Hapus">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="px-4 py-3">2</td>
+                                        <td class="px-4 py-3">Teks Eksposisi</td>
+                                        <td class="px-4 py-3">Bahasa Indonesia</td>
+
+                                        <td class="px-4 py-3 text-center">
+                                            <a href="detail.html"
+                                                class="p-2 bg-green-600 hover:bg-green-700 text-white rounded-full inline-flex items-center justify-center"
+                                                title="Lihat Soal">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+
+                                        <td class="px-4 py-3 text-center">
+                                            <a href="hasil.html"
+                                                class="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full inline-flex items-center justify-center"
+                                                title="Lihat Hasil">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </a>
+                                        </td>
+
+                                        <td class="px-4 py-3 text-center">
+                                            <button
+                                                onclick="document.getElementById('modalTerbitkan').classList.remove('hidden')"
+                                                class="p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full"
+                                                title="Terbitkan">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12V4m0 0L8 8m4-4l4 4" />
+                                                </svg>
+                                            </button>
+                                        </td>
+
+                                        <!-- Aksi -->
+                                        <td class="px-4 py-3 text-center">
+                                            <div class="flex justify-center space-x-2">
+                                                <!-- Edit -->
+                                                <button
+                                                    class="p-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full"
+                                                    title="Edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M11 4h2m-1 0v16m8-8H4" />
+                                                    </svg>
+                                                </button>
+
+                                                <!-- Hapus -->
+                                                <button class="p-2 bg-red-600 hover:bg-red-700 text-white rounded-full"
+                                                    title="Hapus">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Soal 3 -->
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="px-4 py-3">3</td>
+                                        <td class="px-4 py-3">Fotosintesis</td>
+                                        <td class="px-4 py-3">IPA</td>
+
+                                        <td class="px-4 py-3 text-center">
+                                            <a href="detail.html"
+                                                class="p-2 bg-green-600 hover:bg-green-700 text-white rounded-full inline-flex items-center justify-center"
+                                                title="Lihat Soal">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+
+                                        <td class="px-4 py-3 text-center">
+                                            <a href="hasil.html"
+                                                class="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full inline-flex items-center justify-center"
+                                                title="Lihat Hasil">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </a>
+                                        </td>
+
+                                        <td class="px-4 py-3 text-center">
+                                            <button
+                                                onclick="document.getElementById('modalTerbitkan').classList.remove('hidden')"
+                                                class="p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full"
+                                                title="Terbitkan">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12V4m0 0L8 8m4-4l4 4" />
+                                                </svg>
+                                            </button>
+                                        </td>
+
+                                        <!-- Aksi -->
+                                        <td class="px-4 py-3 text-center">
+                                            <div class="flex justify-center space-x-2">
+                                                <!-- Edit -->
+                                                <button
+                                                    class="p-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full"
+                                                    title="Edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M11 4h2m-1 0v16m8-8H4" />
+                                                    </svg>
+                                                </button>
+
+                                                <!-- Hapus -->
+                                                <button class="p-2 bg-red-600 hover:bg-red-700 text-white rounded-full"
+                                                    title="Hapus">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Soal 4 -->
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="px-4 py-3">4</td>
+                                        <td class="px-4 py-3">Perang Dunia II</td>
+                                        <td class="px-4 py-3">IPS</td>
+
+                                        <td class="px-4 py-3 text-center">
+                                            <a href="detail.html"
+                                                class="p-2 bg-green-600 hover:bg-green-700 text-white rounded-full inline-flex items-center justify-center"
+                                                title="Lihat Soal">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+
+                                        <td class="px-4 py-3 text-center">
+                                            <a href="hasil.html"
+                                                class="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full inline-flex items-center justify-center"
+                                                title="Lihat Hasil">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </a>
+                                        </td>
+
+                                        <td class="px-4 py-3 text-center">
+                                            <button
+                                                onclick="document.getElementById('modalTerbitkan').classList.remove('hidden')"
+                                                class="p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full"
+                                                title="Terbitkan">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12V4m0 0L8 8m4-4l4 4" />
+                                                </svg>
+                                            </button>
+                                        </td>
+
+                                        <!-- Aksi -->
+                                        <td class="px-4 py-3 text-center">
+                                            <div class="flex justify-center space-x-2">
+                                                <!-- Edit -->
+                                                <button
+                                                    class="p-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full"
+                                                    title="Edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M11 4h2m-1 0v16m8-8H4" />
+                                                    </svg>
+                                                </button>
+
+                                                <!-- Hapus -->
+                                                <button class="p-2 bg-red-600 hover:bg-red-700 text-white rounded-full"
+                                                    title="Hapus">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- PAGINATION -->
+                        <div id="pagination" class="flex justify-center mt-4 space-x-2"></div>
+
+
+                    </div>
+
+                    <!-- Modal Tambah Soal -->
+                    <div id="addModal"
+                        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden overflow-y-auto">
+                        <div class="bg-white rounded-lg w-full max-w-lg mx-4 p-6 relative">
+                            <h2 class="text-xl font-bold mb-4 text-center">Tambah Soal</h2>
+
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block mb-1 text-sm font-medium">Judul</label>
+                                    <input type="text" name="" class="border rounded-lg px-3 py-2 w-full" id="">
+                                </div>
+                                <div>
+                                    <label class="block mb-1 text-sm font-medium">Mata Pelajaran</label>
+                                    <select class="w-full border rounded-lg px-3 py-2">
+                                        <option>Matematika</option>
+                                        <option>Bahasa Indonesia</option>
+                                        <option>IPA</option>
+                                        <option>IPS</option>
+                                        <option>Bahasa Inggris</option>
+                                        <option>Agama</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block mb-1 text-sm font-medium">Jenis</label>
+                                    <select class="w-full border rounded-lg px-3 py-2">
+                                        <option>Tugas</option>
+                                        <option>Ulangan</option>
+                                        <option>Ujian</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block mb-1 text-sm font-medium">Waktu</label>
+                                    <select class="w-full border rounded-lg px-3 py-2">
+                                        <option>30 Menit</option>
+                                        <option>45 Menit</option>
+                                        <option>60 Menit</option>
+                                        <option>90 Menit</option>
+                                        <option>120 Menit</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block mb-1 text-sm font-medium">Bobot Pilihan Ganda (%)</label>
+                                    <input type="number" name="" class="border rounded-lg px-3 py-2 w-full" id="">
+                                </div>
+
+                                <div>
+                                    <label class="block mb-1 text-sm font-medium">Bobotn Esai (%)</label>
+                                    <input type="number" name="" class="border rounded-lg px-3 py-2 w-full" id="">
+                                </div>
+
+                                <div class="flex justify-end space-x-3">
+                                    <button type="button" onclick="closeAddModal()"
+                                        class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg">Batal</button>
+                                    <button type="submit"
+                                        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <script>
+                function openAddModal() {
+                    document.getElementById("addModal").classList.remove("hidden");
+                }
+
+                function closeAddModal() {
+                    document.getElementById("addModal").classList.add("hidden");
+                }
+            </script>
+
+        </div>
+
+    </main>
+
+
+    <script>
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        // Sidebar Toggle
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Dropdown Menu Belajar
+        const belajarToggle = document.getElementById('belajarToggle');
+        const belajarMenu = document.getElementById('belajarMenu');
+        const belajarIcon = document.getElementById('belajarIcon');
+
+        belajarToggle.addEventListener('click', () => {
+            belajarMenu.classList.toggle('hidden');
+            belajarIcon.classList.toggle('rotate-180');
+        });
+
+        // Dropdown Layanan Aduan
+        const aduanToggle = document.getElementById('aduanToggle');
+        const aduanMenu = document.getElementById('aduanMenu');
+        const aduanIcon = document.getElementById('aduanIcon');
+
+        aduanToggle.addEventListener('click', () => {
+            aduanMenu.classList.toggle('hidden');
+            aduanIcon.classList.toggle('rotate-180');
+        });
+
+        window.addEventListener("click", function (e) {
+            const profileButton = document.querySelector(
+                "button[onclick='toggleDropdown()']"
+            );
+            const dropdownMenu = document.getElementById("dropdown-menu");
+            const overlay = document.getElementById('overlay');
+
+            if (
+                profileButton &&
+                !profileButton.contains(e.target) &&
+                !dropdownMenu.contains(e.target)
+            ) {
+                dropdownMenu.classList.add("hidden");
+            }
+
+            if (
+                window.innerWidth < 640 &&
+                !sidebar.contains(e.target) &&
+                !toggleSidebarBtn.contains(e.target) &&
+                !sidebar.classList.contains("-translate-x-full") &&
+                !overlay.classList.contains("hidden")
+            ) {
+                sidebar.classList.add("-translate-x-full");
+                overlay.classList.add("hidden");
+            }
+        });
+
+        // ======================= DATA SOAL =======================
+        const dataSoal = [{
+                no: 1,
+                judul: "Bangun Datar",
+                mapel: "Matematika"
+            },
+            {
+                no: 2,
+                judul: "Puisi Baru",
+                mapel: "Bahasa Indonesia"
+            },
+        ];
+
+        // ======================= VARIABEL =======================
+        const tableBody = document.getElementById("questionsTableBody");
+        const searchInput = document.getElementById("searchInput");
+        const mapelFilter = document.getElementById("mapelFilter");
+        const pagination = document.getElementById("pagination");
+
+        let currentPage = 1;
+        const itemsPerPage = 5;
+
+        // ======================= RENDER TABLE =======================
+        function renderTable() {
+            tableBody.innerHTML = "";
+
+            let filteredData = dataSoal.filter(item => {
+                let searchText = searchInput.value.toLowerCase();
+                let filterMapel = mapelFilter.value;
+                return (
+                    (item.judul.toLowerCase().includes(searchText) ||
+                        item.mapel.toLowerCase().includes(searchText)) &&
+                    (filterMapel === "" || item.mapel === filterMapel)
+                );
+            });
+
+            // Hitung data untuk pagination
+            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+            const start = (currentPage - 1) * itemsPerPage;
+            const paginatedData = filteredData.slice(start, start + itemsPerPage);
+
+            // Render rows
+            paginatedData.forEach((item, index) => {
+                let row = `
+        <tr class="border-b border-gray-100 hover:bg-gray-50">
+          <td class="px-4 py-3">${start + index + 1}</td>
+          <td class="px-4 py-3">${item.judul}</td>
+          <td class="px-4 py-3">${item.mapel}</td>
+          <td class="px-4 py-3 text-center">
+            <a href="detail.html"
+                class="p-2 bg-green-600 hover:bg-green-700 text-white rounded-full inline-flex"
+                title="Lihat Soal" aria-label="Lihat Soal">
+                <!-- Search -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m21 21-4.35-4.35M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/>
+                </svg>
+            </a>
+        </td>
+
+        <td class="px-4 py-3 text-center">
+            <a href="hasil.html"
+                class="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full inline-flex"
+                title="Lihat Hasil" aria-label="Lihat Hasil">
+                <!-- Check -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"/>
+                </svg>
+            </a>
+        </td>
+
+       <!-- Terbitkan -->
+<td class="px-4 py-3 text-center">
+  <!-- Tombol Terbitkan -->
+  <button
+    onclick="document.getElementById('modalTerbitkan').classList.remove('hidden')"
+    class="p-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full"
+    title="Terbitkan" aria-label="Terbitkan">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12V4m0 0L8 8m4-4l4 4"/>
+    </svg>
+  </button>
+
+  <!-- Modal Terbitkan -->
+  <div id="modalTerbitkan"
+       class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 relative animate-fade-in">
+      
+      <!-- Tombol Close -->
+      <button
+        onclick="document.getElementById('modalTerbitkan').classList.add('hidden')"
+        class="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+        aria-label="Close Modal">
+        ✖
+      </button>
+
+      <!-- Judul Modal -->
+      <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">Terbitkan Soal</h2>
+
+      <!-- Pilih Kelas -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label>
+        <select multiple
+          class="w-full border-gray-300 rounded-lg px-3 py-2 text-sm shadow-sm focus:ring-purple-500 focus:border-purple-500">
+          <option>X IPA 1</option>
+          <option>X IPA 2</option>
+          <option>XI IPA 1</option>
+          <option>XI IPA 2</option>
+          <option>XII IPA 1</option>
+          <option>XII IPA 2</option>
+        </select>
+        <p class="text-xs text-gray-500 mt-1">*Pilih kelas yang mau di beri ujian (bisa lebih dari satu kelas) (Ctrl / Cmd + klik).</p>
+      </div>
+
+      <!-- Jam Terbit -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Jam Terbit</label>
+        <input type="datetime-local"
+          class="w-full border-gray-300 rounded-lg px-3 py-2 text-sm shadow-sm focus:ring-purple-500 focus:border-purple-500">
+      </div>
+
+      <!-- Info Detail Soal -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700 mb-1">Info Soal</label>
+        <textarea rows="3"
+          class="w-full border-gray-300 rounded-lg px-3 py-2 text-sm shadow-sm focus:ring-purple-500 focus:border-purple-500"
+          placeholder="Contoh: Hitung luas segitiga dengan alas 10 cm dan tinggi 12 cm."></textarea>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="flex justify-end space-x-3">
+        <button
+          onclick="document.getElementById('modalTerbitkan').classList.add('hidden')"
+          class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-semibold">
+          Batal
+        </button>
+        <button
+          class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold">
+          Terbitkan
+        </button>
+      </div>
+    </div>
+  </div>
+</td>
+
+<style>
+  /* Animasi fade-in */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+</style>
+
+
+        <td class="px-4 py-3 text-center">
+            <div class="flex justify-center space-x-2">
+                <button class="p-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full inline-flex"
+                        title="Edit" aria-label="Edit">
+                <!-- Pencil -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M11 5h2m6.586 1.586a2 2 0 0 1 0 2.828l-9.9 9.9a2 2 0 0 1-.894.515l-3.2.8a.75.75 0 0 1-.91-.91l.8-3.2a2 2 0 0 1 .515-.894l9.9-9.9a2 2 0 0 1 2.828 0z"/>
+                </svg>
+                </button>
+
+                <button class="p-2 bg-red-600 hover:bg-red-700 text-white rounded-full inline-flex"
+                        title="Hapus" aria-label="Hapus">
+                <!-- Trash -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M19 7l-1 12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 7m3-3h8m-5 0h2m-7 3h14"/>
+                </svg>
+                </button>
+            </div>
+        </td>
+
+        </tr>
+      `;
+                tableBody.insertAdjacentHTML("beforeend", row);
+            });
+
+            renderPagination(totalPages);
+        }
+
+        // ======================= RENDER PAGINATION =======================
+        function renderPagination(totalPages) {
+            pagination.innerHTML = "";
+
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement("button");
+                btn.textContent = i;
+                btn.className =
+                    "px-3 py-1 rounded-lg " +
+                    (i === currentPage ?
+                        "bg-blue-600 text-white" :
+                        "bg-gray-200 hover:bg-gray-300");
+
+                btn.addEventListener("click", () => {
+                    currentPage = i;
+                    renderTable();
+                });
+
+                pagination.appendChild(btn);
+            }
+        }
+
+        // ======================= EVENT LISTENER =======================
+        searchInput.addEventListener("input", () => {
+            currentPage = 1;
+            renderTable();
+        });
+
+        mapelFilter.addEventListener("change", () => {
+            currentPage = 1;
+            renderTable();
+        });
+
+        // ======================= INITIAL RENDER =======================
+        renderTable();
+
+        searchInput.addEventListener("keyup", filterTable);
+        mapelFilter.addEventListener("change", filterTable);
+
+        // Tampilkan Table
+        function displayTable() {
+            const filteredRows = filterTable();
+            const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
+
+            // Pastikan currentPage valid
+            if (currentPage > totalPages) currentPage = totalPages || 1;
+
+            rows.forEach(row => row.style.display = "none");
+
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            filteredRows.slice(start, end).forEach(row => row.style.display = "");
+
+            renderPagination(totalPages);
+        }
+
+        // Event
+        searchInput.addEventListener("input", () => {
+            currentPage = 1;
+            displayTable();
+        });
+        statusFilter.addEventListener("change", () => {
+            currentPage = 1;
+            displayTable();
+        });
+        dateFilter.addEventListener("change", () => {
+            currentPage = 1;
+            displayTable();
+        });
+
+        // Init
+        displayTable();
+
+        function closeModal() {
+            document.getElementById("modalDetail").classList.add("hidden");
+        }
+    </script>
+</body>
+
+</html>
