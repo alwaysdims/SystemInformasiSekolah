@@ -97,11 +97,11 @@
 			</div>
 
 			<div class="hidden sm:block flex-1 max-w-md ml-auto">
-                <input type="text" placeholder="Cari sesuatu..."
-                    class="w-full px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
-            </div>
+				<input type="text" placeholder="Cari sesuatu..."
+					class="w-full px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+			</div>
 
-            <div class="flex items-center space-x-4 ml-5">
+			<div class="flex items-center space-x-4 ml-5">
 				<button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"
 					class="relative inline-flex items-center text-sm font-medium text-center text-gray-100 hover:text-gray-100 focus:outline-none light:hover:text-white light:text-gray-400"
 					type="button">
@@ -146,11 +146,12 @@
 								</div>
 								<div class="text-xs text-gray-500 dark:text-gray-400">20–25 Desember 2023</div>
 								<p class="text-gray-600 text-sm dark:text-gray-300">
-									Persiapkan siswa untuk ujian semester ganjil. Silahkan cek jadwal lengkapnya di menu Jadwal.
+									Persiapkan siswa untuk ujian semester ganjil. Silahkan cek jadwal lengkapnya di menu
+									Jadwal.
 								</p>
 							</div>
 						</div>
-					
+
 						<!-- Notifikasi: Penerimaan Siswa Baru -->
 						<div class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
 							<div class="shrink-0 relative">
@@ -169,13 +170,14 @@
 								<div class="text-gray-900 font-semibold dark:text-white">
 									Penerimaan Siswa Baru 2024
 								</div>
-								<div class="text-xs text-gray-500 dark:text-gray-400">Pendaftaran dibuka: 1 Januari 2024</div>
+								<div class="text-xs text-gray-500 dark:text-gray-400">Pendaftaran dibuka: 1 Januari 2024
+								</div>
 								<p class="text-gray-600 text-sm dark:text-gray-300">
 									Persiapkan dokumen dan formulir untuk penerimaan siswa baru tahun ajaran 2024/2025.
 								</p>
 							</div>
 						</div>
-					
+
 						<!-- Notifikasi: Hari Pendidikan Nasional -->
 						<div class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
 							<div class="shrink-0 relative">
@@ -319,14 +321,184 @@
 							</tbody>
 						</table>
 					</div>
-				</div>
 
+
+				</div>
+				<div class="max-w-7xl mx-auto bg-white p-6 mt-10 rounded-lg shadow-lg">
+					<!-- Search Bar -->
+					<div class="flex items-center border rounded-lg px-3 py-2 w-full sm:w-64 mb-6">
+						<input id="searchInput" type="text" placeholder="Cari nama siswa..."
+							class="w-full focus:outline-none text-gray-700" />
+					</div>
+					<div class="overflow-x-auto">
+						<table class="w-full text-left border-collapse">
+							<thead>
+								<tr class="border-b border-gray-200 text-sm text-gray-500">
+									<th class="px-4 py-3">NIS</th>
+									<th class="px-4 py-3">NAMA</th>
+									<th class="px-4 py-3">JURUSAN</th>
+									<th class="px-4 py-3">KELAS</th>
+									<th class="px-4 py-3">NILAI</th>
+									<th class="px-4 py-3">STATUS</th>
+								</tr>
+							</thead>
+							<tbody class="text-gray-700">
+								<!-- Orlando Dimas -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231001</td>
+									<td class="px-4 py-3">Orlando Dimas</td>
+									<td class="px-4 py-3"><span
+											class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">Mesin</span>
+									</td>
+									<td class="px-4 py-3">XII Mesin A</td>
+									<td class="px-4 py-3">85</td>
+									<td class="px-4 py-3"><span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Eligible</span>
+									</td>
+								</tr>
+								<!-- Tegar Triadi -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231002</td>
+									<td class="px-4 py-3">Tegar Triadi</td>
+									<td class="px-4 py-3"><span
+											class="bg-orange-100 text-orange-700 text-xs font-semibold px-2.5 py-1 rounded-full">Tekstil</span>
+									</td>
+									<td class="px-4 py-3">XII Tekstil B</td>
+									<td class="px-4 py-3">62</td>
+									<td class="px-4 py-3"><span
+											class="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Tidak
+											Eligible</span></td>
+								</tr>
+								<!-- Ode Arstiko -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231003</td>
+									<td class="px-4 py-3">Ode Arstiko</td>
+									<td class="px-4 py-3"><span
+											class="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Ototronik</span>
+									</td>
+									<td class="px-4 py-3">XII Ototronik A</td>
+									<td class="px-4 py-3">55</td>
+									<td class="px-4 py-3"><span
+											class="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Tidak
+											Eligible</span></td>
+								</tr>
+								<!-- Fiyona -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231004</td>
+									<td class="px-4 py-3">Fiyona</td>
+									<td class="px-4 py-3"><span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">RPL</span>
+									</td>
+									<td class="px-4 py-3">XII RPL A</td>
+									<td class="px-4 py-3">91</td>
+									<td class="px-4 py-3"><span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Eligible</span>
+									</td>
+								</tr>
+								<!-- Putri Solo -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231005</td>
+									<td class="px-4 py-3">Putri Solo</td>
+									<td class="px-4 py-3"><span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">RPL</span>
+									</td>
+									<td class="px-4 py-3">XII RPL B</td>
+									<td class="px-4 py-3">78</td>
+									<td class="px-4 py-3"><span
+											class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-1 rounded-full">Remedial</span>
+									</td>
+								</tr>
+								<!-- Faiz Nashrullah -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231006</td>
+									<td class="px-4 py-3">Faiz Nashrullah</td>
+									<td class="px-4 py-3"><span
+											class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">Mesin</span>
+									</td>
+									<td class="px-4 py-3">XII Mesin B</td>
+									<td class="px-4 py-3">88</td>
+									<td class="px-4 py-3"><span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Eligible</span>
+									</td>
+								</tr>
+								<!-- Radhitya Dewa -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231007</td>
+									<td class="px-4 py-3">Radhitya Dewa</td>
+									<td class="px-4 py-3"><span
+											class="bg-orange-100 text-orange-700 text-xs font-semibold px-2.5 py-1 rounded-full">Tekstil</span>
+									</td>
+									<td class="px-4 py-3">XII Tekstil C</td>
+									<td class="px-4 py-3">69</td>
+									<td class="px-4 py-3"><span
+											class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2.5 py-1 rounded-full">Remedial</span>
+									</td>
+								</tr>
+								<!-- Shinta Ayu -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231008</td>
+									<td class="px-4 py-3">Shinta Ayu</td>
+									<td class="px-4 py-3"><span
+											class="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Ototronik</span>
+									</td>
+									<td class="px-4 py-3">XII Ototronik B</td>
+									<td class="px-4 py-3">57</td>
+									<td class="px-4 py-3"><span
+											class="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">Tidak
+											Eligible</span></td>
+								</tr>
+								<!-- Adinda Siti -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231009</td>
+									<td class="px-4 py-3">Adinda Siti</td>
+									<td class="px-4 py-3"><span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">RPL</span>
+									</td>
+									<td class="px-4 py-3">XII RPL C</td>
+									<td class="px-4 py-3">95</td>
+									<td class="px-4 py-3"><span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Eligible</span>
+									</td>
+								</tr>
+								<!-- Azzam Yusuf -->
+								<tr class="border-b border-gray-100 hover:bg-gray-50">
+									<td class="px-4 py-3">20231010</td>
+									<td class="px-4 py-3">Azzam Yusuf</td>
+									<td class="px-4 py-3"><span
+											class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">Mesin</span>
+									</td>
+									<td class="px-4 py-3">XII Mesin C</td>
+									<td class="px-4 py-3">82</td>
+									<td class="px-4 py-3"><span
+											class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">Eligible</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</main>
 		</main>
 
 	</main>
 
 	<script>
+		const searchInput = document.getElementById("searchInput");
+		const tableBody = document.getElementById("tableBody");
+
+		searchInput.addEventListener("keyup", function () {
+			const filter = searchInput.value.toLowerCase();
+			const rows = tableBody.getElementsByTagName("tr");
+
+			for (let i = 0; i < rows.length; i++) {
+				const namaCell = rows[i].getElementsByTagName("td")[1];
+				if (namaCell) {
+					const namaText = namaCell.textContent || namaCell.innerText;
+					rows[i].style.display =
+						namaText.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+				}
+			}
+		});
 		const ctx = document.getElementById('nilaiChart').getContext('2d');
 		new Chart(ctx, {
 			type: 'bar',

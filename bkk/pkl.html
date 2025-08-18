@@ -25,7 +25,7 @@
 
 		<nav class="space-y-2">
 			<a href="dashboard.html"
-				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -34,48 +34,28 @@
 				Dashboard
 			</a>
 
-			<a href="guru.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+			<a href="pkl.html"
+				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+				<!-- Ikon PKL (Briefcase / Pekerjaan) -->
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-					stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M12 14c4.418 0 8-1.79 8-4V5a2 2 0 00-2-2h-2.586a1 1 0 01-.707-.293l-1.414-1.414A2 2 0 0011.586 1H8a2 2 0 00-2 2v1" />
-					<circle cx="12" cy="10" r="3" />
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M6 18v-1a4 4 0 014-4h0a4 4 0 014 4v1" />
+					stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round"
+						d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2m-9 4h12m-9 4h6m-9 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2z" />
 				</svg>
-				Guru
+				Data PKL
 			</a>
 
-			<a href="siswa.html"
+			<a href="magang.html"
 				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+				<!-- Ikon Magang (Users / Kolaborasi) -->
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-					stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M17 20h5v-2a4 4 0 00-3-3.87M12 20h.01M4 20h5v-2a4 4 0 013-3.87M12 4a4 4 0 110 8 4 4 0 010-8z" />
+					stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round"
+						d="M17 20h5v-2a3 3 0 00-5.356-1.857M9 20H4v-2a3 3 0 015.356-1.857M16 11a4 4 0 10-8 0 4 4 0 008 0zm6 8v1a2 2 0 01-2 2h-3m-6 0H7a2 2 0 01-2-2v-1" />
 				</svg>
-				Siswa
+				Data Magang
 			</a>
 
-			<a href="mataPelajaran.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-					stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M12 20H6a2 2 0 01-2-2V6a2 2 0 012-2h6m0 0h6a2 2 0 012 2v12a2 2 0 01-2 2h-6m0-16v16" />
-				</svg>
-				Mata Pelajaran
-			</a>
-
-			<a href="nilai.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-					stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m4 0v-8a2 2 0 00-2-2h-2m-4 0H7a2 2 0 00-2 2v8" />
-				</svg>
-				Nilai
-			</a>
 		</nav>
 
 	</aside>
@@ -92,7 +72,7 @@
 					</svg>
 				</button>
 				<div class="items-center">
-					<h3 class="text-md sm:text-2xl text-white font-semibold">Edit Profil</h3>
+					<h3 class="text-md sm:text-2xl text-white font-semibold">Dashboard</h3>
 				</div>
 			</div>
 
@@ -121,12 +101,12 @@
 
 					<!-- Isi Notifikasi -->
 					<div class="divide-y divide-gray-100 dark:divide-gray-700">
-						<!-- Notifikasi: Ujian Semester Ganjil -->
+						<!-- Notifikasi: Pendaftaran PKL -->
 						<div class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
 							<div class="shrink-0 relative">
 								<img class="rounded-full object-cover w-11 h-11"
 									src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
-									alt="Ujian Semester" />
+									alt="Pendaftaran PKL" />
 								<div
 									class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-yellow-500 border border-white rounded-full dark:border-gray-800">
 									<svg class="w-2 h-2 text-white" xmlns="http://www.w3.org/2000/svg"
@@ -137,22 +117,21 @@
 							</div>
 							<div class="w-full ps-3">
 								<div class="text-gray-900 font-semibold dark:text-white">
-									Ujian Semester Ganjil
+									Pendaftaran PKL 2024
 								</div>
-								<div class="text-xs text-gray-500 dark:text-gray-400">20–25 Desember 2023</div>
+								<div class="text-xs text-gray-500 dark:text-gray-400">Dibuka: 1 Februari 2024</div>
 								<p class="text-gray-600 text-sm dark:text-gray-300">
-									Persiapkan siswa untuk ujian semester ganjil. Silahkan cek jadwal lengkapnya di menu
-									Jadwal.
+									Siswa dapat mulai mendaftar tempat PKL sesuai jurusan masing-masing melalui sistem
+									BKK.
 								</p>
 							</div>
 						</div>
 
-						<!-- Notifikasi: Penerimaan Siswa Baru -->
+						<!-- Notifikasi: Persiapan PKL -->
 						<div class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
 							<div class="shrink-0 relative">
 								<img class="rounded-full object-cover w-11 h-11"
-									src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png"
-									alt="Penerimaan Siswa Baru" />
+									src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Persiapan PKL" />
 								<div
 									class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-blue-500 border border-white rounded-full dark:border-gray-800">
 									<svg class="w-2 h-2 text-white" xmlns="http://www.w3.org/2000/svg"
@@ -163,22 +142,21 @@
 							</div>
 							<div class="w-full ps-3">
 								<div class="text-gray-900 font-semibold dark:text-white">
-									Penerimaan Siswa Baru 2024
+									Persiapan Administrasi PKL
 								</div>
-								<div class="text-xs text-gray-500 dark:text-gray-400">Pendaftaran dibuka: 1 Januari 2024
-								</div>
+								<div class="text-xs text-gray-500 dark:text-gray-400">Deadline: 20 Februari 2024</div>
 								<p class="text-gray-600 text-sm dark:text-gray-300">
-									Persiapkan dokumen dan formulir untuk penerimaan siswa baru tahun ajaran 2024/2025.
+									Lengkapi berkas persyaratan PKL, termasuk surat permohonan dan biodata siswa.
 								</p>
 							</div>
 						</div>
 
-						<!-- Notifikasi: Hari Pendidikan Nasional -->
+						<!-- Notifikasi: Monitoring PKL -->
 						<div class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
 							<div class="shrink-0 relative">
 								<img class="rounded-full object-cover w-11 h-11"
 									src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
-									alt="Hari Pendidikan Nasional" />
+									alt="Monitoring PKL" />
 								<div
 									class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-green-500 border border-white rounded-full dark:border-gray-800">
 									<svg class="w-2 h-2 text-white" xmlns="http://www.w3.org/2000/svg"
@@ -189,15 +167,17 @@
 							</div>
 							<div class="w-full ps-3">
 								<div class="text-gray-900 font-semibold dark:text-white">
-									Hari Pendidikan Nasional
+									Monitoring PKL
 								</div>
-								<div class="text-xs text-gray-500 dark:text-gray-400">2 Mei 2023</div>
+								<div class="text-xs text-gray-500 dark:text-gray-400">Maret – Juni 2024</div>
 								<p class="text-gray-600 text-sm dark:text-gray-300">
-									Akan ada upacara bendera dan berbagai lomba antar kelas. Mohon partisipasinya.
+									Guru pembimbing akan melakukan monitoring dan penilaian terhadap siswa di tempat
+									PKL.
 								</p>
 							</div>
 						</div>
 					</div>
+
 
 					<!-- View All -->
 					<a href="allPengumuman.html"
@@ -226,7 +206,7 @@
 							<div class="w-16 h-16 rounded-full bg-gray-200 bg-cover bg-center"
 								style="background-image: url('https://mm.feb.uncen.ac.id/wp-content/uploads/2016/01/tutor-8.jpg')">
 							</div>
-							<p class="mt-2 font-semibold text-blue-600">Kepala Sekolah</p>
+							<p class="mt-2 font-semibold text-blue-600">BKK</p>
 						</div>
 
 						<hr class="border-gray-200" />
@@ -240,76 +220,7 @@
 		</div>
 
 		<main class="flex-1 overflow-y-auto p-6">
-			<div class="bg-white p-6 rounded-xl shadow-md max-w-3xl mx-auto">
-				<h2 class="text-2xl font-semibold text-gray-800 mb-6">Edit Profil</h2>
-				<form action="#" method="POST" enctype="multipart/form-data" class="space-y-6">
 
-					<!-- Foto Profil -->
-					<div class="flex flex-col items-center space-y-2">
-						<div class="relative">
-							<img src="image/admin.jpg" alt="Foto Profil"
-								class="h-28 w-28 rounded-full object-cover border-4 border-blue-500 shadow-md">
-							<label
-								class="absolute bottom-0 right-0 bg-blue-600 text-white rounded-full p-2 cursor-pointer hover:bg-blue-700 transition">
-								<input type="file" name="foto" accept="image/*" class="hidden">
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
-									fill="currentColor">
-									<path
-										d="M4 3a1 1 0 00-1 1v1h2V4h10v1h2V4a1 1 0 00-1-1H4zM3 7v10a1 1 0 001 1h12a1 1 0 001-1V7H3zm5 3a2 2 0 114 0 2 2 0 01-4 0z" />
-								</svg>
-							</label>
-						</div>
-						<p class="text-sm text-gray-500">Klik ikon kamera untuk ganti foto</p>
-					</div>
-
-					<!-- Nama -->
-					<div>
-						<label for="nama" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-						<input type="text" id="nama" name="nama" value="admin"
-							class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"
-							required />
-					</div>
-
-					<!-- Email -->
-					<div>
-						<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-						<input type="email" id="email" name="email" value="admin@example.com"
-							class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"
-							required />
-					</div>
-
-					<!-- Password -->
-					<div class="relative">
-						<label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password Baru
-							(opsional)</label>
-						<input type="password" id="password" name="password"
-							class="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:outline-none" />
-						<button type="button" onclick="togglePassword()"
-							class="absolute right-3 top-10 text-gray-500 hover:text-blue-600">
-							<svg id="eye" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-								viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M2.458 12C3.732 7.943 7.523 5 12 5s8.268 2.943 9.542 7c-1.274 4.057-5.065 7-9.542 7s-8.268-2.943-9.542-7z" />
-							</svg>
-							<svg id="eye-off" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none"
-								viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-									d="M13.875 18.825A10.05 10.05 0 0112 19c-5.523 0-10-4.477-10-10a9.961 9.961 0 011.454-5.212M3.515 3.515l16.97 16.97" />
-							</svg>
-						</button>
-					</div>
-
-					<!-- Tombol Simpan -->
-					<div class="text-center pt-2">
-						<button type="submit"
-							class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl transition">
-							Simpan Perubahan
-						</button>
-					</div>
-				</form>
-			</div>
 		</main>
 	</main>
 
