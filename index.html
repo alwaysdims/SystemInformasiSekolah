@@ -1,74 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Page</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Guru</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: #f9fafb;
+        }
+    </style>
 </head>
+<body class="bg-gray-50">
+    <div class="flex">
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Tabel Jadwal Mengajar -->
+                <div class="lg:col-span-2 bg-white rounded-xl shadow-sm p-6 animate-fade-in" style="animation-delay: 0.2s">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-lg font-semibold text-gray-800">Jadwal Mengajar Hari Ini</h2>
+                        <a href="#" class="text-sm text-blue-500 hover:text-blue-700">Lihat Semua</a>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full table-striped">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kelas</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jam Ke</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mata Pelajaran</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">X IPA 1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">07.00 - 08.20</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Matematika</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">X IPA 2</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">08.20 - 09.40</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Fisika</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">3</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">XI IPA 1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10.00 - 11.20</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Kimia</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">4</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">XII IPA 1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13.00 - 14.20</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Biologi</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-<body class="bg-gray-100">
-  <!-- Navbar -->
-  <nav class="bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg fixed w-full z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
-        <div class="flex-shrink-0 text-white text-2xl font-bold">MyBrand</div>
-        <div class="hidden md:flex space-x-6 text-white font-medium">
-          <a href="#home" class="hover:text-yellow-300 transition">Home</a>
-          <a href="#features" class="hover:text-yellow-300 transition">Features</a>
-          <a href="#about" class="hover:text-yellow-300 transition">About</a>
-          <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
-        </div>
-      </div>
+                <!-- Pengumuman Kepala Sekolah -->
+                <div class="bg-white rounded-xl shadow-sm p-6 animate-fade-in" style="animation-delay: 0.3s">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-lg font-semibold text-gray-800">Pengumuman</h2>
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1403f178-7810-4259-9036-5d2c80b9020b.png" alt="Foto Kepala Sekolah, pria berusia 50-an dengan kacamata dan dasi, berdiri di depan bendera sekolah" class="w-8 h-8 rounded-full" />
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 border border-gray-100 rounded-lg hover:bg-blue-50 transition">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-500 bg-blue-100 rounded-full p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-sm font-medium text-gray-800">Pertemuan Rutin Bulanan</h3>
+                                    <p class="mt-1 text-xs text-gray-500">Hari Ini, 08:00</p>
+                                    <p class="mt-2 text-sm text-gray-600">Seluruh guru diharapkan hadir di ruang guru pukul 14.30 untuk pertemuan rutin bulanan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border border-gray-100 rounded-lg hover:bg-blue-50 transition">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-500 bg-blue-100 rounded-full p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.025-3.5c-.027-.041-.052-.082-.077-.124A6.985 6.985 0 0013 10c0-.34.024-.673.07-1H21v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9h6.07z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-sm font-medium text-gray-800">Pembaruan Kurikulum</h3>
+                                    <p class="mt-1 text-xs text-gray-500">Kemarin, 16:30</p>
+                                    <p class="mt-2 text-sm text-gray-600">Ada beberapa perubahan pada kurikulum semester depan. File sudah dibagikan di grup WA.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border border-gray-100 rounded-lg hover:bg-blue-50 transition">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-500 bg-blue-100 rounded-full p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-sm font-medium text-gray-800">Lomba Guru Berprestasi</h3>
+                                    <p class="mt-1 text-xs text-gray-500">Senin, 10:15</p>
+                                    <p class="mt-2 text-sm text-gray-600">Pendaftaran lomba guru berprestasi tingkat kabupaten dibuka sampai 30 Juni.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="mt-4 inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-700">
+                        Lihat semua pengumuman
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </main>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="h-screen flex items-center justify-center text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white" data-aos="fade-up">
-    <div>
-      <h1 class="text-5xl font-extrabold mb-4">Selamat Datang di Landing Page</h1>
-      <p class="text-lg mb-6">Membawa pengalaman belajar dan interaksi lebih menarik.</p>
-      <a href="#features" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition">Mulai Sekarang</a>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features" class="py-20 max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800" data-aos="fade-up">Fitur Unggulan</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition" data-aos="fade-right">
-        <h3 class="text-xl font-semibold mb-3 text-blue-600">Pelatihan Digital</h3>
-        <p>Materi pelatihan yang dapat diakses kapan saja, di mana saja.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition" data-aos="fade-up">
-        <h3 class="text-xl font-semibold mb-3 text-blue-600">LMS Terintegrasi</h3>
-        <p>Sistem manajemen pembelajaran yang mudah digunakan.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition" data-aos="fade-left">
-        <h3 class="text-xl font-semibold mb-3 text-blue-600">Sertifikat</h3>
-        <p>Dapatkan sertifikat resmi setelah menyelesaikan program.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-8">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <p class="mb-2">Hubungi Kami: info@example.com</p>
-      <p class="text-sm">&copy; 2025 MyBrand. Semua Hak Dilindungi.</p>
-    </div>
-  </footer>
-
-  <!-- AOS Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-  </script>
-
 </body>
 </html>
