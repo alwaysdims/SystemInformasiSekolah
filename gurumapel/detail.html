@@ -12,7 +12,10 @@
 </head>
 
 <body class="bg-gray-100 min-h-screen flex">
+    <!-- Overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden sm:hidden z-40"></div>
+
+    <!-- Sidebar -->
     <aside id="sidebar" class="w-64 bg-gradient-to-br from-blue-500 to-blue-800 text-white p-5 flex flex-col shadow-2xl 
     sm:rounded-2xl fixed inset-y-0 sm:inset-y-auto sm:top-4 sm:left-4 h-full sm:h-[95%] 
     transform -translate-x-full sm:translate-x-0 transition-transform duration-300 ease z-40">
@@ -29,7 +32,7 @@
         <nav class="space-y-2">
             <!-- Dashboard -->
             <a href="index.html"
-                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -77,7 +80,7 @@
                         📘 Materi Pelajaran
                     </a>
                     <a href="tugas-ujian.html"
-                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                        class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
                         📝 Tugas Ujian
                     </a>
                 </div>
@@ -108,7 +111,7 @@
                         📢 Pengaduan
                     </a>
                     <a href="riwayat-tanggapan.html"
-                        class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
                         📜 Riwayat Tanggapan
                     </a>
                 </div>
@@ -138,12 +141,11 @@
         </nav>
     </aside>
 
-
-
     <main class="flex-1 sm:ml-[17rem] p-6 ">
         <div
             class="flex sm:relative z-30 justify-between items-center bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-4 rounded-lg shadow mb-6">
             <div class="flex items-center space-x-4">
+                <!-- Tombol Hamburger -->
                 <button id="toggleSidebar" class="sm:hidden p-2 text-white rounded-lg hover:bg-blue-700 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -152,7 +154,7 @@
                     </svg>
                 </button>
                 <div class="items-center">
-                    <h3 class="text-md sm:text-2xl text-white font-semibold">Riwayat Tanggapan</h3>
+                    <h3 class="text-md sm:text-2xl text-white font-semibold">Dashboard</h3>
                 </div>
             </div>
 
@@ -312,173 +314,88 @@
 
         <div class="flex">
             <main class="flex-1 overflow-y-auto p-6">
-                <div class="flex space-x-4 mb-4 lg:px-10">
-                    <button onclick="filterLaporan('all', this)" id="btn-all"
-                        class="filter-button text-green-600 border-b-2 border-green-600 pb-2 font-medium">
-                        Riwayat
-                    </button>
-                    <button onclick="filterLaporan('pending', this)" id="btn-pending"
-                        class="filter-button text-gray-500 pb-2 hover:text-black">
-                        Pending
-                    </button>
-                    <button onclick="filterLaporan('proses', this)" id="btn-proses"
-                        class="filter-button text-gray-500 pb-2 hover:text-black">
-                        Proses
-                    </button>
-                    <button onclick="filterLaporan('selesai', this)" id="btn-selesai"
-                        class="filter-button text-gray-500 pb-2 hover:text-black">
-                        Selesai
-                    </button>
-                    <button onclick="filterLaporan('ditolak', this)" id="btn-ditolak"
-                        class="filter-button text-gray-500 pb-2 hover:text-black">
-                        Ditolak
-                    </button>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-center mb-4 border-b pb-2">
+                        <h2 class="text-lg font-semibold text-blue-600">Detail Soal Ujian</h2>
+                        <a href="tugas-ujian.html"
+                            class="inline-flex items-center px-3 py-1.5 bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium rounded-lg shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            Kembali
+                        </a>
+                    </div>
+                    <!-- Tabel Detail -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-gray-700">
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="py-3 px-4 font-medium w-1/4">Judul Tugas/Ujian</td>
+                                    <td class="py-3 px-4">: Ujian Nasional 2023</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-3 px-4 font-medium">Kelas yang Ditugaskan</td>
+                                    <td class="py-3 px-4">
+                                        <ol class="list-decimal list-inside">
+                                            <li>Teknik Komputer dan Jaringan</li>
+                                            <li>Rekayasa Perangkat Lunak</li>
+                                        </ol>
+                                    </td>
+                                </tr>
+                                                               
+                                <tr class="border-b">
+                                    <td class="py-3 px-4 font-medium">Mata Pelajaran</td>
+                                    <td class="py-3 px-4">: Bahasa Indonesia</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-3 px-4 font-medium">Jenis Soal</td>
+                                    <td class="py-3 px-4">: Tugas</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-3 px-4 font-medium">Bobot Pilihan Ganda</td>
+                                    <td class="py-3 px-4">: 50</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-3 px-4 font-medium">Bobot Pilihan Esai</td>
+                                    <td class="py-3 px-4">: 50</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium">Waktu Pengerjaan</td>
+                                    <td class="py-3 px-4">: 60 Menit</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Tombol Aksi -->
+                    <div class="mt-6 flex space-x-3">
+                        <a href="soal-pg.html"
+                            class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 12h.01M12 12h.01M16 12h.01M9 16h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Pilihan Ganda
+                        </a>
+                        <a href="soal-essay.html"
+                            class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 12h.01M12 12h.01M16 12h.01M9 16h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            Soal Essay
+                        </a>
+                    </div>
                 </div>
-        
-                <!-- Laporan Items -->
-                <div id="laporan-container" class="space-y-4 lg:px-10">
-        
-                    <!-- Laporan 1 -->
-                    <div onclick="window.location.href='detail-riwayat-proses.html'" data-status="proses"
-                        class="laporan-card cursor-pointer bg-white rounded-xl shadow-lg border px-4 py-3 flex items-start space-x-4 hover:bg-gray-50 transition">
-                        <img src="image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 rounded-lg object-cover" />
-                        <div class="flex-1">
-                            <div class="text-sm text-gray-500 mb-1">Nama Pengadu: Rina Maulida</div>
-        
-                            <div class="font-medium text-gray-900">Pintu Gerbang Utama</div>
-                            <div class="text-xs text-gray-600">Pintu gerbang utama rusak dan tidak bisa dikunci, berpotensi
-                                menimbulkan masalah keamanan saat malam hari.</div>
-                            <div class="text-sm text-gray-500 mb-1">Ditujukan Kepada : Waka Kurikulum</div>
-        
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <div class="text-sm font-semibold text-gray-800 mb-2">18 Juli 2025, 07:45</div>
-                            <button
-                                class="text-xs font-semibold bg-green-100 text-green-600 px-2 py-1 rounded-full">Proses</button>
-                        </div>
-                    </div>
-        
-                    <!-- Laporan 2 -->
-                    <div onclick="window.location.href='detail-riwayat-pending.html'" data-status="pending"
-                        class="laporan-card cursor-pointer bg-white rounded-xl shadow-lg border px-4 py-3 flex items-start space-x-4 hover:bg-gray-50 transition">
-                        <img src="image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 rounded-lg object-cover" />
-                        <div class="flex-1">
-                            <div class="text-sm text-gray-500 mb-1">Nama Pengadu: Dimas Prakoso</div>
-        
-                            <div class="font-medium text-gray-900">Ruang Multimedia</div>
-                            <div class="text-xs text-gray-600">Beberapa komputer di ruang multimedia tidak bisa menyala, mohon
-                                segera diperbaiki karena akan digunakan ujian.</div>
-                            <div class="text-sm text-gray-500 mb-1">Ditujukan Kepada : Waka Kurikulum</div>
-        
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <div class="text-sm font-semibold text-gray-800 mb-2">17 Juli 2025, 10:20</div>
-                            <button
-                                class="text-xs font-semibold bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full">Pending</button>
-                        </div>
-                    </div>
-        
-                    <!-- Laporan 3 -->
-                    <div onclick="window.location.href='detail-riwayat-selesai.html'" data-status="selesai"
-                        class="laporan-card cursor-pointer bg-white rounded-xl shadow-lg border px-4 py-3 flex items-start space-x-4 hover:bg-gray-50 transition">
-                        <img src="image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 rounded-lg object-cover" />
-                        <div class="flex-1">
-                            <div class="text-sm text-gray-500 mb-1">Nama Pengadu: Siti Aminah</div>
-        
-                            <div class="font-medium text-gray-900">Toilet Belakang Gedung B</div>
-                            <div class="text-xs text-gray-600">Toilet bagian belakang rusak dan air tidak mengalir, sudah
-                                diperbaiki sekarang. Terima kasih.</div>
-                            <div class="text-sm text-gray-500 mb-1">Ditujukan Kepada : Waka Kurikulum</div>
-        
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <div class="text-sm font-semibold text-gray-800 mb-2">16 Juli 2025, 08:10</div>
-                            <button
-                                class="text-xs font-semibold bg-blue-100 text-blue-600 px-2 py-1 rounded-full">Selesai</button>
-                        </div>
-                    </div>
-        
-                    <a href="detail-riwayat-ditolak.html" data-status="ditolak"
-                        class="laporan-card bg-white rounded-xl shadow-lg border px-4 py-3 flex items-start space-x-4">
-        
-                        <img src="image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 rounded-lg object-cover" />
-                        <div class="flex-1">
-                            <div class="text-sm text-gray-500 mb-1">Nama Pengadu: Rina Maulida</div>
-                            <div class="font-medium text-gray-900">Pintu Gerbang Utama</div>
-                            <div class="text-xs text-gray-600">Pintu gerbang utama rusak dan tidak bisa dikunci, berpotensi
-                                menimbulkan masalah keamanan saat malam hari.</div>
-                            <div class="text-sm text-gray-500 mb-1">Ditujukan Kepada : Waka Kurikulum</div>
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <div class="text-sm font-semibold text-gray-800 mb-2">18 Juli 2025, 07:45</div>
-                            <button
-                                class="text-xs font-semibold bg-red-100 text-red-600 px-2 py-1 rounded-full">Ditolak</button>
-                        </div>
-                    </a>
-        
-                    <!-- Laporan 3 -->
-                    <a href="detail-riwayat-selesai.html" data-status="selesai"
-                        class="laporan-card bg-white rounded-xl shadow-lg border px-4 py-3 flex items-start space-x-4">
-        
-                        <img src="image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 rounded-lg object-cover" />
-                        <div class="flex-1">
-                            <div class="text-sm text-gray-500 mb-1">Nama Pengadu: Siti Aminah</div>
-                            <div class="font-medium text-gray-900">Toilet Belakang Gedung B</div>
-                            <div class="text-xs text-gray-600">Toilet bagian belakang rusak dan air tidak mengalir, sudah
-                                diperbaiki sekarang. Terima kasih.</div>
-                            <div class="text-sm text-gray-500 mb-1">Ditujukan Kepada : Waka Kurikulum</div>
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <div class="text-sm font-semibold text-gray-800 mb-2">16 Juli 2025, 08:10</div>
-                            <button
-                                class="text-xs font-semibold bg-blue-100 text-blue-600 px-2 py-1 rounded-full">Selesai</button>
-                        </div>
-                    </a>
-        
-                    <!-- Laporan 4 -->
-                    <div onclick="window.location.href='detail-riwayat-proses.html'" data-status="proses"
-                        class="laporan-card cursor-pointer bg-white rounded-xl shadow-lg border px-4 py-3 flex items-start space-x-4 hover:bg-gray-50 transition">
-                        <img src="image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 rounded-lg object-cover" />
-                        <div class="flex-1">
-                            <div class="text-sm text-gray-500 mb-1">Nama Pengadu: Budi Setiawan</div>
-        
-                            <div class="font-medium text-gray-900">Lapangan Basket</div>
-                            <div class="text-xs text-gray-600">Beberapa lampu penerangan di lapangan basket mati, mohon diganti
-                                agar kegiatan sore lebih aman.</div>
-                            <div class="text-sm text-gray-500 mb-1">Ditujukan Kepada : Waka Kurikulum</div>
-        
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <div class="text-sm font-semibold text-gray-800 mb-2">15 Juli 2025, 17:30</div>
-                            <button
-                                class="text-xs font-semibold bg-green-100 text-green-600 px-2 py-1 rounded-full">Proses</button>
-                        </div>
-                    </div>
-        
-                    <!-- Laporan 5 -->
-                    <div onclick="window.location.href='detail-riwayat-ditolak.html'" data-status="ditolak"
-                        class="laporan-card cursor-pointer bg-white rounded-xl shadow-lg border px-4 py-3 flex items-start space-x-4 hover:bg-gray-50 transition">
-                        <img src="image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 rounded-lg object-cover" />
-                        <div class="flex-1">
-                            <div class="text-sm text-gray-500 mb-1">Nama Pengadu: Nur Hasanah</div>
-        
-                            <div class="font-medium text-gray-900">Kantin Sekolah</div>
-                            <div class="text-xs text-gray-600">Banyak sampah menumpuk di sekitar kantin dan belum dibersihkan
-                                sejak pagi. Harap ditindak.</div>
-                            <div class="text-sm text-gray-500 mb-1">Ditujukan Kepada : Waka Kurikulum</div>
-                        </div>
-                        <div class="flex flex-col items-end">
-                            <div class="text-sm font-semibold text-gray-800 mb-2">19 Juli 2025, 09:00</div>
-                            <button
-                                class="text-xs font-semibold bg-red-100 text-red-600 px-2 py-1 rounded-full">Ditolak</button>
-                        </div>
-                    </div>
-        
-                </div>
+
             </main>
         </div>
 
     </main>
+
 
     <script>
         const toggleBtn = document.getElementById('toggleSidebar');
@@ -542,38 +459,6 @@
                 overlay.classList.add("hidden");
             }
         });
-
-        
-		function filterLaporan(status, clickedButton) {
-			// Ganti border aktif hanya pada tombol yang diklik
-			document.querySelectorAll('.filter-button').forEach(btn => {
-				btn.classList.remove('text-green-600', 'border-b-2', 'border-green-600', 'font-medium');
-				btn.classList.add('text-gray-500');
-			});
-
-			clickedButton.classList.remove('text-gray-500');
-			clickedButton.classList.add('text-green-600', 'border-b-2', 'border-green-600', 'font-medium');
-
-			const cards = document.querySelectorAll('.laporan-card');
-			cards.forEach(card => {
-				const cardStatus = card.getAttribute('data-status');
-				if (status === 'all' || cardStatus === status) {
-					card.classList.remove('hidden');
-				} else {
-					card.classList.add('hidden');
-				}
-			});
-		}
-
-		window.addEventListener("click", function (e) {
-			const btn = document.querySelector("button[onclick='toggleDropdown()']");
-			const menu = document.getElementById("dropdown-menu");
-
-			if (!btn.contains(e.target) && !menu.contains(e.target)) {
-				menu.classList.add("hidden");
-			}
-		});
-    
     </script>
 </body>
 

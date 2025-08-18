@@ -12,7 +12,10 @@
 </head>
 
 <body class="bg-gray-100 min-h-screen flex">
+    <!-- Overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden sm:hidden z-40"></div>
+
+    <!-- Sidebar -->
     <aside id="sidebar" class="w-64 bg-gradient-to-br from-blue-500 to-blue-800 text-white p-5 flex flex-col shadow-2xl 
     sm:rounded-2xl fixed inset-y-0 sm:inset-y-auto sm:top-4 sm:left-4 h-full sm:h-[95%] 
     transform -translate-x-full sm:translate-x-0 transition-transform duration-300 ease z-40">
@@ -138,12 +141,11 @@
         </nav>
     </aside>
 
-
-
     <main class="flex-1 sm:ml-[17rem] p-6 ">
         <div
             class="flex sm:relative z-30 justify-between items-center bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-4 rounded-lg shadow mb-6">
             <div class="flex items-center space-x-4">
+                <!-- Tombol Hamburger -->
                 <button id="toggleSidebar" class="sm:hidden p-2 text-white rounded-lg hover:bg-blue-700 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -326,13 +328,14 @@
                                 Jadwal Mengajar Hari Ini
                             </h5>
                             <a href="#"
-                            class="inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors">
-                            Lihat Semua
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
+                                class="inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors">
+                                Lihat Semua
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
                         </div>
 
                         <div class="space-y-4">
@@ -427,175 +430,125 @@
                         </div>
                     </div>
                     <div class="lg:col-span-2 bg-white rounded-xl shadow-lg p-6 animate-fade-in"
-                    style="animation-delay: 0.3s">
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M11 5.882V19.98a.98.98 0 01-.98.98H5.98a.98.98 0 01-.98-.98V5.882a1.01 1.01 0 01.465-.845l4.5-2.61a1 1 0 011.07 0l4.5 2.61a1.01 1.01 0 01.465.845zM12 21a9 9 0 100-18 9 9 0 000 18z" />
-                            </svg>
-                            Pengumuman
-                        </h2>
-                        <a href="#"
-                            class="inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors">
-                            Lihat Semua
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
-                
-                    <div class="space-y-4">
-                        <div class="p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-r-md rounded-md hover:shadow-md transition-shadow">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 text-yellow-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M12 11V5a2 2 0 00-2-2H4a2 2 0 00-2 2v6c0 1.1.9 2 2 2h8zm6-8h-4a2 2 0 00-2 2v6c0 1.1.9 2 2 2h4a2 2 0 002-2V5a2 2 0 00-2-2zM4 17h16" />
-                                    </svg>
+                        style="animation-delay: 0.3s">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M11 5.882V19.98a.98.98 0 01-.98.98H5.98a.98.98 0 01-.98-.98V5.882a1.01 1.01 0 01.465-.845l4.5-2.61a1 1 0 011.07 0l4.5 2.61a1.01 1.01 0 01.465.845zM12 21a9 9 0 100-18 9 9 0 000 18z" />
+                                </svg>
+                                Pengumuman
+                            </h2>
+                            <a href="#"
+                                class="inline-flex items-center text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors">
+                                Lihat Semua
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div
+                                class="p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-r-md rounded-md hover:shadow-md transition-shadow">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 text-yellow-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path
+                                                d="M12 11V5a2 2 0 00-2-2H4a2 2 0 00-2 2v6c0 1.1.9 2 2 2h8zm6-8h-4a2 2 0 00-2 2v6c0 1.1.9 2 2 2h4a2 2 0 002-2V5a2 2 0 00-2-2zM4 17h16" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4 flex-1">
+                                        <h3 class="text-base font-semibold text-gray-800">Pertemuan Rutin Bulanan</h3>
+                                        <p class="mt-1 text-sm text-gray-500">Hari Ini, 14:30</p>
+                                        <p class="mt-2 text-sm text-gray-700">
+                                            Seluruh guru diharapkan hadir di ruang guru untuk pertemuan rutin bulanan.
+                                        </p>
+                                        <span
+                                            class="mt-2 inline-block px-2 py-0.5 text-xs font-semibold rounded-full bg-yellow-200 text-yellow-800">
+                                            Penting!
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="ml-4 flex-1">
-                                    <h3 class="text-base font-semibold text-gray-800">Pertemuan Rutin Bulanan</h3>
-                                    <p class="mt-1 text-sm text-gray-500">Hari Ini, 14:30</p>
-                                    <p class="mt-2 text-sm text-gray-700">
-                                        Seluruh guru diharapkan hadir di ruang guru untuk pertemuan rutin bulanan.
-                                    </p>
-                                    <span
-                                        class="mt-2 inline-block px-2 py-0.5 text-xs font-semibold rounded-full bg-yellow-200 text-yellow-800">
-                                        Penting!
-                                    </span>
+                            </div>
+
+                            <div
+                                class="p-4 bg-gray-100 border-l-4 border-gray-400 rounded-r-md rounded-md hover:shadow-md transition-shadow">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 text-gray-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                            <path d="M14 2v6h6" />
+                                            <path d="M10 9h4" />
+                                            <path d="M10 13h4" />
+                                            <path d="M10 17h4" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-4 flex-1">
+                                        <h3 class="text-base font-semibold text-gray-800">Pembaruan Kurikulum</h3>
+                                        <p class="mt-1 text-sm text-gray-500">Kemarin, 16:30</p>
+                                        <p class="mt-2 text-sm text-gray-700">
+                                            Ada beberapa perubahan pada kurikulum semester depan. File sudah dibagikan
+                                            di grup WA.
+                                        </p>
+                                        <span
+                                            class="mt-2 inline-block px-2 py-0.5 text-xs font-semibold rounded-full bg-gray-300 text-gray-700">
+                                            Informasi
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                
-                        <div class="p-4 bg-gray-100 border-l-4 border-gray-400 rounded-r-md rounded-md hover:shadow-md transition-shadow">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 text-gray-500">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                                        <path d="M14 2v6h6" />
-                                        <path d="M10 9h4" />
-                                        <path d="M10 13h4" />
-                                        <path d="M10 17h4" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4 flex-1">
-                                    <h3 class="text-base font-semibold text-gray-800">Pembaruan Kurikulum</h3>
-                                    <p class="mt-1 text-sm text-gray-500">Kemarin, 16:30</p>
-                                    <p class="mt-2 text-sm text-gray-700">
-                                        Ada beberapa perubahan pada kurikulum semester depan. File sudah dibagikan di grup WA.
-                                    </p>
-                                    <span
-                                        class="mt-2 inline-block px-2 py-0.5 text-xs font-semibold rounded-full bg-gray-300 text-gray-700">
-                                        Informasi
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
                 </div>
             </main>
         </div>
-    
+
     </main>
 
+
     <script>
-        // dropdown menu toggle
-        function setupDropdown(toggleId, menuId, iconId) {
-            const toggle = document.getElementById(toggleId);
-            const menu = document.getElementById(menuId);
-            const icon = document.getElementById(iconId);
-
-            toggle.addEventListener("click", () => {
-                menu.classList.toggle("hidden");
-                icon.classList.toggle("rotate-180");
-            });
-        }
-
-        setupDropdown("belajarToggle", "belajarMenu", "belajarIcon");
-        setupDropdown("aduanToggle", "aduanMenu", "aduanIcon");
-
-        const ctxAttendance = document.getElementById('attendanceChart').getContext('2d');
-        new Chart(ctxAttendance, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
-                datasets: [{
-                    label: 'Persentase Kehadiran',
-                    data: [90, 92, 88, 94, 91, 89, 93, 95, 92, 94, 90, 91],
-                    borderColor: '#2563eb',
-                    backgroundColor: 'rgba(37, 99, 235, 0.2)',
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#2563eb'
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true
-                    }
-                },
-                scales: {
-                    y: {
-                        min: 80,
-                        max: 100,
-                        ticks: {
-                            callback: function (value) {
-                                return value + '%';
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        // Chart Distribusi Siswa per Kelas
-        const ctxClassDistribution = document.getElementById('classDistributionChart').getContext('2d');
-        new Chart(ctxClassDistribution, {
-            type: 'bar',
-            data: {
-                labels: ['X RPL', 'XI RPL', 'XII RPL', 'X TKJ', 'XI TKJ', 'XII TKJ'],
-                datasets: [{
-                    label: 'Jumlah Siswa',
-                    data: [120, 115, 110, 130, 125, 118],
-                    backgroundColor: [
-                        '#2563eb',
-                        '#3b82f6',
-                        '#60a5fa',
-                        '#93c5fd',
-                        '#bfdbfe',
-                        '#dbeafe'
-                    ]
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-
-        function toggleDropdown() {
-            const dropdown = document.getElementById("dropdown-menu");
-            dropdown.classList.toggle("hidden");
-        }
-
-        const toggleSidebarBtn = document.getElementById("toggleSidebar");
-        const sidebar = document.getElementById("sidebar");
+    
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
 
-        toggleSidebarBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("-translate-x-full");
-            overlay.classList.toggle("hidden");
+        // Sidebar Toggle
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Dropdown Menu Belajar
+        const belajarToggle = document.getElementById('belajarToggle');
+        const belajarMenu = document.getElementById('belajarMenu');
+        const belajarIcon = document.getElementById('belajarIcon');
+
+        belajarToggle.addEventListener('click', () => {
+            belajarMenu.classList.toggle('hidden');
+            belajarIcon.classList.toggle('rotate-180');
+        });
+
+        // Dropdown Layanan Aduan
+        const aduanToggle = document.getElementById('aduanToggle');
+        const aduanMenu = document.getElementById('aduanMenu');
+        const aduanIcon = document.getElementById('aduanIcon');
+
+        aduanToggle.addEventListener('click', () => {
+            aduanMenu.classList.toggle('hidden');
+            aduanIcon.classList.toggle('rotate-180');
         });
 
         window.addEventListener("click", function (e) {
