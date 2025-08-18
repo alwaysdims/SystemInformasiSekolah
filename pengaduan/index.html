@@ -67,7 +67,7 @@
     <main class="flex-1 sm:ml-[17rem] p-6">
         <div
             class="flex sm:sticky top-6 z-30 justify-between items-center bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-4 rounded-lg shadow mb-6">
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-4 mr-5">
                 <button id="toggleSidebar" class="sm:hidden p-2 text-white rounded-lg hover:bg-blue-700 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -80,7 +80,12 @@
                 </div>
             </div>
 
-            <div class="flex items-center space-x-4">
+            <div class="hidden sm:block flex-1 max-w-md ml-auto">
+                <input type="text" placeholder="Cari sesuatu..."
+                    class="w-full px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+            </div>
+
+            <div class="flex items-center space-x-4 ml-5">
                 <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"
                     class="relative inline-flex items-center text-sm font-medium text-center text-gray-100 hover:text-gray-100 focus:outline-none light:hover:text-white light:text-gray-400"
                     type="button">
@@ -125,7 +130,8 @@
                                     <span class="font-semibold text-gray-900 light:text-white">Dimas Prakoso</span>
                                     • Ruang Multimedia
                                 </div>
-                                <span class="text-gray-400 text-xs light:text-white">Beberapa komputer tidak menyala,
+                                <span class="text-gray-400 text-xs light:text-white">Beberapa komputer tidak
+                                    menyala,
                                     mohon segera
                                     diperbaiki.</span>
                                 <div class="text-xs text-yellow-500 font-medium mt-1">
@@ -223,7 +229,8 @@
 
                         <hr class="border-gray-200" />
 
-                        <a href="edit-profil.html" class="block px-4 py-2 hover:bg-blue-50 text-center">Edit Profil</a>
+                        <a href="edit-profil.html" class="block px-4 py-2 hover:bg-blue-50 text-center">Edit
+                            Profil</a>
                         <a href="/laporan-masyarakat/index.html"
                             class="block px-4 py-2 hover:bg-blue-50 text-center text-red-500">Logout</a>
                     </div>
@@ -232,6 +239,11 @@
         </div>
 
         <div class="max-w-6xl mx-auto space-y-6 lg:px-10">
+            <div class="hidden sm:block sticky top-0 z-0" style="margin-top: -50px;">
+                <div class="w-full h-6 bg-gray-100"></div>
+            </div>
+            <input type="text" placeholder="Cari sesuatu..."
+                class="block sm:hidden w-full px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-200 focus:outline-none" />
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="bg-white rounded-2xl shadow p-4 hover:scale-105 hover:shadow-lg transition duration-300">
                     <div class="flex items-center justify-between">

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Dashboard Pengaduan</title>
+	<title>Edit Profil</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" /> -->
 	<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
@@ -19,13 +19,13 @@
 		<div class="flex items-center gap-5 mb-10">
 			<img src="../assets/image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 mx-auto rounded mb-2" />
 			<h1 class="text-sm font-bold leading-tight">
-				PENGADUAN SKANDAKRA
+				SISTEM INFORMASI SEKOLAH
 			</h1>
 		</div>
 
 		<nav class="space-y-2">
 			<a href="dashboard.html"
-				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+				class="flex items-center gap-2 hover:bg-blue-700 p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -34,47 +34,41 @@
 				Dashboard
 			</a>
 
-			<a href="guru.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+			<a href="tanggapan.html" class="flex items-center gap-2 hover:bg-blue-700 p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M12 14c4.418 0 8-1.79 8-4V5a2 2 0 00-2-2h-2.586a1 1 0 01-.707-.293l-1.414-1.414A2 2 0 0011.586 1H8a2 2 0 00-2 2v1" />
-					<circle cx="12" cy="10" r="3" />
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M6 18v-1a4 4 0 014-4h0a4 4 0 014 4v1" />
+						d="M17 8h2a2 2 0 012 2v7a2 2 0 01-2 2H7l-4 4V10a2 2 0 012-2h2" />
 				</svg>
-				Guru
+				Tanggapan
 			</a>
 
-			<a href="siswa.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+			<a href="riwayat_tanggapan.html"
+				class="flex items-center gap-2 hover:bg-blue-700 p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M17 20h5v-2a4 4 0 00-3-3.87M12 20h.01M4 20h5v-2a4 4 0 013-3.87M12 4a4 4 0 110 8 4 4 0 010-8z" />
+						d="M9 5h6m2 0a2 2 0 012 2v11a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h2m2-1h2a1 1 0 011 1v0a1 1 0 01-1 1h-2a1 1 0 01-1-1v0a1 1 0 011-1z" />
 				</svg>
-				Siswa
+				Riwayat Tanggapan
 			</a>
 
-			<a href="mataPelajaran.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+			<a href="cetak-laporan.html" class="flex items-center gap-2 hover:bg-blue-700 p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M12 20H6a2 2 0 01-2-2V6a2 2 0 012-2h6m0 0h6a2 2 0 012 2v12a2 2 0 01-2 2h-6m0-16v16" />
+						d="M6 9V4h12v5M6 18h12v-5H6v5z" />
 				</svg>
-				Mata Pelajaran
+				Cetak Laporan
 			</a>
 
-			<a href="nilai.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+			<a href="manajemen_jadwal.html" class="flex items-center gap-2 hover:bg-blue-700 p-3 rounded-lg transition">
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-					stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-						d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m4 0v-8a2 2 0 00-2-2h-2m-4 0H7a2 2 0 00-2 2v8" />
+					stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 
+                 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
 				</svg>
-				Nilai
+				Manajemen Jadwal
 			</a>
 		</nav>
 
@@ -92,7 +86,7 @@
 					</svg>
 				</button>
 				<div class="items-center">
-					<h3 class="text-md sm:text-2xl text-white font-semibold">Pengumuman</h3>
+					<h3 class="text-md sm:text-2xl text-white font-semibold">Edit Profil</h3>
 				</div>
 			</div>
 
@@ -234,7 +228,7 @@
 							<div class="w-16 h-16 rounded-full bg-gray-200 bg-cover bg-center"
 								style="background-image: url('https://mm.feb.uncen.ac.id/wp-content/uploads/2016/01/tutor-8.jpg')">
 							</div>
-							<p class="mt-2 font-semibold text-green-600">Kurikulum</p>
+							<p class="mt-2 font-semibold text-green-600">BK</p>
 						</div>
 
 						<hr class="border-gray-200" />
@@ -247,139 +241,121 @@
 			</div>
 		</div>
 
-		<main class="flex-1 overflow-y-auto p-6">
-			<main class="flex-1 flex items-center justify-center p-6">
-				<div class="bg-white rounded-2xl shadow-lg w-full max-w-3xl p-8 border border-gray-100">
-					<h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center justify-center gap-2 text-center">
-                        <!-- Ikon Megaphone -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 5.882V19a1 1 0 001.447.894l6.764-3.382A2 2 0 0021 14.764V9.236a2 2 0 00-1.789-1.988l-6.764-3.382A1 1 0 0011 5.882zM4 15h1a1 1 0 001-1V8a1 1 0 00-1-1H4a2 2 0 00-2 2v4a2 2 0 002 2z" />
-                        </svg>
-                        Buat Pengumuman Baru
-                    </h2>
+		<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+			<h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Edit Profil</h2>
 
-					<form action="simpan_pengumuman.php" method="POST" class="space-y-6">
+			<form action="#" method="POST" enctype="multipart/form-data" class="space-y-4 lg:px-10 xs:px-20 ">
 
-						<!-- Judul -->
-						<div>
-							<label class="block text-sm font-semibold text-gray-700 mb-2">Judul Pengumuman</label>
-							<input type="text" name="judul" placeholder="Masukkan judul pengumuman"
-								class="w-full rounded-xl border border-gray-200 p-3 text-gray-700 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
-								required>
-						</div>
 
-						<!-- Ringkasan -->
-						<div>
-							<label class="block text-sm font-semibold text-gray-700 mb-2">Ringkasan Singkat</label>
-							<textarea name="ringkasan" placeholder="Tuliskan ringkasan singkat pengumuman..."
-								class="w-full rounded-xl border border-gray-200 p-3 text-gray-700 shadow-sm h-28 resize-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
-								required></textarea>
-						</div>
-
-						<!-- Tanggal -->
-						<div>
-							<label class="block text-sm font-semibold text-gray-700 mb-2">Tanggal</label>
-							<input type="date" name="tanggal"
-								class="w-full rounded-xl border border-gray-200 p-3 text-gray-700 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
-								required>
-						</div>
-
-						<!-- Tombol -->
-						<div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
-							<a href="dashboard.html"
-								class="px-5 py-2 rounded-xl bg-gray-100 text-gray-700 font-medium hover:bg-gray-200 transition shadow-sm">
-								Batal
-							</a>
-							<button type="submit"
-								class="px-5 py-2 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition shadow-sm">
-								Simpan
-							</button>
-						</div>
-
-					</form>
+				<!-- Foto Profil -->
+				<div class="text-center">
+					<img src="image/admin.jpg" alt="Foto Profil"
+						class="mx-auto h-24 w-24 rounded-full object-cover border-2 border-blue-500 shadow">
+					<label class="block mt-2 text-sm text-gray-600">Ganti Foto</label>
+					<input type="file" name="foto" accept="image/*"
+						class="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200 mt-1" />
 				</div>
-			</main>
-		</main>
 
-	</main>
+				<!-- Nama -->
+				<div>
+					<label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+					<input type="text" id="nama" name="nama" value="admin"
+						class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+						required />
+				</div>
 
-	<script>
-		const ctx = document.getElementById('nilaiChart').getContext('2d');
-		new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ['Ototronik', 'Tekstil', 'RPL', 'Mesin'],
-				datasets: [{
-					label: 'Rata-rata Nilai',
-					data: [82, 79, 88, 75],
-					backgroundColor: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6'],
-					borderRadius: 8
-				}]
-			},
-			options: {
-				responsive: true,
-				plugins: {
-					legend: {
-						display: false
-					}
-				},
-				scales: {
-					y: {
-						beginAtZero: true,
-						max: 100
-					}
+				<!-- Email -->
+				<div>
+					<label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+					<input type="email" id="email" name="email" value="admin@example.com"
+						class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+						required />
+				</div>
+
+				<div class="relative mt-4">
+					<label for="password" class="block text-sm font-medium text-gray-700">Password Baru
+						(opsional)</label>
+
+					<input type="password" id="password" name="password"
+						class="mt-1 block w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+
+					<!-- Tombol toggle password -->
+					<button type="button" onclick="togglePassword()" class="absolute right-3 top-9 text-gray-600">
+						<!-- Mata terbuka -->
+						<svg id="eye" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+							stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M2.458 12C3.732 7.943 7.523 5 12 5s8.268 2.943 9.542 7c-1.274 4.057-5.065 7-9.542 7s-8.268-2.943-9.542-7z" />
+						</svg>
+
+						<!-- Mata tertutup -->
+						<svg id="eye-off" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none"
+							viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M13.875 18.825A10.05 10.05 0 0112 19c-5.523 0-10-4.477-10-10a9.961 9.961 0 011.454-5.212M3.515 3.515l16.97 16.97M17.94 17.94A9.953 9.953 0 0012 21c-5.523 0-10-4.477-10-10 0-1.623.388-3.157 1.073-4.5" />
+						</svg>
+					</button>
+				</div>
+
+				<!-- Tombol Simpan -->
+				<div class="text-center">
+					<button type="submit"
+						class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl shadow transition ">
+						Simpan Perubahan
+					</button>
+				</div>
+			</form>
+			</div>
+			<script>
+				function togglePassword() {
+					const passwordInput = document.getElementById("password");
+					const eye = document.getElementById("eye");
+					const eyeOff = document.getElementById("eye-off");
+
+					const isHidden = passwordInput.type === "password";
+					passwordInput.type = isHidden ? "text" : "password";
+					eye.classList.toggle("hidden", !isHidden);
+					eyeOff.classList.toggle("hidden", isHidden);
 				}
-			}
-		});
-		// Toggle Dropdown for User Profile
-		function toggleDropdown() {
-			const dropdown = document.getElementById("dropdown-menu");
-			dropdown.classList.toggle("hidden");
-		}
 
-		// Toggle Sidebar for Mobile
-		const toggleSidebarBtn = document.getElementById("toggleSidebar");
-		const sidebar = document.getElementById("sidebar");
-		const overlay = document.getElementById('overlay');
+			</script>
 
-		toggleSidebarBtn.addEventListener("click", () => {
-			sidebar.classList.toggle("-translate-x-full");
-			overlay.classList.toggle("hidden");
-		});
+			<script>
+				// Toggle Dropdown for User Profile
+				function toggleDropdown() {
+					const dropdown = document.getElementById("dropdown-menu");
+					dropdown.classList.toggle("hidden");
+				}
 
-		// Close Dropdown and Sidebar when clicking outside
-		window.addEventListener("click", function (e) {
-			const profileButton = document.querySelector(
-				"button[onclick='toggleDropdown()']"
-			);
-			const dropdownMenu = document.getElementById("dropdown-menu");
-			const overlay = document.getElementById('overlay');
+				// Toggle Sidebar for Mobile
+				const toggleSidebarBtn = document.getElementById("toggleSidebar");
+				const sidebar = document.getElementById("sidebar");
 
-			// Close profile dropdown
-			if (
-				profileButton &&
-				!profileButton.contains(e.target) &&
-				!dropdownMenu.contains(e.target)
-			) {
-				dropdownMenu.classList.add("hidden");
-			}
+				toggleSidebarBtn.addEventListener("click", () => {
+					sidebar.classList.toggle("-translate-x-full");
+				});
 
-			// Close sidebar if open and clicked outside on small screens
-			// Check if sidebar is NOT hidden (-translate-x-full) and click is outside sidebar and toggle button
-			if (
-				window.innerWidth < 640 &&
-				!sidebar.contains(e.target) &&
-				!toggleSidebarBtn.contains(e.target) &&
-				!sidebar.classList.contains("-translate-x-full") &&
-				!overlay.classList.contains("hidden")
-			) {
-				sidebar.classList.add("-translate-x-full");
-				overlay.classList.add("hidden");
-			}
-		});
+				// Close Dropdown and Sidebar when clicking outside
+				window.addEventListener("click", function (e) {
+					const profileButton = document.querySelector("button[onclick='toggleDropdown()']");
+					const dropdownMenu = document.getElementById("dropdown-menu");
 
-	</script>
-</body>
+					// Close profile dropdown
+					if (profileButton && !profileButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+						dropdownMenu.classList.add("hidden");
+					}
+
+					// Close sidebar if open and clicked outside on small screens
+					// Check if sidebar is NOT hidden (-translate-x-full) and click is outside sidebar and toggle button
+					if (window.innerWidth < 640 && !sidebar.contains(e.target) && !toggleSidebarBtn.contains(e.target) && !
+						sidebar.classList.contains('-translate-x-full')) {
+						sidebar.classList.add("-translate-x-full");
+					}
+				});
+
+			</script>
+		</body>
 
 </html>
