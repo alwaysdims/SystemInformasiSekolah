@@ -9,6 +9,7 @@
 	<!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" /> -->
 	<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
 <body class="bg-gray-100 min-h-screen flex">
@@ -34,8 +35,8 @@
 				Dashboard
 			</a>
 
-			<a href="pkl.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+			<a href="data-pkl.html"
+				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
 				<!-- Ikon PKL (Briefcase / Pekerjaan) -->
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor" stroke-width="2">
@@ -45,15 +46,15 @@
 				Data PKL
 			</a>
 
-			<a href="magang.html"
-				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+			<a href="lokasi-pkl.html"
+				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
 				<!-- Ikon Magang (Users / Kolaborasi) -->
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor" stroke-width="2">
 					<path stroke-linecap="round" stroke-linejoin="round"
 						d="M17 20h5v-2a3 3 0 00-5.356-1.857M9 20H4v-2a3 3 0 015.356-1.857M16 11a4 4 0 10-8 0 4 4 0 008 0zm6 8v1a2 2 0 01-2 2h-3m-6 0H7a2 2 0 01-2-2v-1" />
 				</svg>
-				Data Magang
+				DUDI PKL
 			</a>
 
 		</nav>
@@ -72,10 +73,10 @@
 					</svg>
 				</button>
 				<div class="items-center">
-					<h3 class="text-md sm:text-2xl text-white font-semibold">Magang</h3>
+					<h3 class="text-md sm:text-2xl text-white font-semibold">PKL</h3>
 				</div>
 			</div>
-            <div class="hidden sm:block flex-1 max-w-md ml-auto">
+			<div class="hidden sm:block flex-1 max-w-md ml-auto">
 				<input type="text" placeholder="Cari sesuatu..."
 					class="w-full px-4 py-2 text-sm text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
 			</div>
@@ -224,36 +225,136 @@
 		</div>
 
 		<main class="flex-1 overflow-y-auto p-6">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<!-- Card Tempat PKL -->
+
+				<!-- Card Siswa Mendapat PKL -->
+				<div
+					class="bg-gradient-to-r from-green-500 to-green-600 text-white shadow-md rounded-2xl p-6 flex items-center gap-4 border transform transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
+					<div class="bg-green-100 text-green-600 p-3 rounded-xl">
+						<!-- Ikon User Check -->
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
+							stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M16 11a4 4 0 10-8 0 4 4 0 008 0zm6 8v1a2 2 0 01-2 2h-3m-6 0H7a2 2 0 01-2-2v-1
+                                a4 4 0 018 0v1h2m5-9l2 2 4-4" />
+						</svg>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold">Siswa Dapat PKL</h3>
+						<p class="text-2xl font-bold">85</p>
+					</div>
+				</div>
+
+				<!-- Card Siswa Belum PKL -->
+				<div
+					class="bg-gradient-to-r from-red-500 to-red-600 text-white shadow-md rounded-2xl p-6 flex items-center gap-4 border transform transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
+					<div class="bg-red-100 text-red-600 p-3 rounded-xl">
+						<!-- Ikon User X -->
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
+							stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M16 11a4 4 0 10-8 0 4 4 0 008 0zm6 8a2 2 0 01-2 2h-3m-6 0H7a2 2 0 01-2-2
+                                v-1a4 4 0 018 0v1h2m-6-6l4 4m0-4l-4 4" />
+						</svg>
+					</div>
+					<div>
+						<h3 class="text-lg font-semibold">Siswa Belum PKL</h3>
+						<p class="text-2xl font-bold">30</p>
+					</div>
+				</div>
+			</div>
+			<div class="max-w-7xl mx-auto bg-white p-6 mt-10 rounded-lg shadow-lg">
+				<!-- Header dengan search dan filter jurusan -->
+				<div class="flex justify-between items-center mb-4">
+					<h2 class="text-2xl font-bold text-gray-700">Data Permintaan PKL</h2>
+					<div class="flex space-x-2">
+						<input id="searchInput" type="text" placeholder="Cari nama siswa..."
+							class="px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+						<select id="jurusanFilter"
+							class="px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+							<option value="">Semua Jurusan</option>
+							<option value="RPL">RPL</option>
+							<option value="Mesin">Mesin</option>
+							<option value="Ototronik">Ototronik</option>
+							<option value="Tekstil">Tekstil</option>
+						</select>
+					</div>
+				</div>
+
+				<table class="w-full border-collapse">
+					<thead>
+						<tr class="border-b border-gray-200 text-lg font-semibold text-gray-700">
+							<th class="px-4 py-3 text-center">No</th>
+							<th class="px-4 py-3 text-center">Nama Siswa</th>
+							<th class="px-4 py-3 text-center">Jurusan</th>
+							<th class="px-4 py-3 text-center">Tempat PKL</th>
+							<th class="px-4 py-3 text-center">Alamat</th>
+							<th class="px-4 py-3 text-center">Status</th>
+						</tr>
+					</thead>
+
+					<tbody id="dataTable" class="text-gray-700">
+						<tr class="border-b border-gray-100 hover:bg-gray-50">
+							<td class="px-4 py-3 text-center">1</td>
+							<td class="px-4 py-3">Dimas Prakoso</td>
+							<td class="px-4 py-3 text-center">RPL</td>
+							<td class="px-4 py-3">Al Jadid Offset</td>
+							<td class="px-4 py-3">Jl. M Supeno, Tegalgede, Karanganyar</td>
+							<td class="px-4 py-3 text-green-600 font-semibold text-center">Diterima</td>
+						</tr>
+						<tr class="border-b border-gray-100 hover:bg-gray-50">
+							<td class="px-4 py-3 text-center">2</td>
+							<td class="px-4 py-3">Siti Aminah</td>
+							<td class="px-4 py-3 text-center">Mesin</td>
+							<td class="px-4 py-3">Cozmed Cartenz</td>
+							<td class="px-4 py-3">Tirtang Tegalgede Karanganyar</td>
+							<td class="px-4 py-3 text-yellow-500 font-semibold text-center">Pending</td>
+						</tr>
+						<tr class="border-b border-gray-100 hover:bg-gray-50">
+							<td class="px-4 py-3 text-center">3</td>
+							<td class="px-4 py-3">Rina Maulida</td>
+							<td class="px-4 py-3 text-center">Ototronik</td>
+							<td class="px-4 py-3">CV. CIPTA SOLUTINDO</td>
+							<td class="px-4 py-3">Jl. Raya Solo-Tawangmangu, Sukoharjo</td>
+							<td class="px-4 py-3 text-red-600 font-semibold text-center">Ditolak</td>
+						</tr>
+						<tr class="border-b border-gray-100 hover:bg-gray-50">
+							<td class="px-4 py-3 text-center">4</td>
+							<td class="px-4 py-3">Bagus Saputra</td>
+							<td class="px-4 py-3 text-center">Tekstil</td>
+							<td class="px-4 py-3">CV. DEXZA PURNAMA</td>
+							<td class="px-4 py-3">Jl. Sejahtera No 1, Kartosuro</td>
+							<td class="px-4 py-3 text-green-600 font-semibold text-center">Diterima</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
 		</main>
 	</main>
 
 	<script>
-		const searchDate = document.getElementById("searchDate");
-		const searchText = document.getElementById("searchText");
-		const kegiatanCards = document.querySelectorAll("#kegiatanContainer > div");
+		const searchInput = document.getElementById("searchInput");
+		const jurusanFilter = document.getElementById("jurusanFilter");
+		const rows = document.querySelectorAll("#dataTable tr");
 
-		function filterKegiatan() {
-			const selectedDate = searchDate.value;
-			const keyword = searchText.value.toLowerCase();
+		function filterTable() {
+			const searchText = searchInput.value.toLowerCase();
+			const jurusan = jurusanFilter.value;
 
-			kegiatanCards.forEach(card => {
-				const cardDate = card.getAttribute("data-date");
-				const cardTitle = card.getAttribute("data-title");
+			rows.forEach(row => {
+				const dudi = row.cells[1].textContent.toLowerCase();
+				const jurusanCell = row.cells[4].textContent;
 
-				const matchDate = (selectedDate === "" || cardDate === selectedDate);
-				const matchText = (keyword === "" || cardTitle.includes(keyword));
+				const matchSearch = dudi.includes(searchText);
+				const matchJurusan = jurusan === "" || jurusanCell === jurusan;
 
-				if (matchDate && matchText) {
-					card.style.display = "block";
+				if (matchSearch && matchJurusan) {
+					row.style.display = "";
 				} else {
-					card.style.display = "none";
+					row.style.display = "none";
 				}
 			});
 		}
-
-		searchDate.addEventListener("change", filterKegiatan);
-		searchText.addEventListener("input", filterKegiatan);
 
 		function resetFilter() {
 			searchDate.value = "";
@@ -261,33 +362,6 @@
 			kegiatanCards.forEach(card => card.style.display = "block");
 		}
 
-		const ctx = document.getElementById('nilaiChart').getContext('2d');
-		new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ['Ototronik', 'Tekstil', 'RPL', 'Mesin'],
-				datasets: [{
-					label: 'Rata-rata Nilai',
-					data: [82, 79, 88, 75],
-					backgroundColor: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6'],
-					borderRadius: 8
-				}]
-			},
-			options: {
-				responsive: true,
-				plugins: {
-					legend: {
-						display: false
-					}
-				},
-				scales: {
-					y: {
-						beginAtZero: true,
-						max: 100
-					}
-				}
-			}
-		});
 		// Toggle Dropdown for User Profile
 		function toggleDropdown() {
 			const dropdown = document.getElementById("dropdown-menu");

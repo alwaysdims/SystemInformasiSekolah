@@ -9,7 +9,6 @@
 	<!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" /> -->
 	<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
 <body class="bg-gray-100 min-h-screen flex">
@@ -35,8 +34,8 @@
 				Dashboard
 			</a>
 
-			<a href="pkl.html"
-				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+			<a href="data-pkl.html"
+				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
 				<!-- Ikon PKL (Briefcase / Pekerjaan) -->
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor" stroke-width="2">
@@ -46,15 +45,15 @@
 				Data PKL
 			</a>
 
-			<a href="magang.html"
-				class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+			<a href="lokasi-pkl.html"
+				class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
 				<!-- Ikon Magang (Users / Kolaborasi) -->
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
 					stroke="currentColor" stroke-width="2">
 					<path stroke-linecap="round" stroke-linejoin="round"
 						d="M17 20h5v-2a3 3 0 00-5.356-1.857M9 20H4v-2a3 3 0 015.356-1.857M16 11a4 4 0 10-8 0 4 4 0 008 0zm6 8v1a2 2 0 01-2 2h-3m-6 0H7a2 2 0 01-2-2v-1" />
 				</svg>
-				Data Magang
+				DUDI PKL
 			</a>
 
 		</nav>
@@ -73,7 +72,7 @@
 					</svg>
 				</button>
 				<div class="items-center">
-					<h3 class="text-md sm:text-2xl text-white font-semibold">PKL</h3>
+					<h3 class="text-md sm:text-2xl text-white font-semibold">DUDI PKL</h3>
 				</div>
 			</div>
 			<div class="hidden sm:block flex-1 max-w-md ml-auto">
@@ -227,102 +226,6 @@
 		<main class="flex-1 overflow-y-auto p-6">
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 				<!-- Card Tempat PKL -->
-				<div @click="openModal = true"
-					class="bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-md rounded-2xl p-6 flex items-center gap-4 border transform transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-					<div class="bg-blue-100 text-blue-600 p-3 rounded-xl">
-						<!-- Ikon Briefcase -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
-							stroke="currentColor" stroke-width="2">
-							<path stroke-linecap="round" stroke-linejoin="round"
-								d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2m-9 4h12m-9 4h6m-9 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2z" />
-						</svg>
-					</div>
-					<div>
-						<h3 class="text-lg font-semibold">Tempat PKL</h3>
-						<p class="text-2xl font-bold">12</p>
-					</div>
-				</div>
-
-				<!-- MODAL -->
-				<div x-data="{ openModal: false }">
-					<div x-show="openModal"
-						class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-						<div class="bg-white rounded-xl shadow-xl w-11/12 md:w-3/4 lg:w-2/3 p-6 relative">
-							<!-- Tombol Close -->
-							<button @click="openModal = false"
-								class="absolute top-3 right-3 text-gray-500 hover:text-red-600">
-								✖
-							</button>
-
-							<!-- ISI MODAL -->
-							<div class="max-w-7xl mx-auto">
-								<!-- Header dengan search dan filter jurusan -->
-								<div class="flex justify-between items-center mb-4">
-									<h2 class="text-2xl font-bold text-gray-700">Data Tempat PKL</h2>
-									<div class="flex space-x-2">
-										<input id="searchInput" type="text" placeholder="Cari nama perusahaan..."
-											class="px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-										<select id="jurusanFilter"
-											class="px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-											<option value="">Semua Jurusan</option>
-											<option value="RPL">RPL</option>
-											<option value="Mesin">Mesin</option>
-											<option value="Ototronik">Ototronik</option>
-											<option value="Tekstil">Tekstil</option>
-										</select>
-									</div>
-								</div>
-
-								<table class="w-full border-collapse">
-									<thead>
-										<tr class="border-b border-gray-200 text-lg font-semibold text-gray-700">
-											<th class="px-4 py-3 text-center">No</th>
-											<th class="px-4 py-3 text-center">DUDI</th>
-											<th class="px-4 py-3 text-center">Kuota Pendaftar</th>
-											<th class="px-4 py-3 text-center">Kuota Diterima</th>
-											<th class="px-4 py-3 text-center">Jurusan</th>
-											<th class="px-4 py-3 text-center">Alamat</th>
-										</tr>
-									</thead>
-									<tbody id="dataTable" class="text-gray-700">
-										<tr class="border-b border-gray-100 hover:bg-gray-50">
-											<td class="px-4 py-3 text-center">1</td>
-											<td class="px-4 py-3">Al Jadid Offset</td>
-											<td class="px-4 py-3">-</td>
-											<td class="px-4 py-3 text-center">4</td>
-											<td class="px-4 py-3 text-center">RPL</td>
-											<td class="px-4 py-3">Jl. M Supeno, Tegalgede, Karanganyar</td>
-										</tr>
-										<tr class="border-b border-gray-100 hover:bg-gray-50">
-											<td class="px-4 py-3 text-center">2</td>
-											<td class="px-4 py-3">Cozmed Cartenz</td>
-											<td class="px-4 py-3 text-red-600 font-semibold text-center">PENUH</td>
-											<td class="px-4 py-3 text-center">2</td>
-											<td class="px-4 py-3 text-center">Mesin</td>
-											<td class="px-4 py-3">Tirtang Tegalgede Karanganyar</td>
-										</tr>
-										<tr class="border-b border-gray-100 hover:bg-gray-50">
-											<td class="px-4 py-3 text-center">3</td>
-											<td class="px-4 py-3">CV. CIPTA SOLUTINDO</td>
-											<td class="px-4 py-3">-</td>
-											<td class="px-4 py-3 text-center">3</td>
-											<td class="px-4 py-3 text-center">Ototronik</td>
-											<td class="px-4 py-3">Jl. Raya Solo-Tawangmangu, Sukoharjo</td>
-										</tr>
-										<tr class="border-b border-gray-100 hover:bg-gray-50">
-											<td class="px-4 py-3 text-center">4</td>
-											<td class="px-4 py-3">CV. DEXZA PURNAMA</td>
-											<td class="px-4 py-3">-</td>
-											<td class="px-4 py-3 text-center">2</td>
-											<td class="px-4 py-3 text-center">Tekstil</td>
-											<td class="px-4 py-3">Jl. Sejahtera No 1, Kartosuro</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
 
 				<!-- Card Siswa Mendapat PKL -->
 				<div
@@ -336,113 +239,118 @@
 						</svg>
 					</div>
 					<div>
-						<h3 class="text-lg font-semibold">Siswa Dapat PKL</h3>
+						<h3 class="text-lg font-semibold">Lokasi PKL</h3>
 						<p class="text-2xl font-bold">85</p>
-					</div>
-				</div>
-
-				<!-- Card Siswa Belum PKL -->
-				<div
-					class="bg-gradient-to-r from-red-500 to-red-600 text-white shadow-md rounded-2xl p-6 flex items-center gap-4 border transform transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-					<div class="bg-red-100 text-red-600 p-3 rounded-xl">
-						<!-- Ikon User X -->
-						<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
-							stroke="currentColor" stroke-width="2">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M16 11a4 4 0 10-8 0 4 4 0 008 0zm6 8a2 2 0 01-2 2h-3m-6 0H7a2 2 0 01-2-2
-                                v-1a4 4 0 018 0v1h2m-6-6l4 4m0-4l-4 4" />
-						</svg>
-					</div>
-					<div>
-						<h3 class="text-lg font-semibold">Siswa Belum PKL</h3>
-						<p class="text-2xl font-bold">30</p>
 					</div>
 				</div>
 			</div>
 			<div class="max-w-7xl mx-auto bg-white p-6 mt-10 rounded-lg shadow-lg">
-				<!-- Header dengan search dan filter jurusan -->
-				<div class="flex justify-between items-center mb-4">
-					<h2 class="text-2xl font-bold text-gray-700">Data Permintaan PKL</h2>
-					<div class="flex space-x-2">
-						<input id="searchInput" type="text" placeholder="Cari nama siswa..."
-							class="px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-						<select id="jurusanFilter"
-							class="px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-							<option value="">Semua Jurusan</option>
-							<option value="RPL">RPL</option>
-							<option value="Mesin">Mesin</option>
-							<option value="Ototronik">Ototronik</option>
-							<option value="Tekstil">Tekstil</option>
-						</select>
+				<!-- Filter Bar -->
+				<div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0 mb-6">
+					<!-- Search -->
+					<div class="flex items-center border rounded-lg px-3 py-2 w-full sm:w-64 bg-gray-100">
+						<svg class="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" stroke-width="2"
+							stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+							<circle cx="11" cy="11" r="7"></circle>
+							<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+						</svg>
+						<input id="searchInput" type="text" placeholder="Cari DUDI.."
+							class="bg-transparent outline-none w-full text-gray-700" />
 					</div>
+
+					<!-- Filter Jurusan -->
+					<select id="jurusanFilter"
+						class="border rounded-lg px-3 py-2 w-full sm:w-48 bg-white text-gray-700 focus:outline-blue-500">
+						<option value="">Pilih Jurusan</option>
+						<option value="Mesin">Mesin</option>
+						<option value="Ototronik">Ototronik</option>
+						<option value="Tekstil">Tekstil</option>
+						<option value="RPL">Rekayasa Perangkat Lunak</option>
+					</select>
 				</div>
 
-				<table class="w-full border-collapse">
-					<thead>
-						<tr class="border-b border-gray-200 text-lg font-semibold text-gray-700">
-							<th class="px-4 py-3 text-center">No</th>
-							<th class="px-4 py-3 text-center">Nama Siswa</th>
-							<th class="px-4 py-3 text-center">Jurusan</th>
-							<th class="px-4 py-3 text-center">Tempat PKL</th>
-							<th class="px-4 py-3 text-center">Alamat</th>
-							<th class="px-4 py-3 text-center">Status</th>
-						</tr>
-					</thead>
+				<!-- Table -->
+				<div class="overflow-x-auto">
+					<table class="w-full text-left border-collapse">
+						<thead>
+							<tr class="border-b border-gray-200 text-sm text-gray-500">
+								<th class="px-4 py-3">Nama DUDI</th>
+								<th class="px-4 py-3">Kuota</th>
+								<th class="px-4 py-3">Alamat</th>
+								<th class="px-4 py-3">Jurusan</th>
+							</tr>
+						</thead>
+						<tbody id="tableBody" class="text-gray-700">
+							<!-- Row 1 -->
+							<tr class="border-b border-gray-100 hover:bg-gray-50">
+								<td class="px-4 py-3">PT. Astra Honda Motor</td>
+								<td class="px-4 py-3 font-semibold text-green-600">10</td>
+								<td class="px-4 py-3">Jl. Gaya Motor Raya No.8, Jakarta</td>
+								<td class="px-4 py-3">
+									<span
+										class="bg-blue-100 text-blue-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+										Mesin
+									</span>
+								</td>
+							</tr>
 
-					<tbody id="dataTable" class="text-gray-700">
-						<tr class="border-b border-gray-100 hover:bg-gray-50">
-							<td class="px-4 py-3 text-center">1</td>
-							<td class="px-4 py-3">Dimas Prakoso</td>
-							<td class="px-4 py-3 text-center">RPL</td>
-							<td class="px-4 py-3">Al Jadid Offset</td>
-							<td class="px-4 py-3">Jl. M Supeno, Tegalgede, Karanganyar</td>
-							<td class="px-4 py-3 text-green-600 font-semibold text-center">Diterima</td>
-						</tr>
-						<tr class="border-b border-gray-100 hover:bg-gray-50">
-							<td class="px-4 py-3 text-center">2</td>
-							<td class="px-4 py-3">Siti Aminah</td>
-							<td class="px-4 py-3 text-center">Mesin</td>
-							<td class="px-4 py-3">Cozmed Cartenz</td>
-							<td class="px-4 py-3">Tirtang Tegalgede Karanganyar</td>
-							<td class="px-4 py-3 text-yellow-500 font-semibold text-center">Pending</td>
-						</tr>
-						<tr class="border-b border-gray-100 hover:bg-gray-50">
-							<td class="px-4 py-3 text-center">3</td>
-							<td class="px-4 py-3">Rina Maulida</td>
-							<td class="px-4 py-3 text-center">Ototronik</td>
-							<td class="px-4 py-3">CV. CIPTA SOLUTINDO</td>
-							<td class="px-4 py-3">Jl. Raya Solo-Tawangmangu, Sukoharjo</td>
-							<td class="px-4 py-3 text-red-600 font-semibold text-center">Ditolak</td>
-						</tr>
-						<tr class="border-b border-gray-100 hover:bg-gray-50">
-							<td class="px-4 py-3 text-center">4</td>
-							<td class="px-4 py-3">Bagus Saputra</td>
-							<td class="px-4 py-3 text-center">Tekstil</td>
-							<td class="px-4 py-3">CV. DEXZA PURNAMA</td>
-							<td class="px-4 py-3">Jl. Sejahtera No 1, Kartosuro</td>
-							<td class="px-4 py-3 text-green-600 font-semibold text-center">Diterima</td>
-						</tr>
-					</tbody>
-				</table>
+							<!-- Row 2 -->
+							<tr class="border-b border-gray-100 hover:bg-gray-50">
+								<td class="px-4 py-3">CV. Solusi Teknologi</td>
+								<td class="px-4 py-3 font-semibold text-yellow-600">5</td>
+								<td class="px-4 py-3">Jl. Ahmad Yani No.25, Karanganyar</td>
+								<td class="px-4 py-3">
+									<span
+										class="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+										Rekayasa Perangkat Lunak
+									</span>
+								</td>
+							</tr>
+
+							<!-- Row 3 -->
+							<tr class="border-b border-gray-100 hover:bg-gray-50">
+								<td class="px-4 py-3">Studio Kreatif</td>
+								<td class="px-4 py-3 font-semibold text-red-600">0</td>
+								<td class="px-4 py-3">Jl. Slamet Riyadi No.120, Solo</td>
+								<td class="px-4 py-3">
+									<span
+										class="bg-orange-100 text-orange-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+										Tekstil
+									</span>
+								</td>
+							</tr>
+
+							<!-- Row 4 -->
+							<tr class="border-b border-gray-100 hover:bg-gray-50">
+								<td class="px-4 py-3">PT. Ototronik Indo</td>
+								<td class="px-4 py-3 font-semibold text-green-600">8</td>
+								<td class="px-4 py-3">Jl. Merpati No.10, Surabaya</td>
+								<td class="px-4 py-3">
+									<span
+										class="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+										Ototronik
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-
 		</main>
 	</main>
 
 	<script>
-		const searchInput = document.getElementById("searchInput");
-		const jurusanFilter = document.getElementById("jurusanFilter");
-		const rows = document.querySelectorAll("#dataTable tr");
-
 		function filterTable() {
-			const searchText = searchInput.value.toLowerCase();
-			const jurusan = jurusanFilter.value;
+			let search = document.getElementById("searchInput").value.toLowerCase();
+			let jurusanFilter = document.getElementById("filterJurusan").value;
+			let rows = document.querySelectorAll("#dudiTable tbody tr");
 
 			rows.forEach(row => {
-				const dudi = row.cells[1].textContent.toLowerCase();
-				const jurusanCell = row.cells[4].textContent;
+				let namaDudi = row.cells[1].textContent.toLowerCase();
+				let jurusan = row.cells[4].textContent;
 
-				const matchSearch = dudi.includes(searchText);
-				const matchJurusan = jurusan === "" || jurusanCell === jurusan;
+				let matchSearch = namaDudi.includes(search);
+				let matchJurusan = jurusanFilter === "" || jurusan === jurusanFilter;
 
 				if (matchSearch && matchJurusan) {
 					row.style.display = "";
@@ -452,13 +360,9 @@
 			});
 		}
 
-		function resetFilter() {
-			searchDate.value = "";
-			searchText.value = "";
-			kegiatanCards.forEach(card => card.style.display = "block");
-		}
+		document.getElementById("searchInput").addEventListener("keyup", filterTable);
+		document.getElementById("filterJurusan").addEventListener("change", filterTable);
 
-		// Toggle Dropdown for User Profile
 		function toggleDropdown() {
 			const dropdown = document.getElementById("dropdown-menu");
 			dropdown.classList.toggle("hidden");
