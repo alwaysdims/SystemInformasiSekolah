@@ -32,7 +32,7 @@
         <nav class="space-y-2">
             <!-- Dashboard -->
             <a href="index.html"
-                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -80,7 +80,7 @@
                         📘 Materi Pelajaran
                     </a>
                     <a href="tugas-ujian.html"
-                        class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
                         📝 Tugas Ujian
                     </a>
                 </div>
@@ -130,7 +130,7 @@
 
             <!-- Nilai -->
             <a href="nilai.html"
-                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -138,19 +138,20 @@
                 </svg>
                 Nilai
             </a>
+            <!-- absensi -->
             <a href="absensi.html"
-    class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <!-- Icon User -->
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M5.121 17.804A9.969 9.969 0 0112 15c2.21 0 4.236.72 5.879 1.929M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        <!-- Icon Check -->
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M9 20l2 2 4-4" />
-    </svg>
-    Absensi Siswa
-</a>
-
+            class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <!-- Icon User -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M5.121 17.804A9.969 9.969 0 0112 15c2.21 0 4.236.72 5.879 1.929M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                <!-- Icon Check -->
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 20l2 2 4-4" />
+            </svg>
+            Absensi Siswa
+        </a>
+        
         </nav>
     </aside>
 
@@ -167,7 +168,7 @@
                     </svg>
                 </button>
                 <div class="items-center">
-                    <h3 class="text-md sm:text-2xl text-white font-semibold">Dashboard</h3>
+                    <h3 class="text-md sm:text-2xl text-white font-semibold">Nilai</h3>
                 </div>
             </div>
 
@@ -326,126 +327,410 @@
         </div>
 
         <div class="flex">
-            <div class="max-w-7xl mx-auto w-full bg-white p-6 rounded-lg shadow-lg">
+            <main class="flex-1 overflow-y-auto p-6">
 
-                <!-- Header Soal -->
-                <div class="mb-6 border-b pb-4">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                        <div>
-                            <h1 class="text-2xl font-bold text-gray-800">Ujian Pilihan Ganda Matematika</h1>
-                            <p class="text-sm text-gray-500 mt-1">
-                                Mapel: <span class="font-semibold text-blue-600">Matematika</span> |
-                                Durasi: <span class="font-semibold text-green-600">60 menit</span>
-                            </p>
+                <div class="max-w-7xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+                    <!-- Identitas Siswa -->
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold mb-2">Identitas Siswa</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-gray-700">
+                            <div><strong>NIS:</strong> 12345</div>
+                            <div><strong>Nama:</strong> Andi Saputra</div>
+                            <div><strong>Kelas:</strong> X IPA 1</div>
                         </div>
-                        <div class="flex space-x-3 mt-4 sm:mt-0">
-                            <a href="detail.html"
-                                class="bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-semibold px-4 py-2 rounded-lg flex items-center space-x-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 19l-7-7 7-7" />
-                                </svg>
-                                <span>Kembali</span>
-                            </a>
-                            <!-- Tombol Buat Soal -->
-                            <button onclick="document.getElementById('modalBuatSoal').classList.remove('hidden')"
-                                class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg flex items-center space-x-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 4v16m8-8H4" />
-                                </svg>
-                                <span>Buat Soal</span>
-                            </button>
+                    </div>
 
-                            <!-- Modal Buat Soal -->
-                            <div id="modalBuatSoal"
-                                class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4">
-                                <div
-                                    class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
+                    <!-- Filter Mapel -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0 mb-6">
+                        <select id="mapelFilter"
+                            class="border rounded-lg px-3 py-2 w-full sm:w-48 bg-white text-gray-700 focus:outline-blue-500">
+                            <option value="">Semua Mapel</option>
+                            <option value="Matematika">Matematika</option>
+                            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                            <option value="Fisika">Fisika</option>
+                        </select>
+                        <button onclick="openModal()"
+                            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
+                            + Tambah Nilai
+                        </button>
+                    </div>
 
-                                    <!-- Tombol Close -->
-                                    <button onclick="document.getElementById('modalBuatSoal').classList.add('hidden')"
-                                        class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">✖</button>
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
+                        <!-- Sidebar Jenis Tugas -->
+                        <div class="bg-gray-50 p-4 rounded-lg border sidebar-jenis">
+                            <h3 class="font-medium mb-3">Jenis Tugas</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li><button class="w-full text-left hover:text-blue-600">Ulangan Harian 1</button></li>
+                                <li><button class="w-full text-left hover:text-blue-600">Ulangan Harian 2</button></li>
+                                <li><button class="w-full text-left hover:text-blue-600">Tugas Harian</button></li>
+                                <li><button class="w-full text-left hover:text-blue-600">UTS</button></li>
+                                <li><button class="w-full text-left hover:text-blue-600">UAS</button></li>
+                            </ul>
+                        </div>
 
-                                    <!-- Judul -->
-                                    <h2 class="text-xl font-bold text-gray-800 mb-4 text-center">Buat Soal</h2>
 
-                                    <!-- Input Soal -->
-                                    <div class="mb-4">
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Soal</label>
-                                        <textarea id="soal" name="soal"></textarea>
-                                    </div>
-                                    <!-- Tombol Aksi -->
-                                    <div class="flex justify-end space-x-3">
-                                        <button
-                                            onclick="document.getElementById('modalBuatSoal').classList.add('hidden')"
-                                            class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-semibold">
-                                            Batal
-                                        </button>
-                                        <button
-                                            class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold">
-                                            Simpan
-                                        </button>
-                                    </div>
-                                </div>
+                        <!-- Tabel Nilai -->
+                        <div class="col-span-3">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr class="border-b border-gray-200 text-sm text-gray-500">
+                                            <th class="px-4 py-3">Mapel</th>
+                                            <th class="px-4 py-3">Jenis Tugas</th>
+                                            <th class="px-4 py-3">Nilai</th>
+                                            <th class="px-4 py-3">Tanggal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="nilaiTableBody" class="text-gray-700">
+                                        <tr class="border-b">
+                                            <td class="px-4 py-3">Matematika</td>
+                                            <td class="px-4 py-3">Ulangan Harian 1</td>
+                                            <td class="px-4 py-3">85</td>
+                                            <td class="px-4 py-3">2025-08-10</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-3">Bahasa Indonesia</td>
+                                            <td class="px-4 py-3">UTS</td>
+                                            <td class="px-4 py-3">78</td>
+                                            <td class="px-4 py-3">2025-08-15</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Pagination -->
+                            <div id="pagination" class="flex justify-center items-center mt-4 space-x-2">
+                                <button class="px-3 py-1 border rounded hover:bg-gray-100">&lt;</button>
+                                <button class="px-3 py-1 border rounded bg-blue-500 text-white">1</button>
+                                <button class="px-3 py-1 border rounded hover:bg-gray-100">2</button>
+                                <button class="px-3 py-1 border rounded hover:bg-gray-100">&gt;</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Filter Bar -->
-                <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-4 sm:space-y-0 mb-6">
-                    <!-- Search -->
-                    <div class="flex items-center border rounded-lg px-3 py-2 w-full sm:w-64 bg-gray-100">
-                        <svg class="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="7"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                        <input id="searchInput" type="text" placeholder="Cari soal.."
-                            class="bg-transparent outline-none w-full text-gray-700" />
+                <!-- Modal Input Nilai -->
+                <div id="nilaiModal"
+                    class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+                    <div class="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
+                        <h3 class="text-lg font-semibold mb-4">Tambah Nilai</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm mb-1">Mapel</label>
+                                <select class="w-full border rounded px-3 py-2">
+                                    <option>Matematika</option>
+                                    <option>Bahasa Indonesia</option>
+                                    <option>Fisika</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1">Jenis Tugas</label>
+                                <select class="w-full border rounded px-3 py-2">
+                                    <option>Ulangan Harian 1</option>
+                                    <option>Ulangan Harian 2</option>
+                                    <option>Tugas Harian</option>
+                                    <option>UTS</option>
+                                    <option>UAS</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1">Nilai</label>
+                                <input type="number" class="w-full border rounded px-3 py-2"
+                                    placeholder="Masukkan nilai...">
+                            </div>
+                            <div class="flex justify-end space-x-2">
+                                <button type="button" onclick="closeModal()"
+                                    class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Batal</button>
+                                <button type="submit"
+                                    class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Simpan</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+                <script>
+                    // Data nilai (bisa dari backend nanti)
+                    const nilaiData = [{
+                            mapel: "Matematika",
+                            jenis: "Ulangan Harian 1",
+                            nilai: 85,
+                            tanggal: "2025-08-10"
+                        },
+                        {
+                            mapel: "Bahasa Indonesia",
+                            jenis: "UTS",
+                            nilai: 78,
+                            tanggal: "2025-08-15"
+                        },
+                        {
+                            mapel: "Fisika",
+                            jenis: "Ulangan Harian 2",
+                            nilai: 90,
+                            tanggal: "2025-08-17"
+                        },
+                        {
+                            mapel: "Matematika",
+                            jenis: "UAS",
+                            nilai: 82,
+                            tanggal: "2025-08-19"
+                        },
+                        {
+                            mapel: "Bahasa Indonesia",
+                            jenis: "Tugas Harian",
+                            nilai: 88,
+                            tanggal: "2025-08-20"
+                        },
 
-                <!-- Table -->
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="border-b border-gray-200 text-sm text-gray-500">
-                                <th class="px-4 py-3">NO</th>
-                                <th class="px-4 py-3">SOAL</th>
-                                <th class="px-4 py-3 text-center">AKSI</th>
-                            </tr>
-                        </thead>
-                        <tbody id="soalTable" class="text-gray-700">
+                        // tambahan 5 data
+                        {
+                            mapel: "Kimia",
+                            jenis: "Ulangan Harian 1",
+                            nilai: 76,
+                            tanggal: "2025-08-21"
+                        },
+                        {
+                            mapel: "Biologi",
+                            jenis: "UTS",
+                            nilai: 92,
+                            tanggal: "2025-08-22"
+                        },
+                        {
+                            mapel: "Sejarah",
+                            jenis: "Tugas Harian",
+                            nilai: 80,
+                            tanggal: "2025-08-23"
+                        },
+                        {
+                            mapel: "Geografi",
+                            jenis: "UAS",
+                            nilai: 70,
+                            tanggal: "2025-08-24"
+                        },
+                        {
+                            mapel: "Bahasa Inggris",
+                            jenis: "Ulangan Harian 2",
+                            nilai: 95,
+                            tanggal: "2025-08-25"
+                        },
 
-                        </tbody>
+                        // tambahan 20 data lagi
+                        {
+                            mapel: "Ekonomi",
+                            jenis: "UTS",
+                            nilai: 83,
+                            tanggal: "2025-08-26"
+                        },
+                        {
+                            mapel: "Sosiologi",
+                            jenis: "Tugas Harian",
+                            nilai: 77,
+                            tanggal: "2025-08-27"
+                        },
+                        {
+                            mapel: "Matematika",
+                            jenis: "Ulangan Harian 2",
+                            nilai: 91,
+                            tanggal: "2025-08-28"
+                        },
+                        {
+                            mapel: "Bahasa Inggris",
+                            jenis: "UAS",
+                            nilai: 86,
+                            tanggal: "2025-08-29"
+                        },
+                        {
+                            mapel: "Fisika",
+                            jenis: "Ulangan Harian 1",
+                            nilai: 89,
+                            tanggal: "2025-08-30"
+                        },
+                        {
+                            mapel: "Kimia",
+                            jenis: "UTS",
+                            nilai: 74,
+                            tanggal: "2025-09-01"
+                        },
+                        {
+                            mapel: "Biologi",
+                            jenis: "Ulangan Harian 2",
+                            nilai: 93,
+                            tanggal: "2025-09-02"
+                        },
+                        {
+                            mapel: "Sejarah",
+                            jenis: "UAS",
+                            nilai: 81,
+                            tanggal: "2025-09-03"
+                        },
+                        {
+                            mapel: "Geografi",
+                            jenis: "Ulangan Harian 1",
+                            nilai: 72,
+                            tanggal: "2025-09-04"
+                        },
+                        {
+                            mapel: "Bahasa Indonesia",
+                            jenis: "Ulangan Harian 2",
+                            nilai: 87,
+                            tanggal: "2025-09-05"
+                        },
+                        {
+                            mapel: "Matematika",
+                            jenis: "Tugas Harian",
+                            nilai: 90,
+                            tanggal: "2025-09-06"
+                        },
+                        {
+                            mapel: "Ekonomi",
+                            jenis: "UAS",
+                            nilai: 78,
+                            tanggal: "2025-09-07"
+                        },
+                        {
+                            mapel: "Sosiologi",
+                            jenis: "Ulangan Harian 1",
+                            nilai: 82,
+                            tanggal: "2025-09-08"
+                        },
+                        {
+                            mapel: "Bahasa Inggris",
+                            jenis: "UTS",
+                            nilai: 96,
+                            tanggal: "2025-09-09"
+                        },
+                        {
+                            mapel: "Fisika",
+                            jenis: "Tugas Harian",
+                            nilai: 84,
+                            tanggal: "2025-09-10"
+                        },
+                        {
+                            mapel: "Kimia",
+                            jenis: "UAS",
+                            nilai: 75,
+                            tanggal: "2025-09-11"
+                        },
+                        {
+                            mapel: "Biologi",
+                            jenis: "Tugas Harian",
+                            nilai: 91,
+                            tanggal: "2025-09-12"
+                        },
+                        {
+                            mapel: "Sejarah",
+                            jenis: "Ulangan Harian 2",
+                            nilai: 79,
+                            tanggal: "2025-09-13"
+                        },
+                        {
+                            mapel: "Geografi",
+                            jenis: "UTS",
+                            nilai: 73,
+                            tanggal: "2025-09-14"
+                        },
+                        {
+                            mapel: "Ekonomi",
+                            jenis: "Ulangan Harian 2",
+                            nilai: 85,
+                            tanggal: "2025-09-15"
+                        },
+                    ];
 
-                    </table>
-                </div>
 
-                <!-- Pagination -->
-                <div class="flex justify-center mt-4 space-x-2" id="pagination"></div>
+                    let currentPage = 1;
+                    const rowsPerPage = 3;
+                    let currentMapel = "";
+                    let currentJenis = "";
 
-            </div>
+                    // Render tabel
+                    function renderTable() {
+                        const tableBody = document.getElementById("nilaiTableBody");
+                        tableBody.innerHTML = "";
+
+                        let filtered = nilaiData;
+
+                        // Filter mapel
+                        if (currentMapel) {
+                            filtered = filtered.filter(d => d.mapel === currentMapel);
+                        }
+
+                        // Filter jenis tugas
+                        if (currentJenis) {
+                            filtered = filtered.filter(d => d.jenis === currentJenis);
+                        }
+
+                        // Pagination
+                        const start = (currentPage - 1) * rowsPerPage;
+                        const paginated = filtered.slice(start, start + rowsPerPage);
+
+                        paginated.forEach(row => {
+                            tableBody.innerHTML += `
+                          <tr class="border-b">
+                            <td class="px-4 py-3">${row.mapel}</td>
+                            <td class="px-4 py-3">${row.jenis}</td>
+                            <td class="px-4 py-3">${row.nilai}</td>
+                            <td class="px-4 py-3">${row.tanggal}</td>
+                          </tr>`;
+                        });
+
+                        renderPagination(filtered.length);
+                    }
+
+                    // Pagination
+                    function renderPagination(total) {
+                        const pagination = document.getElementById("pagination");
+                        pagination.innerHTML = "";
+
+                        const totalPages = Math.ceil(total / rowsPerPage);
+
+                        if (totalPages <= 1) return;
+
+                        for (let i = 1; i <= totalPages; i++) {
+                            pagination.innerHTML += `
+                          <button onclick="goToPage(${i})" 
+                            class="px-3 py-1 border rounded ${i === currentPage ? 'bg-blue-500 text-white' : 'hover:bg-gray-100'}">
+                            ${i}
+                          </button>`;
+                        }
+                    }
+
+                    function goToPage(page) {
+                        currentPage = page;
+                        renderTable();
+                    }
+
+                    // Event listener Filter Mapel
+                    document.getElementById("mapelFilter").addEventListener("change", function () {
+                        currentMapel = this.value;
+                        currentPage = 1;
+                        renderTable();
+                    });
+
+                    // Event listener Sidebar Jenis Tugas
+                    document.querySelectorAll(".sidebar-jenis button").forEach(btn => {
+                        btn.addEventListener("click", function () {
+                            currentJenis = this.innerText.trim();
+                            currentPage = 1;
+                            renderTable();
+                        });
+                    });
+
+                     // ====== Modal ======
+                    function openModal() {
+                        document.getElementById("nilaiModal").classList.remove("hidden");
+                    }
+                    function closeModal() {
+                        document.getElementById("nilaiModal").classList.add("hidden");
+                    }
+
+                    // Load pertama
+                    renderTable();
+                </script>
+
+            </main>
         </div>
 
     </main>
 
-
-    <!-- TinyMCE -->
-    <script src="https://cdn.jsdelivr.net/npm/tinymce@5/tinymce.min.js"></script>
-    <script>
-        tinymce.init({
-            selector: '#soal, #jawabanA, #jawabanB, #jawabanC, #jawabanD, #jawabanE, #editSoal, #editA, #editB, #editC, #editD, #editE',
-            menubar: false,
-            plugins: 'lists link image table code',
-            toolbar: 'undo redo | bold italic underline | bullist numlist | alignleft aligncenter alignright | code',
-            height: 150
-        });
-    </script>
 
     <script>
         const toggleBtn = document.getElementById('toggleSidebar');
@@ -509,161 +794,6 @@
                 overlay.classList.add("hidden");
             }
         });
-
-        // Data soal esai
-        const soalData = [{
-                id: 1,
-                soal: "Hitung hasil dari 125 ÷ 25!",
-                answer: "5"
-            },
-            {
-                id: 2,
-                soal: "Jika sebuah persegi memiliki sisi 14 cm, berapakah luasnya?",
-                answer: "196"
-            },
-            {
-                id: 3,
-                soal: "Hasil dari 15² adalah?",
-                answer: "225"
-            },
-            {
-                id: 4,
-                soal: "Sebuah tabung memiliki jari-jari 7 cm dan tinggi 10 cm. Hitung volumenya (gunakan π=3,14)!",
-                answer: "1538.6"
-            },
-            {
-                id: 5,
-                soal: "Hitung keliling segitiga dengan sisi-sisinya 8 cm, 10 cm, dan 12 cm!",
-                answer: "30"
-            }
-        ];
-
-        let currentPage = 1;
-        const itemsPerPage = 5;
-
-        function truncateText(text, maxLength) {
-            return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
-        }
-
-        function renderTable(data) {
-            const table = document.getElementById("soalTable");
-            table.innerHTML = "";
-
-            const start = (currentPage - 1) * itemsPerPage;
-            const end = start + itemsPerPage;
-            const pageData = data.slice(start, end);
-
-            pageData.forEach((item, index) => {
-                const row = `
-                <tr class="border-b border-gray-100 hover:bg-gray-50">
-                    <td class="px-4 py-3">${item.id}</td>
-                    <td class="px-4 py-3">${truncateText(item.soal, 50)}</td>
-                    <td class="px-4 py-3 text-center">
-                    <div class="flex justify-center space-x-2">
-                    <!-- Tombol Edit -->
-                    <button onclick="openEditModal(5)"
-                    class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm px-3 py-1.5 rounded flex items-center space-x-1"
-                    title="Edit">
-                    <!-- Icon Pencil -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M15.232 5.232l3.536 3.536M16.5 3.5a2.121 2.121 0 013 3L7.5 18.5H4v-3.5L16.5 3.5z" />
-                    </svg>
-                    <span>Edit</span>
-                    </button>
-
-                    <!-- Modal Edit Soal -->
-                    <div id="editModal"
-                    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-                    <div class="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 relative">
-                        <h2 class="text-xl font-bold mb-4">Edit Soal</h2>
-
-                        <!-- Input Soal -->
-                        <label class="block font-semibold">Soal</label>
-                        <textarea id="editSoal" class="w-full border rounded p-2"></textarea>
-
-                    
-                        <!-- Tombol -->
-                        <div class="flex justify-end mt-6 space-x-3">
-                            <button onclick="closeEditModal()" class="bg-gray-300 px-4 py-2 rounded">Batal</button>
-                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Simpan</button>
-                            </div>
-                        </div>
-                        </div>
-
-                        <!-- Tombol Delete -->
-                        <button onclick="deleteSoal(5)"
-                        class="bg-red-600 hover:bg-red-700 text-white text-sm px-3 py-1.5 rounded flex items-center space-x-1"
-                        title="Delete">
-                        <!-- Icon Trash -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-4h4m-6 4h8" />
-                        </svg>
-                        <span>Delete</span>
-                        </button>
-                    </div>
-                    </td>
-
-                </tr>
-            `;
-                table.innerHTML += row;
-            });
-
-            renderPagination(data.length);
-        }
-
-        function renderPagination(totalItems) {
-            const totalPages = Math.ceil(totalItems / itemsPerPage);
-            const pagination = document.getElementById("pagination");
-            pagination.innerHTML = "";
-
-            for (let i = 1; i <= totalPages; i++) {
-                pagination.innerHTML += `
-                <button onclick="goToPage(${i})" 
-                    class="px-3 py-1 rounded ${i === currentPage ? 'bg-blue-500 text-white' : 'bg-gray-200'}">
-                    ${i}
-                </button>
-            `;
-            }
-        }
-
-        function goToPage(page) {
-            currentPage = page;
-            filterData();
-        }
-
-        // Pencarian
-        document.getElementById("searchInput").addEventListener("input", filterData);
-
-        function filterData() {
-            const search = document.getElementById("searchInput").value.toLowerCase();
-            const filtered = soalData.filter(item => item.soal.toLowerCase().includes(search));
-            renderTable(filtered);
-        }
-
-        // Aksi edit & delete
-        function openEditModal(id) {
-            document.getElementById("editModal").classList.remove("hidden");
-            // TODO: Ambil data soal dengan ID (misalnya via AJAX) lalu isi ke form
-        }
-
-        function closeEditModal() {
-            document.getElementById("editModal").classList.add("hidden");
-        }
-
-        function deleteSoal(id) {
-            const index = soalData.findIndex(item => item.id === id);
-            if (index !== -1) {
-                soalData.splice(index, 1);
-                filterData();
-            }
-        }
-
-        // Render awal
-        filterData();
     </script>
 </body>
 
