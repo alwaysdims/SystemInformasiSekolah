@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Print / Export Jadwal</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.19.3/xlsx.full.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h2 { text-align: center; margin-bottom: 5px; }
+    .subtitle { text-align: center; font-size: 12px; margin-bottom: 20px; color: #555; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border: 1px solid #ccc; padding: 6px; text-align: center; }
+    th { background: #f3f4f6; }
+    .actions { text-align: center; margin-bottom: 20px; }
+    .btn {
+      display: inline-block; padding: 8px 16px; margin: 5px;
+      border-radius: 6px; cursor: pointer; color: #fff; font-size: 14px;
+    }
+    .btn-print { background: #2563eb; }
+    .btn-excel { background: #16a34a; }
+  </style>
+</head>
+<body>
+  <h2>Jadwal Guru per Mapel</h2>
+  <div class="subtitle">Dicetak pada: <span id="tanggalCetak"></span></div>
+
+  <div class="actions">
+    <button class="btn btn-print" onclick="window.print()">Print</button>
+    <button class="btn btn-excel" onclick="exportExcel()">Export Excel</button>
+  </div>
+
+  <div id="content"></div>
+
+  <script>
+    // Tanggal cetak otomatis
+    const today = new Date().toLocaleDateString("id-ID", {
+      weekday: "long", year: "numeric", month: "long", day: "numeric"
+    });
+    document.getElementById("tanggalCetak").textContent = today;
+
+    // Ambil data tabel dari localStorage
+    const tableHtml = localStorage.getItem("jadwalTable");
+    document.getElementById("content").innerHTML = tableHtml;
+
+    // Export ke Excel
+    function exportExcel() {
+      const table = document.querySelector("#content table");
+      const wb = XLSX.utils.table_to_book(table, { sheet: "Jadwal Guru" });
+      XLSX.writeFile(wb, "jadwal_guru.xlsx");
+    }
+  </script>
+</body>
+</html>

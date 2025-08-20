@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Pengaduan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden sm:hidden z-40"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="w-64 bg-gradient-to-br from-blue-500 to-blue-800 text-white p-5 flex flex-col shadow-2xl 
+    sm:rounded-2xl fixed inset-y-0 sm:inset-y-auto sm:top-4 sm:left-4 h-full sm:h-[95%] 
+    transform -translate-x-full sm:translate-x-0 transition-transform duration-300 ease z-40">
+
+        <!-- Logo -->
+        <div class="flex items-center gap-5 mb-10">
+            <img src="../assets/image/logo-smkn2kra.webp" alt="Logo" class="w-16 h-16 mx-auto rounded mb-2" />
+            <h1 class="text-sm font-bold leading-tight">
+                SYSTEM INFORMASI SKANDAKRA
+            </h1>
+        </div>
+
+        <!-- Navigasi -->
+        <nav class="space-y-2">
+            <!-- Dashboard -->
+            <a href="index.html"
+                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4 0v-8m-4 0h4" />
+                </svg>
+                Dashboard
+            </a>
+
+            <!-- Forum Diskusi -->
+            <a href="forum-diskusi.html"
+                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 14c4.418 0 8-1.79 8-4V5a2 2 0 00-2-2h-2.586a1 1 0 01-.707-.293l-1.414-1.414A2 2 0 0011.586 1H8a2 2 0 00-2 2v1" />
+                    <circle cx="12" cy="10" r="3" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18v-1a4 4 0 014-4h0a4 4 0 014 4v1" />
+                </svg>
+                Forum Diskusi
+            </a>
+
+            <!-- Menu Belajar (Dropdown) -->
+            <div>
+                <button id="belajarToggle"
+                    class="w-full flex items-center justify-between hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                    <span class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 20H6a2 2 0 01-2-2V6a2 2 0 012-2h6m0 0h6a2 2 0 012 2v12a2 2 0 01-2 2h-6m0-16v16" />
+                        </svg>
+                        Menu Belajar
+                    </span>
+                    <svg id="belajarIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <!-- Submenu -->
+                <div id="belajarMenu" class="hidden ml-6 mt-2 flex flex-col gap-2">
+                    <a href="materi_pelajaran.html"
+                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                        📘 Materi Pelajaran
+                    </a>
+                    <a href="tugas-ujian.html"
+                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                        📝 Tugas Ujian
+                    </a>
+                </div>
+            </div>
+
+            <!-- Layanan Aduan (Dropdown) -->
+            <div>
+                <button id="aduanToggle"
+                    class="w-full flex items-center justify-between hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                    <span class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 14c4.418 0 8-1.79 8-4V5a2 2 0 00-2-2h-2.586a1 1 0 01-.707-.293l-1.414-1.414A2 2 0 0011.586 1H8a2 2 0 00-2 2v1" />
+                        </svg>
+                        Layanan Aduan
+                    </span>
+                    <svg id="aduanIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+
+                <!-- Submenu -->
+                <div id="aduanMenu" class="hidden ml-6 mt-2 flex flex-col gap-2">
+                    <a href="pengaduan.html"
+                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                        📢 Pengaduan
+                    </a>
+                    <a href="riwayat-tanggapan.html"
+                        class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-2 rounded-lg transition">
+                        📜 Riwayat Tanggapan
+                    </a>
+                </div>
+            </div>
+
+            <!-- Jadwal -->
+            <a href="jadwal.html"
+                class="flex items-center gap-2 bg-white text-blue-700 font-semibold p-3 rounded-lg shadow ring-2 ring-blue-400 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Jadwal
+            </a>
+
+            <!-- Nilai -->
+            <a href="nilai.html"
+                class="flex items-center gap-2 hover:bg-blue-700 hover:text-white p-3 rounded-lg transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6m4 0v-8a2 2 0 00-2-2h-2m-4 0H7a2 2 0 00-2 2v8" />
+                </svg>
+                Nilai
+            </a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 sm:ml-[17rem] p-6 ">
+        <div
+            class="flex sm:relative z-30 justify-between items-center bg-gradient-to-br from-blue-500 to-blue-700 text-white px-6 py-4 rounded-lg shadow mb-6">
+            <div class="flex items-center space-x-4">
+                <!-- Tombol Hamburger -->
+                <button id="toggleSidebar" class="sm:hidden p-2 text-white rounded-lg hover:bg-blue-700 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <div class="items-center">
+                    <h3 class="text-md sm:text-2xl text-white font-semibold">Jadwal Guru</h3>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"
+                    class="relative inline-flex items-center text-sm font-medium text-center text-gray-100 hover:text-gray-100 focus:outline-none light:hover:text-white light:text-gray-400"
+                    type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    <div
+                        class="absolute block w-3 h-3 bg-red-500 border-2 border-white rounded-full -top-0.5 start-2.5 light:border-gray-900">
+                    </div>
+                </button>
+
+                <div id="dropdownNotification"
+                    class="z-20 hidden w-full max-w-sm bg-white divide-y divide-gray-100 rounded-lg shadow-xl light:bg-gray-800 light:divide-gray-700"
+                    aria-labelledby="dropdownNotificationButton">
+                    <!-- Judul -->
+                    <div
+                        class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50 light:bg-gray-800 light:text-white">
+                        Notifications
+                    </div>
+
+                    <!-- Isi Notifikasi -->
+                    <div class="divide-y divide-gray-100 light:divide-gray-700">
+                        <!-- Notifikasi: Pending -->
+                        <a href="detail-riwayat-pending.html"
+                            class="flex px-4 py-3 hover:bg-gray-100 light:hover:bg-gray-700">
+                            <div class="shrink-0 relative">
+                                <img class="rounded-full object-cover w-11 h-11"
+                                    src="https://mm.feb.uncen.ac.id/wp-content/uploads/2016/01/tutor-8.jpg"
+                                    alt="Dimas Prakoso" />
+                                <div
+                                    class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-yellow-500 border border-white rounded-full light:border-gray-800">
+                                    <svg class="w-2 h-2 text-white" xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 18 18">
+                                        <circle cx="9" cy="9" r="8" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-full ps-3">
+                                <div class="text-gray-500 text-sm light:text-gray-400">
+                                    <span class="font-semibold text-gray-900 light:text-white">Dimas Prakoso</span>
+                                    • Ruang Multimedia
+                                </div>
+                                <span class="text-gray-400 text-xs light:text-white">Beberapa komputer tidak menyala,
+                                    mohon segera
+                                    diperbaiki.</span>
+                                <div class="text-xs text-yellow-500 font-medium mt-1">
+                                    17 Juli 2025, 10:20
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Notifikasi: Selesai -->
+                        <a href="detail-riwayat-selesai.html"
+                            class="flex px-4 py-3 hover:bg-gray-100 light:hover:bg-gray-700">
+                            <div class="shrink-0 relative">
+                                <img class="rounded-full object-cover w-11 h-11"
+                                    src="https://mm.feb.uncen.ac.id/wp-content/uploads/2016/01/tutor-8.jpg"
+                                    alt="Siti Aminah" />
+                                <div
+                                    class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-blue-500 border border-white rounded-full light:border-gray-800">
+                                    <svg class="w-2 h-2 text-white" xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 18 18">
+                                        <circle cx="9" cy="9" r="8" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-full ps-3">
+                                <div class="text-gray-500 text-sm light:text-gray-400">
+                                    <span class="font-semibold text-gray-900 light:text-white">Siti Aminah</span>
+                                    • Toilet Gedung B
+                                </div>
+                                <span class="text-gray-400 text-xs light:text-white">Toilet rusak sudah diperbaiki.
+                                    Terima kasih.</span>
+                                <div class="text-xs text-blue-500 font-medium mt-1">
+                                    16 Juli 2025, 08:10
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Notifikasi: Ditolak -->
+                        <a href="detail-riwayat-ditolak.html"
+                            class="flex px-4 py-3 hover:bg-gray-100 light:hover:bg-gray-700">
+                            <div class="shrink-0 relative">
+                                <img class="rounded-full object-cover w-11 h-11"
+                                    src="https://mm.feb.uncen.ac.id/wp-content/uploads/2016/01/tutor-8.jpg"
+                                    alt="Rina Maulida" />
+                                <div
+                                    class="absolute flex items-center justify-center w-5 h-5 ms-6 -mt-5 bg-red-500 border border-white rounded-full light:border-gray-800">
+                                    <svg class="w-2 h-2 text-white" xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 18 18">
+                                        <circle cx="9" cy="9" r="8" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-full ps-3">
+                                <div class="text-gray-500 text-sm light:text-gray-400">
+                                    <span class="font-semibold text-gray-900 light:text-white">Rina Maulida</span>
+                                    • Gerbang Utama
+                                </div>
+                                <span class="text-gray-400 text-xs light:text-white">Pintu gerbang rusak, tidak bisa
+                                    dikunci.</span>
+                                <div class="text-xs text-red-500 font-medium mt-1">
+                                    18 Juli 2025, 07:45
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- View All -->
+                    <a href="notifikasi.html"
+                        class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-gray-50 hover:bg-gray-100 light:bg-gray-800 light:hover:bg-gray-700 light:text-white">
+                        <div class="inline-flex items-center">
+                            <svg class="w-4 h-4 me-2 text-gray-500 light:text-gray-400"
+                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+                                <path
+                                    d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                            </svg>
+                            View all
+                        </div>
+                    </a>
+                </div>
+
+                <div class="relative">
+                    <!-- Tombol Foto Guru -->
+                    <button onclick="toggleDropdown()"
+                        class="p-1 rounded-full hover:ring-2 hover:ring-blue-500 transition">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Foto Guru"
+                            class="h-10 w-10 rounded-full object-cover border-2 border-white shadow"
+                            onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" />
+                    </button>
+
+
+                    <div id="dropdown-menu"
+                        class="absolute right-0 mt-2 w-48 bg-white text-gray-700 rounded-xl shadow-lg hidden z-50">
+                        <div class="flex flex-col items-center py-4 px-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Foto Guru"
+                                class="h-10 w-10 rounded-full object-cover border-2 border-white shadow"
+                                onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" />
+                            <p class="mt-2 font-semibold text-green-600">Kurikulum</p>
+                        </div>
+
+                        <hr class="border-gray-200" />
+
+                        <a href="edit-profil.html" class="block px-4 py-2 hover:bg-blue-50 text-center">Edit Profil</a>
+                        <a href="/laporan-masyarakat/index.html"
+                            class="block px-4 py-2 hover:bg-blue-50 text-center text-red-500">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex">
+            <!-- Main Content -->
+            <main class="flex-1 overflow-y-auto p-6">
+                <!-- JADWAL GURU (Senin-Jumat) -->
+                <div class="max-w-7xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+                    <!-- Bagian Header + Filter -->
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-bold text-gray-700">Jadwal Guru per Mapel</h2>
+                        <div class="flex gap-2">
+                            <input id="filterGuru" type="text" placeholder="Filter guru..."
+                                class="border rounded px-3 py-2 text-sm" />
+                            <input id="filterKelas" type="text" placeholder="Filter kelas..."
+                                class="border rounded px-3 py-2 text-sm" />
+                            <button id="btnResetFilter"
+                                class="bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm px-3 py-2 rounded">
+                                Reset
+                            </button>
+
+                            <button id="btnExportPage"
+                                class="bg-green-600 hover:bg-green-700 text-white text-sm px-3 py-2 rounded">
+                                Export / Print
+                            </button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table id="jadwalTable" class="w-full border border-gray-200 rounded-lg overflow-hidden">
+                            <thead class="bg-gray-50">
+                                <tr class="text-xs sm:text-sm text-gray-600">
+                                    <th class="px-3 py-3 border-b border-gray-200 text-left w-40">Jam Pelajaran</th>
+                                    <th class="px-3 py-3 border-b border-gray-200 text-left">Senin</th>
+                                    <th class="px-3 py-3 border-b border-gray-200 text-left">Selasa</th>
+                                    <th class="px-3 py-3 border-b border-gray-200 text-left">Rabu</th>
+                                    <th class="px-3 py-3 border-b border-gray-200 text-left">Kamis</th>
+                                    <th class="px-3 py-3 border-b border-gray-200 text-left">Jumat</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jadwalBody" class="text-gray-800"></tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-xs text-gray-500 mt-2">
+                        Format sel: <span class="font-medium">Guru - Mapel (Kelas)</span>
+                    </p>
+                </div>
+                <!-- Tambahkan CDN SheetJS -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.19.3/xlsx.full.min.js"></script>
+
+                <script>
+                    // ====== DATA DASAR ======
+                    const days = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"];
+
+                    // Slot jam pelajaran
+                    const timeSlots = [{
+                            start: "07:00",
+                            end: "08:00"
+                        },
+                        {
+                            start: "08:00",
+                            end: "09:00"
+                        },
+                        {
+                            start: "09:00",
+                            end: "10:00"
+                        },
+                        {
+                            start: "10:00",
+                            end: "11:00"
+                        },
+                        {
+                            start: "11:00",
+                            end: "12:00"
+                        },
+                        {
+                            start: "12:00",
+                            end: "13:00"
+                        },
+                        {
+                            start: "13:00",
+                            end: "14:00"
+                        },
+                        {
+                            start: "14:00",
+                            end: "15:00"
+                        }, // <- Jumat tidak dipakai
+                    ];
+
+                    // ====== CONTOH DATA JADWAL (array di setiap slot) ======
+                    const schedule = {
+                        "Senin": {
+                            "07:00": [{
+                                    guru: "Bu Sari",
+                                    mapel: "Matematika",
+                                    kelas: "X IPA 1"
+                                },
+                                {
+                                    guru: "Pak Imam",
+                                    mapel: "Agama",
+                                    kelas: "X IPS 1"
+                                },
+                                {
+                                    guru: "Bu Maya",
+                                    mapel: "Ekonomi",
+                                    kelas: "XI IPS 2"
+                                },
+                            ],
+                            "08:00": [{
+                                    guru: "Pak Rudi",
+                                    mapel: "Bahasa Inggris",
+                                    kelas: "X IPA 1"
+                                },
+                                {
+                                    guru: "Bu Nisa",
+                                    mapel: "Seni Budaya",
+                                    kelas: "XII IPS 1"
+                                },
+                            ],
+                            "09:00": [{
+                                    guru: "Bu Ana",
+                                    mapel: "Fisika",
+                                    kelas: "XI IPA 2"
+                                },
+                                {
+                                    guru: "Pak Hadi",
+                                    mapel: "PKN",
+                                    kelas: "XI IPS 1"
+                                },
+                            ],
+                            "10:00": [{
+                                guru: "Pak Deni",
+                                mapel: "Kimia",
+                                kelas: "XI IPA 2"
+                            }, ],
+                            "11:00": [{
+                                guru: "Bu Tika",
+                                mapel: "Biologi",
+                                kelas: "XII IPA 1"
+                            }, ],
+                            "12:00": [],
+                            "13:00": [{
+                                guru: "Pak Hadi",
+                                mapel: "PKN",
+                                kelas: "XI IPS 1"
+                            }, ],
+                            "14:00": [{
+                                guru: "Bu Maya",
+                                mapel: "Ekonomi",
+                                kelas: "XI IPS 1"
+                            }, ],
+                        },
+                        "Selasa": {
+                            "07:00": [{
+                                    guru: "Pak Rudi",
+                                    mapel: "Bahasa Inggris",
+                                    kelas: "X IPA 2"
+                                },
+                                {
+                                    guru: "Bu Maya",
+                                    mapel: "Ekonomi",
+                                    kelas: "XI IPS 1"
+                                },
+                            ],
+                            "08:00": [{
+                                guru: "Bu Sari",
+                                mapel: "Matematika",
+                                kelas: "X IPA 2"
+                            }, ],
+                            "09:00": [{
+                                    guru: "Bu Rina",
+                                    mapel: "Sejarah",
+                                    kelas: "XI IPS 2"
+                                },
+                                {
+                                    guru: "Pak Deni",
+                                    mapel: "Kimia",
+                                    kelas: "XI IPA 3"
+                                },
+                            ],
+                            "10:00": [],
+                            "11:00": [{
+                                guru: "Pak Joko",
+                                mapel: "TIK",
+                                kelas: "X TIK 1"
+                            }, ],
+                            "12:00": [],
+                            "13:00": [{
+                                    guru: "Bu Nisa",
+                                    mapel: "Seni Budaya",
+                                    kelas: "X IPA 1"
+                                },
+                                {
+                                    guru: "Pak Imam",
+                                    mapel: "Agama",
+                                    kelas: "XI IPA 2"
+                                },
+                            ],
+                            "14:00": [],
+                        },
+                        "Rabu": {
+                            "07:00": [{
+                                    guru: "Pak Deni",
+                                    mapel: "Kimia",
+                                    kelas: "XI IPA 1"
+                                },
+                                {
+                                    guru: "Bu Nisa",
+                                    mapel: "Seni Budaya",
+                                    kelas: "X IPS 1"
+                                },
+                            ],
+                            "08:00": [{
+                                guru: "Bu Ana",
+                                mapel: "Fisika",
+                                kelas: "XI IPA 1"
+                            }, ],
+                            "09:00": [{
+                                guru: "Bu Tika",
+                                mapel: "Biologi",
+                                kelas: "XI IPA 1"
+                            }, ],
+                            "10:00": [{
+                                guru: "Pak Hadi",
+                                mapel: "PKN",
+                                kelas: "X IPS 1"
+                            }, ],
+                            "11:00": [],
+                            "12:00": [],
+                            "13:00": [{
+                                    guru: "Pak Rudi",
+                                    mapel: "Bahasa Inggris",
+                                    kelas: "XII IPA 1"
+                                },
+                                {
+                                    guru: "Bu Maya",
+                                    mapel: "Ekonomi",
+                                    kelas: "XII IPS 2"
+                                },
+                            ],
+                            "14:00": [],
+                        },
+                        "Kamis": {
+                            "07:00": [{
+                                    guru: "Bu Sari",
+                                    mapel: "Matematika",
+                                    kelas: "X IPA 3"
+                                },
+                                {
+                                    guru: "Pak Imam",
+                                    mapel: "Agama",
+                                    kelas: "X IPS 2"
+                                },
+                            ],
+                            "08:00": [{
+                                guru: "Pak Joko",
+                                mapel: "TIK",
+                                kelas: "XI TIK 1"
+                            }, ],
+                            "09:00": [],
+                            "10:00": [{
+                                guru: "Bu Maya",
+                                mapel: "Ekonomi",
+                                kelas: "XI IPS 1"
+                            }, ],
+                            "11:00": [{
+                                    guru: "Bu Rina",
+                                    mapel: "Sejarah",
+                                    kelas: "XII IPS 1"
+                                },
+                                {
+                                    guru: "Pak Deni",
+                                    mapel: "Kimia",
+                                    kelas: "XII IPA 1"
+                                },
+                            ],
+                            "12:00": [],
+                            "13:00": [],
+                            "14:00": [{
+                                guru: "Pak Deni",
+                                mapel: "Kimia",
+                                kelas: "XII IPA 2"
+                            }, ],
+                        },
+                        "Jumat": {
+                            "07:00": [{
+                                    guru: "Pak Imam",
+                                    mapel: "Agama",
+                                    kelas: "X IPA 1"
+                                },
+                                {
+                                    guru: "Bu Ana",
+                                    mapel: "Fisika",
+                                    kelas: "XI IPA 2"
+                                },
+                            ],
+                            "08:00": [{
+                                guru: "Pak Imam",
+                                mapel: "Agama",
+                                kelas: "X IPA 2"
+                            }, ],
+                            "09:00": [{
+                                guru: "Bu Sari",
+                                mapel: "Matematika",
+                                kelas: "XI IPA 1"
+                            }, ],
+                            "10:00": [{
+                                guru: "Pak Rudi",
+                                mapel: "Bahasa Inggris",
+                                kelas: "XI IPA 1"
+                            }, ],
+                            "11:00": [],
+                            "12:00": [{
+                                guru: "Bu Nisa",
+                                mapel: "Seni Budaya",
+                                kelas: "X IPS 1"
+                            }, ],
+                            "13:00": [{
+                                guru: "Pak Hadi",
+                                mapel: "PKN",
+                                kelas: "X IPS 1"
+                            }, ],
+                            // Jumat tidak punya slot 14:00
+                        },
+                    };
+
+                    // ====== RENDER TABEL ======
+                    function renderJadwal(filterGuru = "", filterKelas = "") {
+                        const tbody = document.getElementById("jadwalBody");
+                        tbody.innerHTML = "";
+
+                        timeSlots.forEach((slot, idx) => {
+                            const isLastHour = slot.start === "14:00";
+                            const tr = document.createElement("tr");
+                            tr.className = idx % 2 === 0 ? "bg-white" : "bg-gray-50";
+
+                            // Kolom jam
+                            const tdTime = document.createElement("td");
+                            tdTime.className =
+                                "align-top border-t border-gray-200 px-3 py-3 text-sm font-medium text-gray-700";
+                            tdTime.textContent = `${slot.start} - ${slot.end}`;
+                            tr.appendChild(tdTime);
+
+                            // Kolom hari
+                            days.forEach(day => {
+                                const td = document.createElement("td");
+                                td.className = "align-top border-t border-gray-200 px-3 py-3 text-sm";
+
+                                if (day === "Jumat" && isLastHour) {
+                                    td.innerHTML = `<span class="text-gray-400">-</span>`;
+                                    tr.appendChild(td);
+                                    return;
+                                }
+
+                                const arr = (schedule[day] && schedule[day][slot.start]) || [];
+
+                                if (arr.length === 0) {
+                                    td.innerHTML = `<span class="text-gray-400">-</span>`;
+                                } else {
+                                    let content = "";
+                                    arr.forEach(data => {
+                                        const passGuru =
+                                            filterGuru.trim() === "" ||
+                                            data.guru.toLowerCase().includes(filterGuru
+                                                .toLowerCase());
+                                        const passKelas =
+                                            filterKelas.trim() === "" ||
+                                            data.kelas.toLowerCase().includes(filterKelas
+                                                .toLowerCase());
+
+                                        if (passGuru && passKelas) {
+                                            content += `
+                                  <div class="p-2 mb-1 rounded-lg border border-gray-200 hover:shadow-sm transition">
+                                    <div class="font-semibold">${data.guru}</div>
+                                    <div class="text-gray-600">${data.mapel} <span class="text-gray-400">(${data.kelas})</span></div>
+                                  </div>
+                                `;
+                                        }
+                                    });
+                                    td.innerHTML = content || `<span class="text-gray-300">—</span>`;
+                                }
+
+                                tr.appendChild(td);
+                            });
+
+                            tbody.appendChild(tr);
+                        });
+                    }
+
+                    // ====== FILTER ======
+                    document.getElementById("filterGuru").addEventListener("input", () => {
+                        renderJadwal(
+                            document.getElementById("filterGuru").value,
+                            document.getElementById("filterKelas").value
+                        );
+                    });
+                    document.getElementById("filterKelas").addEventListener("input", () => {
+                        renderJadwal(
+                            document.getElementById("filterGuru").value,
+                            document.getElementById("filterKelas").value
+                        );
+                    });
+                    document.getElementById("btnResetFilter").addEventListener("click", () => {
+                        document.getElementById("filterGuru").value = "";
+                        document.getElementById("filterKelas").value = "";
+                        renderJadwal();
+                    });
+
+                    // Init
+                    window.onload = function () {
+                        document.getElementById("btnExportPage").addEventListener("click", () => {
+                            const data = document.getElementById("jadwalTable").outerHTML;
+                            localStorage.setItem("jadwalTable", data);
+                            window.open("print.html", "_blank");
+                        });
+                    };
+
+                    renderJadwal();
+                </script>
+
+            </main>
+        </div>
+
+    </main>
+
+
+    <script>
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        // Sidebar Toggle
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Dropdown Menu Belajar
+        const belajarToggle = document.getElementById('belajarToggle');
+        const belajarMenu = document.getElementById('belajarMenu');
+        const belajarIcon = document.getElementById('belajarIcon');
+
+        belajarToggle.addEventListener('click', () => {
+            belajarMenu.classList.toggle('hidden');
+            belajarIcon.classList.toggle('rotate-180');
+        });
+
+        // Dropdown Layanan Aduan
+        const aduanToggle = document.getElementById('aduanToggle');
+        const aduanMenu = document.getElementById('aduanMenu');
+        const aduanIcon = document.getElementById('aduanIcon');
+
+        aduanToggle.addEventListener('click', () => {
+            aduanMenu.classList.toggle('hidden');
+            aduanIcon.classList.toggle('rotate-180');
+        });
+
+        window.addEventListener("click", function (e) {
+            const profileButton = document.querySelector(
+                "button[onclick='toggleDropdown()']"
+            );
+            const dropdownMenu = document.getElementById("dropdown-menu");
+            const overlay = document.getElementById('overlay');
+
+            if (
+                profileButton &&
+                !profileButton.contains(e.target) &&
+                !dropdownMenu.contains(e.target)
+            ) {
+                dropdownMenu.classList.add("hidden");
+            }
+
+            if (
+                window.innerWidth < 640 &&
+                !sidebar.contains(e.target) &&
+                !toggleSidebarBtn.contains(e.target) &&
+                !sidebar.classList.contains("-translate-x-full") &&
+                !overlay.classList.contains("hidden")
+            ) {
+                sidebar.classList.add("-translate-x-full");
+                overlay.classList.add("hidden");
+            }
+        });
+    </script>
+</body>
+
+</html>
